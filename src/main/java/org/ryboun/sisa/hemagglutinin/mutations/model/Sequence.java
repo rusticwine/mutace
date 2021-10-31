@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Data
-@Document
+//@Document
 @ToString
 public class Sequence {
 
@@ -22,5 +22,6 @@ public class Sequence {
     private String protein;
     private String originalSequence;
     private String alignedSequence;
+    private String referenceSequenceId;
 
 }

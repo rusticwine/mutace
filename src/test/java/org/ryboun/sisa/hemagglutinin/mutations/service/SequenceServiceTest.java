@@ -4,23 +4,34 @@ package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequenceTest;
+import org.ryboun.sisa.hemagglutinin.mutations.model.TestSequenceMapper;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.Resource;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 import reactor.core.publisher.Flux;
 
 
 @DataMongoTest
-@ExtendWith(SpringExtension.class)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+@ExtendWith({SpringExtension.class})
+@EnableMongoRepositories(basePackageClasses = SequenceRepository.class)
 class SequenceServiceTest {
 
     @Autowired
@@ -30,6 +41,7 @@ class SequenceServiceTest {
     public static void initDbData( @Autowired SequenceService sequenceService) throws JAXBException, IOException {
         SequenceTest st = loadDbData();
         System.out.println("IS NULL: " + (st == null));
+        //List<Sequence> sequences = TestSequenceMapper.INSTANCE.testSequenceXmlToProductionSequence(st);
 //        Sequence testSequence = new Sequence();
 //        testSequence.setAlignedSequence("align seq");
 //        testSequence.setOriginalSequence("original seq str");
@@ -46,16 +58,17 @@ class SequenceServiceTest {
     void findAllSequencesTest() {
         System.out.println("STARTING");
 
-        Flux<Sequence> fs = sequenceService.findAllSequences();
+        List<Sequence> fs = sequenceService.findAllSequences();
 
         System.out.println("JUST BEFORE");
-        fs.subscribe(sequence -> {
-            System.out.println("WITHING ITERATOR");
-            System.out.println(sequence.getAlignedSequence());
-        });
+//        fs.subscribe(sequence -> {
+//            System.out.println("WITHING ITERATOR");
+//            System.out.println(sequence.getAlignedSequence());
+//        });
+        System.out.println("loaded sequence count: " + (fs == null ? 0 : fs.size()));
 
 
-        long count = sequenceService.getSequenceCount().block();
+        long count = sequenceService.getSequenceCount();
         System.out.println("count: " + count);
 
         System.out.println("ending");

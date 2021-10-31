@@ -1,34 +1,40 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.ReactiveSequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 
 @Service
 public class SequenceService {
 
-    final SequenceRepository sequenceRepository;
+    @Autowired
+    ReactiveSequenceRepository reactiveSequenceRepository;
 
     @Autowired
-    public SequenceService(SequenceRepository sequenceRepository) {
-        this.sequenceRepository = sequenceRepository;
-    }
+    SequenceRepository sequenceRepository;
 
-    public Flux<Sequence> findAllSequences() {
+    @Autowired
+//    public SequenceService(SequenceRepository sequenceRepository) {
+//        this.sequenceRepository = sequenceRepository;
+//    }
+
+    public List<Sequence> findAllSequences() {
         return sequenceRepository.findAll();
     }
 
-    public Mono<Long> getSequenceCount() {
+    public long getSequenceCount() {
         return sequenceRepository.count();
     }
 
 //    @Transactional
-    public Mono<Sequence> saveSequence(Sequence sequence) {
+    public Sequence saveSequence(Sequence sequence) {
         return sequenceRepository.save(sequence);
     }
 

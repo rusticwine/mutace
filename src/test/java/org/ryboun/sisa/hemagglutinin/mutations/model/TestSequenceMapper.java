@@ -5,6 +5,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 
 @Mapper
 public interface TestSequenceMapper {
@@ -12,10 +14,10 @@ public interface TestSequenceMapper {
     TestSequenceMapper INSTANCE = Mappers.getMapper(TestSequenceMapper.class);
 
     @Mappings({
+            /*@Mapping(target="", source="sequenceTest."),
             @Mapping(target="", source="sequenceTest."),
-            @Mapping(target="", source="sequenceTest."),
-            @Mapping(target="", source="sequenceTest."),
-            @Mapping(target="", source="sequenceTest.")
+            @Mapping(target="", source="sequenceTest."),*/
+            @Mapping(target="Sequence", source="sequenceTest.sequenceList")
     })
-    Sequence testSequenceXmlToProductionSequence(SequenceTest sequenceTest);
+    List<Sequence> testSequenceXmlToProductionSequence(SequenceTest sequenceTest);
 }
