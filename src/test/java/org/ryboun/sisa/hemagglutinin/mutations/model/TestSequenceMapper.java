@@ -13,11 +13,12 @@ public interface TestSequenceMapper {
 
     TestSequenceMapper INSTANCE = Mappers.getMapper(TestSequenceMapper.class);
 
-    @Mappings({
-            /*@Mapping(target="", source="sequenceTest."),
-            @Mapping(target="", source="sequenceTest."),
-            @Mapping(target="", source="sequenceTest."),*/
-            @Mapping(target="Sequence", source="sequenceTest.sequenceList")
-    })
-    List<Sequence> testSequenceXmlToProductionSequence(SequenceTest sequenceTest);
+//    @Mappings({
+//            /*@Mapping(target="", source="sequenceTest."),
+//            @Mapping(target="", source="sequenceTest."),
+//            @Mapping(target="", source="sequenceTest."),*/
+//            @Mapping(target="sequences", source="sequenceTest.sequenceList")
+//    })
+//    List<Sequence> testSequenceXmlToProductionSequence(SequenceTest sequenceTest);
+
 }

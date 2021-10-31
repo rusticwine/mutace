@@ -1,6 +1,7 @@
 package org.ryboun.sisa.hemagglutinin.mutations.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
@@ -9,8 +10,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
+@Document
 @Data
-//@Document
+@Builder
 @ToString
 public class Sequence {
 
