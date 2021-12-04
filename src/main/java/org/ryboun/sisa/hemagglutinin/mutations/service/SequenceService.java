@@ -12,6 +12,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -27,7 +28,7 @@ public class SequenceService {
     @Autowired
     SequencesProcessingRepository sequencesProcessingRepository;
 
-    @Autowired
+//    @Autowired
 //    public SequenceService(SequenceRepository sequenceRepository) {
 //        this.sequenceRepository = sequenceRepository;
 //    }
@@ -45,23 +46,20 @@ public class SequenceService {
         return sequenceRepository.save(sequence);
     }
 
-    public List<SequencesProcessingStatus> addDownloadedSequences(List<Sequence> downloadedSequences) {
-        return downloadedSequences.stream()
-                .map(sequence -> SequencesProcessingStatus.builder()
-                        .sequence(sequence)
-                        .status(SequencesProcessingStatus.STATUS.DOWNLOADED)
-                        .build())
-                .map(sequenceProcessingStatus -> sequencesProcessingRepository.save(sequenceProcessingStatus))
-                .collect(Collectors.toList());
+    public SequencesProcessingStatus addDownloadedSequences(List<Sequence> downloadedSequences) {
+        SequencesProcessingStatus sequencesProcessingStatus = SequencesProcessingStatus.builder()
+                .sequences(downloadedSequences)
+                .status(SequencesProcessingStatus.STATUS.DOWNLOADED)
+                .build();
+
+        return sequencesProcessingRepository.save(sequencesProcessingStatus);
+    }
+
+    public Optional<SequencesProcessingStatus> findSequenceProcessingStatusById(String id) {
+        return sequencesProcessingRepository.findById(id);
     }
 
     public List<SequencesProcessingStatus> findAllSequencesProcessingStatuses() {
         return sequencesProcessingRepository.findAll();
     }
-
-
-//    void x(){
-//        sequenceRepository.
-//    }
-
 }
