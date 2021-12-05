@@ -24,9 +24,9 @@ public class Sequence {
     @JsonProperty("X")
     private String organism;
     private String protein;
-    private String originalSequence;
-    private String alignedSequence;
-    private String referenceSequenceId;
+    private String sequence;
+    private String accver;
+    private String taxid;
 
     List<Tuple2<Long, SequencesProcessingStatus.STATUS>> statuses;
 

@@ -8,8 +8,6 @@ import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -74,7 +72,7 @@ class MafftAlignerTest {
     private List<Sequence> parseSequences(String sequences) {
         return Arrays.stream(sequences.split(AlignDto.SEQUENCE_SPLITTER))
                 .map(s -> Sequence.builder()
-                        .originalSequence(s)
+                        .sequence(s)
                         .build())
                 .collect(Collectors.toList());
     }

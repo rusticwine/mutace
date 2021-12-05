@@ -2,21 +2,10 @@ package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 //import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequenceTest;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
@@ -30,16 +19,26 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.core.io.Resource;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.mockito.ArgumentMatchers.any;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @DataMongoTest//(includeFilters = @ComponentScan.Filter(Service.class))
-//@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
 //@AutoConfigureDataMongo
 @ExtendWith({SpringExtension.class})
 @EnableMongoRepositories(basePackageClasses = SequenceRepository.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@ActiveProfiles("test")
 class SequenceServiceTest {
 
 
@@ -52,6 +51,24 @@ class SequenceServiceTest {
     private static List<Sequence> savedSequences;
 
     private static SequencesProcessingStatus downloadedSequences;
+
+    @Value("${alignment.submitJob.email}")
+    private String email;
+    @Value("${alignment.submitJob.jobType}")
+    private String jobType;
+
+    @Value("classpath:sequences1Hemagglutinin.xml")
+    private static Resource resource1;
+
+    private static final String TEST_SEQUENCES_RAW = "sequences/rawSequences_test1.fasta";
+
+    private static final String TEST_SEQUENCES_REFERENCE = "sequences/references_test1.fasta";
+
+    private static final String TEST_JOB_ID = "mafft-R20211106-102801-0729-88936282-p1m";
+
+    @Mock
+    EbiAligner ebiAligner;
+
 
     @BeforeAll
     static void init(@Autowired SequenceService sequenceService) {
@@ -70,18 +87,29 @@ class SequenceServiceTest {
         }
     }
 
+    private static SequenceTest loadDbData() throws JAXBException {
+
+        JAXBContext context = JAXBContext.newInstance(SequenceTest.class);
+        InputStream is = SequenceServiceTest.class.getClassLoader().getResourceAsStream(
+                "sequences1Hemagglutinin.xml");
+        SequenceTest st = (SequenceTest) context.createUnmarshaller()
+                .unmarshal(is);
+
+        return st;
+    }
+
     private static List<Sequence> mapperNotYetWorkingForMe(SequenceTest sequenceTest) {
         return sequenceTest.getSequenceList()
                 .stream()
                 .map(st -> Sequence
                         .builder()
-                        .originalSequence(st.getSequence())
+                        .sequence(st.getSequence())
                         .organism(st.getOrganism())
                         .build())
                 .collect(Collectors.toList());
     }
 
-    @Test
+//    @Test
     @Order(1)
     void findAllSequencesTest() {
         System.out.println("STARTING");
@@ -111,38 +139,10 @@ class SequenceServiceTest {
         System.out.println("ending");
     }
 
-
-//    @Test
-    void getSequenceCount() {
-    }
-
-    @Value("classpath:sequences1Hemagglutinin.xml")
-    private static Resource resource1;
-
-    private static SequenceTest loadDbData() throws JAXBException {
-
-        JAXBContext context = JAXBContext.newInstance(SequenceTest.class);
-        InputStream is = SequenceServiceTest.class.getClassLoader().getResourceAsStream(
-                "sequences1Hemagglutinin.xml");
-        SequenceTest st = (SequenceTest) context.createUnmarshaller()
-                             .unmarshal(is);
-
-        return st;
-    }
-
-    private static final String TEST_SEQUENCES_RAW = "sequences/rawSequences_test1.fasta";
-
-    private static final String TEST_SEQUENCES_REFERENCE = "sequences/references_test1.fasta";
-
-    private static final String TEST_JOB_ID = "mafft-R20211106-102801-0729-88936282-p1m";
-
-    @Mock
-    EbiAligner ebiAligner;
-
     @Test
     @Order(4)
     void alignWithSingleReference() throws IOException {
-
+/*
         //TODO - TEST_JOB_ID is updated manually as it depends on external service which is not desired to use in each test
         Mockito.when(ebiAligner.testAlign1_submitJob(any())).thenReturn(TEST_JOB_ID);
 
@@ -159,6 +159,7 @@ class SequenceServiceTest {
             System.out.println("calling mock for saving sequencesProcessingRepository");
             return mockSequenceProcessing;
         };
+        /**/
 
 //        Mockito.when(sequencesProcessingRepository.save(any())).thenReturn(sup.get());
 
@@ -167,8 +168,8 @@ class SequenceServiceTest {
         List<Sequence> sequences = parseSequences(sequencesString);
 
         AlignDto alignDto = AlignDto.builder()
-                .email("valerius@centrum.cz")
-                .format("fasta")
+                .email(email)
+                .format(jobType)
                 .sequences(sequences)
                 .build();
 
@@ -177,7 +178,7 @@ class SequenceServiceTest {
         System.out.println("test result: " + result);
     }
 
-    @Test
+//    @Test
     @Order(5)
     void testAlign1_checkJobStatus() throws InterruptedException {
         String jobStatus = ma.checkJobStatus(TEST_JOB_ID);
@@ -185,7 +186,7 @@ class SequenceServiceTest {
         Assertions.assertEquals("FINISHED", jobStatus, "Job should be already finished");
     }
 
-    @Test
+//    @Test
     @Order(6)
     void testAlign1_getResult() {
         String jobResult = ma.getJobResult(TEST_JOB_ID);
@@ -198,7 +199,7 @@ class SequenceServiceTest {
     private List<Sequence> parseSequences(String sequences) {
         return Arrays.stream(sequences.split(AlignDto.SEQUENCE_SPLITTER))
                 .map(s -> Sequence.builder()
-                        .originalSequence(s)
+                        .sequence(s)
                         .build())
                 .collect(Collectors.toList());
     }

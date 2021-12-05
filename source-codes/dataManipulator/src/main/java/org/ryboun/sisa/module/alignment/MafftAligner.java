@@ -19,7 +19,7 @@ public class MafftAligner implements Aligner {
     /**
      * Method takes object containing (also) sequences
      * @param body
-     * @return
+     * @return Job ID of an alidnment job that has been launched
      */
     @Override
     public String alignWithSingleReference(AlignDto body) {

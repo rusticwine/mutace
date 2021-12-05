@@ -24,7 +24,7 @@ public class AlignDto {
     //to some utils class?
     public static String sequencesToString(List<Sequence> sequences) {
         return sequences.stream()
-                .map(Sequence::getOriginalSequence)
+                .map(Sequence::getSequence)
                 .collect(Collectors.joining(SEQUENCE_SPLITTER + " "));
     }
 }
