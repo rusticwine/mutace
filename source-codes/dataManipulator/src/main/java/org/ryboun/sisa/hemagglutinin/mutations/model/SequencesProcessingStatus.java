@@ -12,17 +12,16 @@ import java.util.List;
 @Builder
 @ToString
 public class SequencesProcessingStatus {
-    public enum STATUS {
-        DOWNLOADED, ALIGNING, ALIGNED
-    }
 
     @Id
     @Setter(AccessLevel.NONE)
     private String id;
 
-    private STATUS status;
+    private String alignJobId;
 
-    private String jobId;
+    private Sequence.STATUS status;
 
-    private List<Sequence> sequences;
+    Sequence referenceSequence;
+
+    private List<Sequence> rawSequences;
 }

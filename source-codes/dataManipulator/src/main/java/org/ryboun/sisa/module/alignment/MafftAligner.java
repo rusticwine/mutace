@@ -1,5 +1,6 @@
 package org.ryboun.sisa.module.alignment;
 
+import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.EbiAligner;
@@ -24,13 +25,13 @@ public class MafftAligner implements Aligner {
     @Override
     public String alignWithSingleReference(AlignDto body) {
         final String alignJobId = ebiAligner.testAlign1_submitJob(body);
-        SequencesProcessingStatus sequencesProcessingStatus = SequencesProcessingStatus.builder()
-                .sequences(body.getSequences())
-                .status(SequencesProcessingStatus.STATUS.ALIGNING)
-                .jobId(alignJobId)
-                .build();
+//        SequencesProcessingStatus sequencesProcessingStatus = SequencesProcessingStatus.builder()
+//                .rawSequences(body.getSequences())
+//                .status(Sequence.STATUS.ALIGNING)
+//                .alignJobId(alignJobId)
+//                .build();
 
-        sequencesProcessingRepository.save(sequencesProcessingStatus);
+//        sequencesProcessingRepository.save(sequencesProcessingStatus);
 
         return alignJobId;
     }

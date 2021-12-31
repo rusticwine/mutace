@@ -1,0 +1,41 @@
+https://stackoverflow.com/questions/58703834/how-to-read-json-file-from-resources-in-spring-boot
+@Value("classpath:data/data.json")
+{
+  "alignment" : {
+    "jobId": "mafft-R20211106-10  2801-0729-88936282-p1m",
+    "date": "1997-07-16T19:20:30.45+01:00",
+    "alignmentMethod": "mafft",
+    "alignmentProvider": "ebi",
+    "reference" : {
+      "orgname": "Influenza A virus (A/emperor goose/Alaska/44063-061/2006(H7N9))",
+      "accver": "H1_PR34",
+      "sequence": "DTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCRLKGIAPL"
+    },
+    "alignment" : {
+      "positions" : [0, 1, 2, 6, 7, 8, 9 10, 11, 12, 13, 20],
+      "referenceSequence": "-----DTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCRLKGIAPLQ----",
+      "alignedSequences": [
+        {
+          "accver": ACZ48625.1,
+          "orgname": "Influenza A virus (A/turkey/Minnesota/38429/1988(H7N9))",
+          "alignedSequence": "-----DTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCRLKGIAPLQ----"
+        },
+        {
+          "accver": ACZ48625.2,
+          "orgname": "Influenza A virus (A/turkey/Minnesota/38429/1988(H7N9))",
+          "alignedSequence": "-----DTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCRLKGIAPLQ----"
+        },
+        {
+          "accver": ACZ48626.1,
+          "orgname": "Influenza A virus (A/turkey/Minnesota/38429/1988(H7N9))",
+          "alignedSequence": "-----DTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCRLKGIAPLQ----"
+        },
+        {
+          "accver": ACZ48626.2,
+          "orgname": "Influenza A virus (A/turkey/Minnesota/38429/1988(H7N9))",
+          "alignedSequence": "-----DTICIGYHANNSTDTVDTVLEKNVTVTHSVNLLEDSHNGKLCRLKGIAPLQ----"
+        }
+      ]
+    }
+  }
+}

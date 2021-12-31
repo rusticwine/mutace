@@ -1,43 +1,46 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
-import lombok.Data;
-import lombok.Getter;
+import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.ReactiveSequenceRepository;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.AlignedSequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
+import org.ryboun.sisa.module.alignment.AlignDto;
+import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.*;
 
 
 @Service
 public class SequenceService {
 
-    @Autowired
-    ReactiveSequenceRepository reactiveSequenceRepository;
+
+    @Value("${alignment.submitJob.email}")
+    private String email;
+    @Value("${alignment.submitJob.jobType}")
+    private String jobType;
+
 
     @Autowired
     SequenceRepository sequenceRepository;
 
     @Autowired
+    AlignedSequenceRepository alignedSequenceRepository;
+
+    @Autowired
     SequencesProcessingRepository sequencesProcessingRepository;
 
+    @Autowired
+    Aligner aligner;
+
     public List<Sequence> findAllSequences() {
+//        alignSequences();
         return sequenceRepository.findAll();
     }
 
@@ -45,19 +48,23 @@ public class SequenceService {
         return sequenceRepository.count();
     }
 
+    public long getInAlignmetnProcessSequenceCount() {
+        return sequencesProcessingRepository.count();
+    }
+
     @Transactional
     public Sequence saveSequence(Sequence sequence) {
         return sequenceRepository.save(sequence);
     }
 
-    public SequencesProcessingStatus addDownloadedSequences(List<Sequence> downloadedSequences) {
-        SequencesProcessingStatus sequencesProcessingStatus = SequencesProcessingStatus.builder()
-                .sequences(downloadedSequences)
-                .status(SequencesProcessingStatus.STATUS.DOWNLOADED)
-                .build();
-
-        return sequencesProcessingRepository.save(sequencesProcessingStatus);
-    }
+//    public SequencesProcessingStatus addDownloadedSequences(List<Sequence> downloadedSequences) {
+//        SequencesProcessingStatus sequencesProcessingStatus = SequencesProcessingStatus.builder()
+//                .rawSequences(downloadedSequences)
+//                .status(SequencesProcessingStatus.STATUS.DOWNLOADED)
+//                .build();
+//
+//        return sequencesProcessingRepository.save(sequencesProcessingStatus);
+//    }
 
     public Optional<SequencesProcessingStatus> findSequenceProcessingStatusById(String id) {
         return sequencesProcessingRepository.findById(id);
@@ -67,74 +74,105 @@ public class SequenceService {
         return sequencesProcessingRepository.findAll();
     }
 
-    ///// test relate
+    /**
+     * checks the downloaded sequences and tries to upload it.
+     * Idea is to run it regularly, like once a day
+     */
+    @Transactional
+    public void alignSequences() {
+        List<Sequence> downloadedSequences = sequenceRepository.findByStatus(
+                Sequence.STATUS.DOWNLOADED);
+        //TODO - find reference sequence for each sequence
+        Map<Sequence, List<Sequence>> sequencesToAlign = downloadedSequences.stream()
+                .map(sequence -> Pair.of(this.getReferenceForAlignment_mock(sequence), sequence))
+                .<Map<Sequence, List<Sequence>>>reduce(
+                        new HashMap<Sequence, List<Sequence>>(),
+                        (resultMap, item) -> {
+                            resultMap.putIfAbsent(item.getKey(), new ArrayList<>());
+                            resultMap.get(item.getKey()).add(item.getValue());
+                            return resultMap;
+                        },
+                        (resultMap1, resultMap2) -> {
+                            resultMap1.putAll(resultMap2);
+                            return resultMap1;
+                        });
 
-    @PostConstruct
-    void init() {
-        try {
-            SequenceTest st = loadDbData();
-            List<Sequence> sequences = mapperNotYetWorkingForMe(st);
-            List<Sequence> savedSequences = sequences
-                    .stream()
-                    .map(s -> saveSequence(s))
-                    .collect(Collectors.toList());
+        //from sequences to align create from first a sequence entity for alignment
+        Optional<SequencesProcessingStatus> sequencesProcessingStatus =
+                sequencesToAlign.entrySet().stream()
+                        .map(entry -> SequencesProcessingStatus.builder()
+                                .referenceSequence(entry.getKey())
+                                .rawSequences(entry.getValue())
+                                .alignJobId("not_started")
+                                .status(Sequence.STATUS.TO_BE_ALIGNED)
+                                .build())
+                        .findFirst();
 
-            SequencesProcessingStatus downloadedSequences = addDownloadedSequences(savedSequences);
+        //if there is an entity for alignment submit it for alignment
+        //functional in imperative style?
+        sequencesProcessingStatus.ifPresent(sps -> {
+            //aligning status entity changed to dto for alignment request
+            AlignDto alignDto = AlignDto.builder()
+                    .format(jobType)
+                    .email(email)
+                    .addSequence(sps.getReferenceSequence())
+                    .sequences(sps.getRawSequences())
+                    .build();
 
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
+            //launch alinment and get job id from server
+            String alignJobId = aligner.alignWithSingleReference(alignDto);
+            //change status of job to being aligned
+            sps.setAlignJobId(alignJobId);
+        });
     }
 
-    private SequenceTest loadDbData() throws JAXBException {
 
-        JAXBContext context = JAXBContext.newInstance(SequenceTest.class);
-            InputStream is = this.getClass().getClassLoader().getResourceAsStream(
-                "sequences1Hemagglutinin.xml");
-        SequenceTest st = (SequenceTest) context.createUnmarshaller()
-                .unmarshal(is);
-
-        return st;
-    }
-    private List<Sequence> mapperNotYetWorkingForMe(SequenceTest sequenceTest) {
-        AlignedSequence as = null;
-
-        return sequenceTest.getSequenceList()
-                .stream()
-                .map(st -> Sequence
-                        .builder()
-                        .sequence(st.getSequence())
-                        .organism(st.getOrganism())
-                        .taxid(st.getTaxid())
-                        .accver(st.getAccver())
-                        .build())
-                .collect(Collectors.toList());
+    @Transactional
+    public void updateAligningSequences() {
+        List<SequencesProcessingStatus> aligningSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNING);
+        aligningSequences.stream()
+            .forEach(sequenceProcessing -> {
+                String jobStatus = aligner.getJobResult(sequenceProcessing.getAlignJobId());
+                System.out.println("JOB for ID: " + sequenceProcessing.getAlignJobId() +
+                        " has status: " + jobStatus);
+                if (jobStatus.equals("DONE")) {
+                    sequenceProcessing.setStatus(Sequence.STATUS.ALIGNED);
+                }
+            });
     }
 
-    @XmlRootElement(name = "TSeqSet")
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @Data
-    public static class SequenceTest {
-
-        @XmlElement(name = "TSeq")
-        private List<SequenceTest.SequenceT2> sequenceList;
-
-        @XmlRootElement(name = "TSeq")
-//    @Data
-        @Getter
-        public static class SequenceT2 {
-
-            @XmlElement(name = "TSeq_sequence")
-            private String sequence;
-
-            @XmlElement(name = "TSeq_orgname")
-            private String organism;
-
-            @XmlElement(name = "TSeq_taxid")
-            private String taxid;
-
-            @XmlElement(name = "TSeq_accver")
-            private String accver;
-        }
+    @Transactional
+    public void processAlignedSequences() {
+        List<SequencesProcessingStatus> alignedSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED);
+        alignedSequences.stream()
+                .forEach(sequenceProcessingAligned -> {
+                    String jobId = sequenceProcessingAligned.getAlignJobId();
+                    String alinedSequences = aligner.getJobResult(jobId);
+                    //TODO - MAP result to object
+                    System.out.println("Aligned sequences: " + alinedSequences);
+                    //create AlignedSequence isntance
+                    //persist
+                    //remove corresponding SequencesProcessingStatus document
+                });
     }
+
+    ///  aligned sequences ///
+    private Sequence getReferenceForAlignment_mock(Sequence sequence) {
+        return sequenceRepository.findByAccver("KC899669.1").get(0);
+    }
+
+    public List<AlignedSequence> findAllAlignedSequences() {
+        return alignedSequenceRepository.findAll();
+    }
+
+//    @Transactional
+//    public AlignedSequence saveAlignedSequence(List<AlignedSequence> sequence) {
+//        return alignedSequenceRepository.save(sequence.get(0));
+//    }
+    @Transactional
+    public List<AlignedSequence> saveAlignedSequence(List<AlignedSequence> sequence) {
+        return alignedSequenceRepository.saveAll(sequence);
+    }
+
+
 }

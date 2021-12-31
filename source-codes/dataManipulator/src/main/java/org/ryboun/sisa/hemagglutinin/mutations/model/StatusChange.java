@@ -18,7 +18,7 @@ public class StatusChange {
 
     private Sequence sequence;
 
-    SequencesProcessingStatus.STATUS statusFrom;
+    Sequence.STATUS statusFrom;
 
-    SequencesProcessingStatus.STATUS statusTo;
+    Sequence.STATUS statusTo;
 }

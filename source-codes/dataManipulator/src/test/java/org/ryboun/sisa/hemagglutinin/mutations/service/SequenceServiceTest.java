@@ -57,9 +57,6 @@ class SequenceServiceTest {
     @Value("${alignment.submitJob.jobType}")
     private String jobType;
 
-    @Value("classpath:sequences1Hemagglutinin.xml")
-    private static Resource resource1;
-
     private static final String TEST_SEQUENCES_RAW = "sequences/rawSequences_test1.fasta";
 
     private static final String TEST_SEQUENCES_REFERENCE = "sequences/references_test1.fasta";
@@ -80,7 +77,7 @@ class SequenceServiceTest {
                     .map(s -> sequenceService.saveSequence(s))
                     .collect(Collectors.toList());
 
-            downloadedSequences = sequenceService.addDownloadedSequences(savedSequences);
+//            downloadedSequences = sequenceService.addDownloadedSequences(savedSequences);
 
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -122,19 +119,20 @@ class SequenceServiceTest {
         System.out.println("loaded sequence count: " + (fs == null ? 0 : fs.size()));
 
         System.out.println("status processing start");
-        SequencesProcessingStatus sequenceProcessingStatusesStored = sequenceService.addDownloadedSequences(fs);
-        System.out.println("stored status processing count: " + (sequenceProcessingStatusesStored == null
-                ? 0
-                : sequenceProcessingStatusesStored.getSequences().size()));
+//        SequencesProcessingStatus sequenceProcessingStatusesStored = sequenceService.addDownloadedSequences(fs);
+//        System.out.println("stored status processing count: " + (sequenceProcessingStatusesStored == null
+//                ? 0
+//                : sequenceProcessingStatusesStored.getRawSequences().size()));
 
-        Optional<SequencesProcessingStatus > sequenceProcessingStatusesConfirmed = sequenceService
-                .findSequenceProcessingStatusById(sequenceProcessingStatusesStored.getId());
-        sequenceProcessingStatusesConfirmed.ifPresentOrElse(s ->
-                System.out.println("loaded statuses processing count: " + sequenceProcessingStatusesStored.getSequences().size()),
-                () -> System.out.println("No statuses were loaded (or saved)"));
+//        Optional<SequencesProcessingStatus > sequenceProcessingStatusesConfirmed = sequenceService
+//                .findSequenceProcessingStatusById(sequenceProcessingStatusesStored.getId());
+//        sequenceProcessingStatusesConfirmed.ifPresentOrElse(s ->
+//                System.out.println("loaded statuses processing count: " + sequenceProcessingStatusesStored.getRawSequences().size()),
+//                () -> System.out.println("No statuses were loaded (or saved)"));
 
         long count = sequenceService.getSequenceCount();
-        System.out.println("count: " + count);
+        long justAligningCount = sequenceService.getInAlignmetnProcessSequenceCount();
+        System.out.println("count: " + count + ", justAligningCount: " + justAligningCount);
 
         System.out.println("ending");
     }

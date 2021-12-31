@@ -28,6 +28,17 @@ public class Sequence {
     private String accver;
     private String taxid;
 
-    List<Tuple2<Long, SequencesProcessingStatus.STATUS>> statuses;
+    //value is position of index value. Value of index 0 says where position 0 of the sequence reside, etc.
+    int[] positions;
+
+    List<Tuple2<Long, STATUS>> statuses;
+
+
+    public enum STATUS {
+        DOWNLOADED, ALIGNING, TO_BE_ALIGNED, ALIGNED
+    }
+
+    private STATUS status;
+
 
 }
