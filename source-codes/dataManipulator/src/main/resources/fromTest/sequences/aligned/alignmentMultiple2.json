@@ -38,8 +38,8 @@
     },
     "alignment" : {
       "accver": "JX080746.1",
-      "orgname": "some Influenza A virus (A/emperor goose/Alaska/44063-061/2006(H7N9))",
-      "positions" : [2, 3, 4, 5, 8, 9, 10, 11],
+      "orgname": "Test virus 2 (H7N9)",
+      "positions" : [0, 1, 2, 3, 4, 5, 6, 7],
       "referenceSequence": "DTICIGYH",
       "alignedSequence":   "DTINNGYH"
     }
@@ -61,10 +61,33 @@
     },
     "alignment" : {
       "accver": "KC853766.1",
-      "orgname": "soe 2 Influenza A virus (A/emperor goose/Alaska/44063-061/2006(H7N9))",
-      "positions" : [2, 3, 4, 5, 8, 9, 10, 11],
+      "orgname": "Test influenza 3 (H7N9)",
+      "positions" : [0, 1, 2, 3, 4, 5, 6, 7],
       "referenceSequence": "DTICIGYH",
       "alignedSequence":   "DTI-AGYH"
+    }
+  },
+
+  {
+    "jobId": "mafft-R20211106-333333-0729-88936282-p1m",
+    "collectionDate": "2021-11-22T19:20:30.45Z",
+    "downloadDate": "2021-12-22T19:20:30.45Z",
+    "alignDate": "2021-12-22T19:20:30.45Z",
+    "alignmentMethod": "mafft",
+    "alignmentProvider": "ebi",
+    "taxonomyId": "1267730",
+
+    "reference" : {
+      "orgname": "s6 Influenza A virus (A/emperor goose/Alaska/44063-061/2006(H7N9))",
+      "accver": "H1_PR34",
+      "sequence": "DTICIGYH"
+    },
+    "alignment" : {
+      "accver": "ACZ48625.1",
+      "orgname": "Test influenza 4 (H7N9)",
+      "positions" : [1, 3, 4, 5, 8, 9, 10, 11],
+      "referenceSequence": "---TIA--IGYH",
+      "alignedSequence":   "NNMTICIGANY-"
     }
   }
 ]

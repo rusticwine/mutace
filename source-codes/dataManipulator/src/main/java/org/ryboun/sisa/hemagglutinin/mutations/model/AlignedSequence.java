@@ -28,9 +28,6 @@ public class AlignedSequence {
     ALIGNMENT_PROVIDER alignmentProvider;// = ALIGNMENT_PROVIDER.EBI;
     private String taxonomyId;
 
-    private String alignedSequence;
-    private String referenceSequenceId;
-
     private Reference reference;
     private Alignment alignment;
 

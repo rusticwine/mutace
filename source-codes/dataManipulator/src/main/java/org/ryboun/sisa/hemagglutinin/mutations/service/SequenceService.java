@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 
@@ -161,18 +162,29 @@ public class SequenceService {
         return sequenceRepository.findByAccver("KC899669.1").get(0);
     }
 
-    public List<AlignedSequence> findAllAlignedSequences() {
-        return alignedSequenceRepository.findAll();
+//    public List<AlignedSequence> findAllAlignedSequences() {
+//        return alignedSequenceRepository.findAll();
+//    }
+//
+//    public List<AlignedSequence> findFilteredAlignedSequences(LocalDateTime startDate, LocalDateTime endDate) {
+//            return alignedSequenceRepository.downloadDateBetween(startDate, endDate);
+//    }
+
+    public List<AlignedSequence> findAlignedSequences(LocalDateTime startDate, LocalDateTime endDate) {
+        if (startDate != null && endDate != null) {
+            return alignedSequenceRepository.downloadDateBetween(startDate, endDate);
+        } else if (startDate != null) {
+            return alignedSequenceRepository.downloadDateAfter(startDate);
+        } else if (endDate != null) {
+            return alignedSequenceRepository.downloadDateBefore(endDate);
+        } else {
+            return alignedSequenceRepository.findAll();
+        }
+
     }
 
-//    @Transactional
-//    public AlignedSequence saveAlignedSequence(List<AlignedSequence> sequence) {
-//        return alignedSequenceRepository.save(sequence.get(0));
-//    }
     @Transactional
     public List<AlignedSequence> saveAlignedSequence(List<AlignedSequence> sequence) {
         return alignedSequenceRepository.saveAll(sequence);
     }
-
-
 }
