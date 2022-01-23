@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.Data;
 import lombok.Getter;
 import org.apache.commons.io.IOUtils;
+import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class SequenceServiceForTest {
     void init() {
         try {
             SequenceTest st = loadDbData();
-            List<Sequence> sequences = mapperNotYetWorkingForMe(st);
+            List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(st);
             List<Sequence> savedSequences = sequences
                     .stream()
                     .map(s -> sequenceService.saveSequence(s))
@@ -90,22 +91,6 @@ public class SequenceServiceForTest {
         String json = readFileFromResources("/fromTest/sequences/aligned/alignmentMultiple2.json");
         AlignedSequence[] alignments = objectMapper.readValue(json, AlignedSequence[].class);
         sequenceService.saveAlignedSequence(Arrays.asList(alignments));
-    }
-
-    private List<Sequence> mapperNotYetWorkingForMe(SequenceTest sequenceTest) {
-        AlignedSequence as = null;
-
-        return sequenceTest.getSequenceList()
-                .stream()
-                .map(st -> Sequence
-                        .builder()
-                        .sequence(st.getSequence())
-                        .organism(st.getOrganism())
-                        .taxid(st.getTaxid())
-                        .accver(st.getAccver())
-                        .status(Sequence.STATUS.DOWNLOADED)
-                        .build())
-                .collect(Collectors.toList());
     }
 
     @XmlRootElement(name = "TSeqSet")
