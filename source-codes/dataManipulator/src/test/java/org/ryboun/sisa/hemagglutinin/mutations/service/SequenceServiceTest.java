@@ -6,8 +6,8 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.SequenceTest;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.EbiAligner;
@@ -16,7 +16,6 @@ import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.core.io.Resource;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -28,7 +27,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -70,8 +68,8 @@ class SequenceServiceTest {
     @BeforeAll
     static void init(@Autowired SequenceService sequenceService) {
         try {
-            SequenceTest st = loadDbData();
-            List<Sequence> sequences = mapperNotYetWorkingForMe(st);
+            SequenceServiceForTest.SequenceTest st = loadDbData();
+            List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(st);
             savedSequences = sequences
                     .stream()
                     .map(s -> sequenceService.saveSequence(s))
@@ -84,27 +82,27 @@ class SequenceServiceTest {
         }
     }
 
-    private static SequenceTest loadDbData() throws JAXBException {
+    private static SequenceServiceForTest.SequenceTest loadDbData() throws JAXBException {
 
-        JAXBContext context = JAXBContext.newInstance(SequenceTest.class);
+        JAXBContext context = JAXBContext.newInstance(SequenceServiceForTest.SequenceTest.class);
         InputStream is = SequenceServiceTest.class.getClassLoader().getResourceAsStream(
                 "sequences1Hemagglutinin.xml");
-        SequenceTest st = (SequenceTest) context.createUnmarshaller()
+        SequenceServiceForTest.SequenceTest st = (SequenceServiceForTest.SequenceTest) context.createUnmarshaller()
                 .unmarshal(is);
 
         return st;
     }
-
-    private static List<Sequence> mapperNotYetWorkingForMe(SequenceTest sequenceTest) {
-        return sequenceTest.getSequenceList()
-                .stream()
-                .map(st -> Sequence
-                        .builder()
-                        .sequence(st.getSequence())
-                        .organism(st.getOrganism())
-                        .build())
-                .collect(Collectors.toList());
-    }
+//
+//    private static List<Sequence> mapperNotYetWorkingForMe(SequenceTest sequenceTest) {
+//        return sequenceTest.getSequenceList()
+//                .stream()
+//                .map(st -> Sequence
+//                        .builder()
+//                        .sequence(st.getSequence())
+//                        .organism(st.getOrganism())
+//                        .build())
+//                .collect(Collectors.toList());
+//    }
 
 //    @Test
     @Order(1)

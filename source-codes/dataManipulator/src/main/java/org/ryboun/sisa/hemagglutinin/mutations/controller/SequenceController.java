@@ -3,13 +3,16 @@ package org.ryboun.sisa.hemagglutinin.mutations.controller;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceService;
+import org.ryboun.sisa.hemagglutinin.mutations.service.rest.RawSequenceDownloader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -33,5 +36,21 @@ public class SequenceController {
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeTo) {
 
         return sequenceService.findAlignedSequences(downloadedDateTimeFrom, downloadedDateTimeTo);
+    }
+
+    @GetMapping(path = "/testDownloadSequences")
+    public Mono<List<Sequence>> testDownloadSequences(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeFrom,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeTo) {
+
+        return sequenceService.downloadSequencesFromTo(downloadedDateTimeFrom.toLocalDate(), downloadedDateTimeTo.toLocalDate());
+    }
+
+    @GetMapping(path = "/testDownloadSequences2")
+    public Mono<RawSequenceDownloader.EsearchResponse> testDownloadSequences2(
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeFrom,
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeTo) {
+
+        return sequenceService.downloadSequencesFromTo2(downloadedDateTimeFrom.toLocalDate(), downloadedDateTimeTo.toLocalDate());
     }
 }

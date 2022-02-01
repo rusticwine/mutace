@@ -6,10 +6,15 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceServiceForTest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.Disposable;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -25,9 +30,21 @@ import java.util.stream.Collectors;
 @Service
 public class RawSequenceDownloader {
 
-    public static final String NCBI_EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
-    public static final String NCBI_ESEARCH_PATH_SEGMENT = "esearch.fcgi";
-    public static final String NCBI_EFETCH_PATH_SEGMENT = "efetch.fcgi";
+    @Value("${ncbi.downloader.baseUrl}")
+    public String NCBI_EUTILS_BASE_URL;
+//    public String NCBI_EUTILS_BASE_URL = "https://5fb6fe54-3b8f-4ab4-8963-f69b898d9b64.mock.pstmn.io/";
+
+    @Value("${ncbi.downloader.esearchSegment}")
+    public String NCBI_ESEARCH_PATH_SEGMENT;
+
+    @Value("${ncbi.downloader.efetchSegment}")
+    public String NCBI_EFETCH_PATH_SEGMENT;
+
+    @Value("${spring.profiles.active:}")
+    private String activeProfiles;
+//    public static final String NCBI_EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
+//    public static final String NCBI_ESEARCH_PATH_SEGMENT = "esearch.fcgi";
+//    public static final String NCBI_EFETCH_PATH_SEGMENT = "efetch.fcgi";
 
     public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY/MM/dd");
 
@@ -43,36 +60,67 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
         &WebEnv=MCID_61ec63e48ee850690176c94e
         &query_key=1&retmode=xml&rettype=genepept
     */
+    ExchangeFilterFunction logRequest() {
+        return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
+                StringBuilder sb = new StringBuilder("Request: \n");
+                //append clientRequest method and url
+                sb.append(
+                        clientRequest.url());
 
-//    @PostConstruct
-    RawSequenceDownloader() {
+                System.out.println(sb.toString());
+            return Mono.just(clientRequest);
+        });
+    }
+    @PostConstruct
+    void init() {
         //FIXME - check if such a reuse is allowed (WebClient is IIRC immutable)
+//        SslContext context = SslContextBuilder.forClient()
+//                .trustManager(InsecureTrustManagerFactory.INSTANCE)
+//                .build();
+//
+//        HttpClient httpClient = HttpClient.create().secure(t -> t.sslContext(context));
+//
+//        WebClient wc = WebClient
+//                .builder()
+//                .clientConnector(new ReactorClientHttpConnector(httpClient)).build();
         this.webClient = WebClient.builder()
-                .baseUrl(NCBI_EUTILS_BASE_URL)
+                .baseUrl(NCBI_EUTILS_BASE_URL) //FIXME - one from properties is not working
+//                .baseUrl("https://5fb6fe54-3b8f-4ab4-8963-f69b898d9b64.mock.pstmn.io/")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
+                .filters(exchangeFilterFunctions -> {
+                    exchangeFilterFunctions.add(logRequest());
+                })
                 .build();
     }
-
-    public SequenceServiceForTest.SequenceTest downloadSequencesFrom(LocalDate from, LocalDate to) {
-        EsearchResponse esearchResponse = esearchNcbi(from, to);
-        if (esearchResponse != null && esearchResponse.getQueryKey() != null) {
-            SequenceServiceForTest.SequenceTest st = efetchNcbi(esearchResponse);
-
-            List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(st);
-            List<Sequence> savedSequences = sequences
-                    .stream()
-//                    .map(s -> sequenceService.saveSequence(s))
-                    .collect(Collectors.toList());
-
-            System.out.println(Arrays.toString(sequences.toArray()));
-        }
-        return null;
+    public Mono<EsearchResponse> downloadSequencesFrom2(LocalDate from, LocalDate to) {
+        return esearchNcbi(from, to);
     }
 
-    public SequenceServiceForTest.SequenceTest efetchNcbi(EsearchResponse esearchResponse) {
+    public Mono<SequenceServiceForTest.SequenceTest> downloadSequencesFrom(LocalDate from, LocalDate to) {
+        return esearchNcbi(from, to)
+                .flatMap(this::efetchNcbi)
+                ;
+
+//        EsearchResponse esearchResponse = esearchNcbi(from, to);
+//        if (esearchResponse != null && esearchResponse.getQueryKey() != null) {
+//            SequenceServiceForTest.SequenceTest st = efetchNcbi(esearchResponse);
+//
+//            List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(st);
+//            List<Sequence> savedSequences = sequences
+//                    .stream()
+////                    .map(s -> sequenceService.saveSequence(s))
+//                    .collect(Collectors.toList());
+//
+//            System.out.println(Arrays.toString(sequences.toArray()));
+//        }
+//        return null;
+    }
+
+    public Mono<SequenceServiceForTest.SequenceTest> efetchNcbi(EsearchResponse esearchResponse) {
 //        SequenceServiceForTest.SequenceTest
-        SequenceServiceForTest.SequenceTest sequenceTest = webClient.get()
-                .uri(uriBuilder -> uriBuilder
+//        SequenceServiceForTest.SequenceTest sequenceTest =
+
+        return webClient.get().uri(uriBuilder -> uriBuilder
                         .path(NCBI_EFETCH_PATH_SEGMENT)
                         .queryParam("db", "nucleotide")
                         .queryParam("WebEnv", esearchResponse.getWebEnv())
@@ -81,16 +129,16 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
                         .queryParam("rettype", "fasta")
                         .build())
                 .retrieve()
-                .bodyToMono(SequenceServiceForTest.SequenceTest.class)
+                .bodyToMono(SequenceServiceForTest.SequenceTest.class);
 //                .bodyToMono(String.class)
-                .block();
+//                .block();
 
-        System.out.println(sequenceTest);
-        return sequenceTest;
+//        System.out.println(sequenceTest);
+//        return sequenceTest;
     }
 
-    private EsearchResponse esearchNcbi(LocalDate from, LocalDate to) {
-        EsearchResponse esearchResponse = webClient.get()
+    private Mono<EsearchResponse> esearchNcbi(LocalDate from, LocalDate to) {
+            Mono<EsearchResponse> esearchResponse = webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path(NCBI_ESEARCH_PATH_SEGMENT)
                         .queryParam("db", "nucleotide")
@@ -98,17 +146,20 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
                         .queryParam("usehistory", "y")
                         .build())
                 .retrieve()
-                .bodyToMono(EsearchResponse.class)
-                .block();
+                .bodyToMono(EsearchResponse.class);
 
         return esearchResponse;
     }
 
+    @Deprecated
     public Pair<Integer, String> downloadSequencisFromNcbi(LocalDate from, LocalDate to) {
-        EsearchResponse esearchNcbi = esearchNcbi(from, to);
-        System.out.println(esearchNcbi.getQueryKey());
-        System.out.println(esearchNcbi.getWebEnv());
-        return Pair.of(esearchNcbi.getQueryKey(), esearchNcbi.getWebEnv());
+//        Mono<EsearchResponse> esearchNcbi = esearchNcbi(from, to);
+//        Disposable d = esearchNcbi(from, to).subscribe(esearchNcbi -> {
+//            System.out.println(esearchNcbi.getQueryKey());
+//            System.out.println(esearchNcbi.getWebEnv());
+//            return Pair.of(esearchNcbi.getQueryKey(), esearchNcbi.getWebEnv());
+//        });
+        return null;
     }
 
     private String termBuilder(String organism, LocalDate from, LocalDate to) {

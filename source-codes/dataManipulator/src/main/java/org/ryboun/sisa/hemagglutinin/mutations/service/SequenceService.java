@@ -1,19 +1,23 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 import org.apache.commons.lang3.tuple.Pair;
+import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.AlignedSequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
+import org.ryboun.sisa.hemagglutinin.mutations.service.rest.RawSequenceDownloader;
 import org.ryboun.sisa.module.alignment.AlignDto;
 import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -30,6 +34,9 @@ public class SequenceService {
 
     @Autowired
     SequenceRepository sequenceRepository;
+
+    @Autowired
+    RawSequenceDownloader rawSequenceDownloader;
 
     @Autowired
     AlignedSequenceRepository alignedSequenceRepository;
@@ -132,14 +139,14 @@ public class SequenceService {
     public void updateAligningSequences() {
         List<SequencesProcessingStatus> aligningSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNING);
         aligningSequences.stream()
-            .forEach(sequenceProcessing -> {
-                String jobStatus = aligner.getJobResult(sequenceProcessing.getAlignJobId());
-                System.out.println("JOB for ID: " + sequenceProcessing.getAlignJobId() +
-                        " has status: " + jobStatus);
-                if (jobStatus.equals("DONE")) {
-                    sequenceProcessing.setStatus(Sequence.STATUS.ALIGNED);
-                }
-            });
+                .forEach(sequenceProcessing -> {
+                    String jobStatus = aligner.getJobResult(sequenceProcessing.getAlignJobId());
+                    System.out.println("JOB for ID: " + sequenceProcessing.getAlignJobId() +
+                            " has status: " + jobStatus);
+                    if (jobStatus.equals("DONE")) {
+                        sequenceProcessing.setStatus(Sequence.STATUS.ALIGNED);
+                    }
+                });
     }
 
     @Transactional
@@ -186,5 +193,25 @@ public class SequenceService {
     @Transactional
     public List<AlignedSequence> saveAlignedSequence(List<AlignedSequence> sequence) {
         return alignedSequenceRepository.saveAll(sequence);
+    }
+
+    @Transactional
+    public Mono<List<Sequence>> downloadSequencesFromTo(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
+//        SequenceServiceForTest.SequenceTest sequenceTest = rawSequenceDownloader
+//                .downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo);
+//        List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(sequenceTest);
+        Mono<SequenceServiceForTest.SequenceTest> sequenceTest = rawSequenceDownloader
+                .downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo);
+        return sequenceTest.map(Utils::mapperNotYetWorkingForMe);
+    }
+
+    @Transactional
+    public Mono<RawSequenceDownloader.EsearchResponse> downloadSequencesFromTo2(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
+//        SequenceServiceForTest.SequenceTest sequenceTest = rawSequenceDownloader
+//                .downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo);
+//        List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(sequenceTest);
+        Mono<RawSequenceDownloader.EsearchResponse> sequenceTest = rawSequenceDownloader
+                .downloadSequencesFrom2(downloadedDateTimeFrom, downloadedDateTimeTo);
+        return sequenceTest;
     }
 }

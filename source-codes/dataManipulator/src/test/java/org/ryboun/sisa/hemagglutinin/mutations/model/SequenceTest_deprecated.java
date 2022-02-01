@@ -10,10 +10,11 @@ import lombok.Generated;
 import lombok.Getter;
 
 
+@Deprecated
 @XmlRootElement(name = "TSeqSet")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Data
-public class SequenceTest {
+public class SequenceTest_deprecated {
 
     @XmlElement(name = "TSeq")
     private List<SequenceT2> sequenceList;
