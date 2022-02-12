@@ -42,35 +42,23 @@ public class RawSequenceDownloader {
 
     @Value("${spring.profiles.active:}")
     private String activeProfiles;
-//    public static final String NCBI_EUTILS_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/";
-//    public static final String NCBI_ESEARCH_PATH_SEGMENT = "esearch.fcgi";
-//    public static final String NCBI_EFETCH_PATH_SEGMENT = "efetch.fcgi";
 
     public static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY/MM/dd");
 
     private WebClient webClient;
-    /*
-https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi
-?db=nucleotide
-&term=txid333278%5BOrganism%5D%20AND%20hemagglutinin%5BAll%20Fields%5D%20AND%20%28%222013/01/01%22%5BPDAT%5D%20%3A%20%222013/3/31%22%5BPDAT%5D%29&usehistory=y&WebEnv=MCID_61225db4653ab242360909f5
 
-https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
-    ?db=nucleotide
-        &usehistory=y
-        &WebEnv=MCID_61ec63e48ee850690176c94e
-        &query_key=1&retmode=xml&rettype=genepept
-    */
     ExchangeFilterFunction logRequest() {
         return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
-                StringBuilder sb = new StringBuilder("Request: \n");
-                //append clientRequest method and url
-                sb.append(
-                        clientRequest.url());
+            StringBuilder sb = new StringBuilder("Request: \n");
+            //append clientRequest method and url
+            sb.append(
+                    clientRequest.url());
 
-                System.out.println(sb.toString());
+            System.out.println(sb.toString());
             return Mono.just(clientRequest);
         });
     }
+
     @PostConstruct
     void init() {
         //FIXME - check if such a reuse is allowed (WebClient is IIRC immutable)
@@ -92,6 +80,7 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
                 })
                 .build();
     }
+
     public Mono<EsearchResponse> downloadSequencesFrom2(LocalDate from, LocalDate to) {
         return esearchNcbi(from, to);
     }
@@ -117,9 +106,6 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
     }
 
     public Mono<SequenceServiceForTest.SequenceTest> efetchNcbi(EsearchResponse esearchResponse) {
-//        SequenceServiceForTest.SequenceTest
-//        SequenceServiceForTest.SequenceTest sequenceTest =
-
         return webClient.get().uri(uriBuilder -> uriBuilder
                         .path(NCBI_EFETCH_PATH_SEGMENT)
                         .queryParam("db", "nucleotide")
@@ -138,7 +124,7 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
     }
 
     private Mono<EsearchResponse> esearchNcbi(LocalDate from, LocalDate to) {
-            Mono<EsearchResponse> esearchResponse = webClient.get()
+        Mono<EsearchResponse> esearchResponse = webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path(NCBI_ESEARCH_PATH_SEGMENT)
                         .queryParam("db", "nucleotide")
@@ -149,17 +135,6 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
                 .bodyToMono(EsearchResponse.class);
 
         return esearchResponse;
-    }
-
-    @Deprecated
-    public Pair<Integer, String> downloadSequencisFromNcbi(LocalDate from, LocalDate to) {
-//        Mono<EsearchResponse> esearchNcbi = esearchNcbi(from, to);
-//        Disposable d = esearchNcbi(from, to).subscribe(esearchNcbi -> {
-//            System.out.println(esearchNcbi.getQueryKey());
-//            System.out.println(esearchNcbi.getWebEnv());
-//            return Pair.of(esearchNcbi.getQueryKey(), esearchNcbi.getWebEnv());
-//        });
-        return null;
     }
 
     private String termBuilder(String organism, LocalDate from, LocalDate to) {
@@ -180,4 +155,17 @@ https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
         @XmlElement(name = "WebEnv")
         private String webEnv;
     }
+
+
+    /*
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi
+?db=nucleotide
+&term=txid333278%5BOrganism%5D%20AND%20hemagglutinin%5BAll%20Fields%5D%20AND%20%28%222013/01/01%22%5BPDAT%5D%20%3A%20%222013/3/31%22%5BPDAT%5D%29&usehistory=y&WebEnv=MCID_61225db4653ab242360909f5
+
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
+    ?db=nucleotide
+        &usehistory=y
+        &WebEnv=MCID_61ec63e48ee850690176c94e
+        &query_key=1&retmode=xml&rettype=genepept
+    */
 }

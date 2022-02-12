@@ -14,6 +14,7 @@ import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
 
@@ -60,7 +61,7 @@ public class SequenceService {
         return sequencesProcessingRepository.count();
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED)
     public Sequence saveSequence(Sequence sequence) {
         return sequenceRepository.save(sequence);
     }
@@ -169,14 +170,6 @@ public class SequenceService {
         return sequenceRepository.findByAccver("KC899669.1").get(0);
     }
 
-//    public List<AlignedSequence> findAllAlignedSequences() {
-//        return alignedSequenceRepository.findAll();
-//    }
-//
-//    public List<AlignedSequence> findFilteredAlignedSequences(LocalDateTime startDate, LocalDateTime endDate) {
-//            return alignedSequenceRepository.downloadDateBetween(startDate, endDate);
-//    }
-
     public List<AlignedSequence> findAlignedSequences(LocalDateTime startDate, LocalDateTime endDate) {
         if (startDate != null && endDate != null) {
             return alignedSequenceRepository.downloadDateBetween(startDate, endDate);
@@ -197,19 +190,25 @@ public class SequenceService {
 
     @Transactional
     public Mono<List<Sequence>> downloadSequencesFromTo(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
-//        SequenceServiceForTest.SequenceTest sequenceTest = rawSequenceDownloader
-//                .downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo);
-//        List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(sequenceTest);
-        Mono<SequenceServiceForTest.SequenceTest> sequenceTest = rawSequenceDownloader
-                .downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo);
-        return sequenceTest.map(Utils::mapperNotYetWorkingForMe);
+        return rawSequenceDownloader
+                .downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo)
+                .map(Utils::mapperNotYetWorkingForMe)
+                .map(sequences -> {
+                    sequences.stream().forEach(sequenceRepository::save);
+                    return sequences;
+                });
+//        Mono<List<Sequence>> sequences2 = sequenceTest
+//                .map(Utils::mapperNotYetWorkingForMe)
+//                .map(sequences -> {
+//                    sequences.stream().forEach(sequenceRepository::save);
+//                    return sequences;
+//                });
+//
+//        return sequences2;
     }
 
     @Transactional
     public Mono<RawSequenceDownloader.EsearchResponse> downloadSequencesFromTo2(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
-//        SequenceServiceForTest.SequenceTest sequenceTest = rawSequenceDownloader
-//                .downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo);
-//        List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(sequenceTest);
         Mono<RawSequenceDownloader.EsearchResponse> sequenceTest = rawSequenceDownloader
                 .downloadSequencesFrom2(downloadedDateTimeFrom, downloadedDateTimeTo);
         return sequenceTest;

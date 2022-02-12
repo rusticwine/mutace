@@ -74,9 +74,6 @@ class SequenceServiceTest {
                     .stream()
                     .map(s -> sequenceService.saveSequence(s))
                     .collect(Collectors.toList());
-
-//            downloadedSequences = sequenceService.addDownloadedSequences(savedSequences);
-
         } catch (JAXBException e) {
             e.printStackTrace();
         }

@@ -15,10 +15,6 @@ class RawSequenceDownloaderTest {
     LocalDate testDateFrom = LocalDate.of(2013, 1, 1);
     LocalDate testDateTo = LocalDate.of(2013, 3, 1);
 
-//    @Test
-    void downloadSequencisFromNcbi() {
-        rawSequenceDownloader.downloadSequencisFromNcbi(testDateFrom, testDateTo);
-    }
 
     @Test
     void downloadSequencesFrom() {

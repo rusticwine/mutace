@@ -5,6 +5,7 @@ import lombok.*;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import reactor.util.function.Tuple2;
 
@@ -25,6 +26,7 @@ public class Sequence {
     private String organism;
     private String protein;
     private String sequence;
+    @Indexed(unique=true)
     private String accver;
     private String taxid;
 
