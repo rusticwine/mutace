@@ -4,21 +4,18 @@ package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.EbiAligner;
 import org.ryboun.sisa.module.alignment.AlignDto;
 import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -31,10 +28,14 @@ import java.util.stream.Collectors;
 
 
 @DataMongoTest//(includeFilters = @ComponentScan.Filter(Service.class))
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 //@AutoConfigureDataMongo
 @ExtendWith({SpringExtension.class})
-@EnableMongoRepositories(basePackageClasses = SequenceRepository.class)
+
+//@TestPropertySource("classpath:application.properties")
+@TestPropertySource("classpath:application-dev.properties")
+
+//@EnableMongoRepositories(basePackageClasses = SequenceRepository.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 //@ActiveProfiles("test")
 class SequenceServiceTest {
@@ -59,7 +60,7 @@ class SequenceServiceTest {
 
     private static final String TEST_SEQUENCES_REFERENCE = "sequences/references_test1.fasta";
 
-    private static final String TEST_JOB_ID = "mafft-R20211106-102801-0729-88936282-p1m";
+    private static final String TEST_JOB_ID = "mafft-R20220213-162814-0268-85185325-p2m";
 
     @Mock
     EbiAligner ebiAligner;
@@ -135,27 +136,6 @@ class SequenceServiceTest {
     @Test
     @Order(4)
     void alignWithSingleReference() throws IOException {
-/*
-        //TODO - TEST_JOB_ID is updated manually as it depends on external service which is not desired to use in each test
-        Mockito.when(ebiAligner.testAlign1_submitJob(any())).thenReturn(TEST_JOB_ID);
-
-        final SequencesProcessingStatus mockSequenceProcessing = SequencesProcessingStatus.builder()
-                        .sequences(
-                                List.of(Sequence.builder()
-                                        .originalSequence("some sequence")
-                                        .organism("some organism")
-                                        .build()))
-                        .status(SequencesProcessingStatus.STATUS.ALIGNING)
-                        .build();
-
-        Supplier<SequencesProcessingStatus> sup = () -> {
-            System.out.println("calling mock for saving sequencesProcessingRepository");
-            return mockSequenceProcessing;
-        };
-        /**/
-
-//        Mockito.when(sequencesProcessingRepository.save(any())).thenReturn(sup.get());
-
         String sequencesString = loadStringFileFromResources(TEST_SEQUENCES_REFERENCE);
 
         List<Sequence> sequences = parseSequences(sequencesString);
@@ -171,7 +151,7 @@ class SequenceServiceTest {
         System.out.println("test result: " + result);
     }
 
-//    @Test
+    @Test
     @Order(5)
     void testAlign1_checkJobStatus() throws InterruptedException {
         String jobStatus = ma.checkJobStatus(TEST_JOB_ID);
@@ -179,7 +159,7 @@ class SequenceServiceTest {
         Assertions.assertEquals("FINISHED", jobStatus, "Job should be already finished");
     }
 
-//    @Test
+    @Test
     @Order(6)
     void testAlign1_getResult() {
         String jobResult = ma.getJobResult(TEST_JOB_ID);

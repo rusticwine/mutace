@@ -1,8 +1,5 @@
 package org.ryboun.sisa.module.alignment;
 
-import org.springframework.stereotype.Service;
-
-
 public interface Aligner {
 
     String alignWithSingleReference(AlignDto alignDto);

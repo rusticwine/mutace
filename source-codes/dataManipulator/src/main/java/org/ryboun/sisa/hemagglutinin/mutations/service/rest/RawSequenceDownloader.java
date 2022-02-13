@@ -1,19 +1,13 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service.rest;
 
 import lombok.Data;
-import lombok.Getter;
-import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
-import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceServiceForTest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.Disposable;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
@@ -23,9 +17,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class RawSequenceDownloader {
@@ -47,17 +38,7 @@ public class RawSequenceDownloader {
 
     private WebClient webClient;
 
-    ExchangeFilterFunction logRequest() {
-        return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
-            StringBuilder sb = new StringBuilder("Request: \n");
-            //append clientRequest method and url
-            sb.append(
-                    clientRequest.url());
 
-            System.out.println(sb.toString());
-            return Mono.just(clientRequest);
-        });
-    }
 
     @PostConstruct
     void init() {
@@ -76,7 +57,7 @@ public class RawSequenceDownloader {
 //                .baseUrl("https://5fb6fe54-3b8f-4ab4-8963-f69b898d9b64.mock.pstmn.io/")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
                 .filters(exchangeFilterFunctions -> {
-                    exchangeFilterFunctions.add(logRequest());
+                    exchangeFilterFunctions.add(Utils.logRequest());
                 })
                 .build();
     }

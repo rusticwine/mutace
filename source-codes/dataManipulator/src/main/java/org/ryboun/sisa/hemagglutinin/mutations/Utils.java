@@ -1,8 +1,9 @@
 package org.ryboun.sisa.hemagglutinin.mutations;
 
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceServiceForTest;
+import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,5 +22,17 @@ public class Utils {
                         .status(Sequence.STATUS.DOWNLOADED)
                         .build())
                 .collect(Collectors.toList());
+    }
+
+    public static ExchangeFilterFunction logRequest() {
+        return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
+            StringBuilder sb = new StringBuilder("Request: \n");
+            //append clientRequest method and url
+            sb.append(
+                    clientRequest.url());
+
+            System.out.println(sb.toString());
+            return Mono.just(clientRequest);
+        });
     }
 }

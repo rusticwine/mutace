@@ -1,6 +1,7 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service.rest;
 
 import org.ryboun.sisa.module.alignment.AlignDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,16 +15,36 @@ public class EbiAligner {
 
     private static final String RESULT_TYPE = "out";
 
-    private final static String POST_JOB_URL = "https://www.ebi.ac.uk/Tools/services/rest/mafft/run";
-    private final static String CHECK_JOB_STATUS_URL = "https://www.ebi.ac.uk/Tools/services/rest/mafft/status/";
-    private final static String RETRIEVE_JOB_RESULT_URL = "https://www.ebi.ac.uk/Tools/services/rest/mafft/result";
+    @Value("${ebi.aligner.baseUrl}")
+    private String BASE_URL;
+
+    @Value("${ebi.aligner.postJobSegment}")
+    private String POST_JOB_PATH_SEGMENT;
+
+    @Value("${ebi.aligner.checkJobStatusSegment}")
+    private String CHECK_JOB_STATUS_PATH_SEGMENT;
+
+    @Value("${ebi.aligner.retrievJobResultSegment}")
+    private String RETRIEVE_JOB_RESULT_PATH_SEGMENT;
+
+    private WebClient webClient;
+
+//    @PostConstruct //as in RawSequenceDownloader
+//    private void init() {
+//        this.webClient = WebClient.builder()
+//                .baseUrl(BASE_URL)
+//                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
+//                .filters(exchangeFilterFunctions -> {
+//                    exchangeFilterFunctions.add(Utils.logRequest());
+//                })
+//                .build();
+//    }
 
     public String testAlign1_submitJob(AlignDto body) {
         WebClient webClient = WebClient.builder()
-                .baseUrl(POST_JOB_URL)
+                .baseUrl(BASE_URL + POST_JOB_PATH_SEGMENT)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
-        System.out.println(body.toString());
         ResponseEntity<String> result = webClient.post()
                 .body(BodyInserters.fromFormData("email", body.getEmail())
                         .with("format", "fasta")
@@ -34,7 +55,7 @@ public class EbiAligner {
 
 
         System.out.println("test align 1, status code: " + result.getStatusCode());
-        return result.getBody().toString();
+        return result.getBody();
     }
 
     /**
@@ -45,7 +66,7 @@ public class EbiAligner {
     public String testAlign1_getResult(String jobId) {
         WebClient webClient = WebClient.builder()
                 //FIXME, obviously, of course... Lot of fixme in here
-                .baseUrl(RETRIEVE_JOB_RESULT_URL + "/" + jobId + "/" + RESULT_TYPE)
+                .baseUrl(BASE_URL + RETRIEVE_JOB_RESULT_PATH_SEGMENT + jobId + "/" + RESULT_TYPE)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
 
@@ -64,7 +85,7 @@ public class EbiAligner {
      */
     public String testAlign1_checkJobStatus(String jobId) {
         WebClient webClient = WebClient.builder()
-                .baseUrl(CHECK_JOB_STATUS_URL + jobId)
+                .baseUrl(BASE_URL + CHECK_JOB_STATUS_PATH_SEGMENT + jobId)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
                 .build();
 
