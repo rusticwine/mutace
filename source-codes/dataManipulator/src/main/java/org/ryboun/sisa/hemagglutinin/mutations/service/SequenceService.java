@@ -188,6 +188,16 @@ public class SequenceService {
         return alignedSequenceRepository.saveAll(sequence);
     }
 
+    public void downloadAndSaveNewSequences(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
+        //move here some audit - like collection with data: from, to, sequenceCount
+        processNewSequences(downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo));
+    }
+
+    void processNewSequences(Mono<List<Sequence>> sequences) {
+        //TODO - move status setting over here
+        sequences.map(sequenceRepository::saveAll);
+    }
+
     @Transactional
     public Mono<List<Sequence>> downloadSequencesFromTo(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
         return rawSequenceDownloader

@@ -19,7 +19,7 @@ public class Utils {
                         .organism(st.getOrganism())
                         .taxid(st.getTaxid())
                         .accver(st.getAccver())
-                        .status(Sequence.STATUS.DOWNLOADED)
+                        .status(Sequence.STATUS.DOWNLOADED) //TODO - move to post-download logic
                         .build())
                 .collect(Collectors.toList());
     }

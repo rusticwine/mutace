@@ -16,12 +16,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import reactor.core.publisher.Mono;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -101,6 +103,18 @@ class SequenceServiceTest {
 //                        .build())
 //                .collect(Collectors.toList());
 //    }
+
+
+    @Test
+    void downloadSequencesFrom() {
+        LocalDate testDateFrom = LocalDate.of(2013, 1, 1);
+        LocalDate testDateTo = LocalDate.of(2013, 3, 1);
+
+        Mono<List<Sequence>> sequencesMono = sequenceService.downloadSequencesFromTo(testDateFrom, testDateTo);
+        List<Sequence> sequences = sequencesMono.block();
+        System.out.println(sequences.size());
+        Arrays.toString(sequences.toArray());
+    }
 
 //    @Test
     @Order(1)

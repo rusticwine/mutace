@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface AlignedSequenceRepository extends MongoRepository<AlignedSequence, String> {
 
+
     List<AlignedSequence> downloadDateAfter(LocalDateTime startDate);
+
     List<AlignedSequence> downloadDateBefore(LocalDateTime endDate);
+
     List<AlignedSequence> downloadDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 }
