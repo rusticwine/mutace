@@ -42,7 +42,8 @@ public class SequenceServiceForTest {
     //////////////////////////////////////////////
     //////////////////////////////////////////////
 
-    @PostConstruct
+//    @PostConstruct //not to be run anymore
+    @Deprecated
     void init() {
         try {
             SequenceTest st = loadDbData();

@@ -1,11 +1,14 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
+import org.ryboun.sisa.hemagglutinin.mutations.model.SequenceDownloadEvent;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.AlignedSequenceRepository;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceDownloadEventRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.RawSequenceDownloader;
@@ -16,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDate;
@@ -47,6 +51,9 @@ public class SequenceService {
 
     @Autowired
     Aligner aligner;
+
+    @Autowired
+    SequenceDownloadEventRepository sequenceDownloadEventRepository;
 
     public List<Sequence> findAllSequences() {
 //        alignSequences();
@@ -188,14 +195,32 @@ public class SequenceService {
         return alignedSequenceRepository.saveAll(sequence);
     }
 
-    public void downloadAndSaveNewSequences(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
+    public int downloadAndSaveNewSequences(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
         //move here some audit - like collection with data: from, to, sequenceCount
-        processNewSequences(downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo));
+//        System.out.println("periodic sequence download");
+        int newDownloadedSequnceCount = processNewSequences(downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo));
+
+        SequenceDownloadEvent sequenceDownloadEvent = SequenceDownloadEvent.builder()
+                .downloadedOn(LocalDateTime.now())
+                .downloadFrom(downloadedDateTimeFrom)
+                .downloadTill(downloadedDateTimeTo)
+                .downloadedSequenceCount(newDownloadedSequnceCount)
+                .build();
+
+        sequenceDownloadEventRepository.save(sequenceDownloadEvent);
+        return newDownloadedSequnceCount;
     }
 
-    void processNewSequences(Mono<List<Sequence>> sequences) {
+    private int processNewSequences(Mono<List<Sequence>> sequences) {
         //TODO - move status setting over here
-        sequences.map(sequenceRepository::saveAll);
+//        sequences.map(sequenceRepository::saveAll);
+        List<Sequence> savedSequences = sequences.block().stream()
+                .peek(sequence -> sequence.setStatus(Sequence.STATUS.DOWNLOADED))
+                .filter(sequence -> !CollectionUtils.isEmpty(sequenceRepository.findByAccver(sequence.getAccver())))
+                .map(sequenceRepository::save)
+                .collect(Collectors.toList());
+
+        return savedSequences != null ? savedSequences.size() : 0;
     }
 
     @Transactional
@@ -222,5 +247,14 @@ public class SequenceService {
         Mono<RawSequenceDownloader.EsearchResponse> sequenceTest = rawSequenceDownloader
                 .downloadSequencesFrom2(downloadedDateTimeFrom, downloadedDateTimeTo);
         return sequenceTest;
+    }
+
+    //TODO - move to distinc service??
+    public LocalDate getLstSequenceDownloadDate() {
+        //TODO - date when to start with downloads
+        //TODO - check if the date is somewhat current and download more often if not - maybe in initilLoad method?
+        return sequenceDownloadEventRepository.findFirstByOrderByDownloadTillDesc()
+                .map(SequenceDownloadEvent::getDownloadTill)
+                .orElse(LocalDate.of(2021, 1, 1));
     }
 }

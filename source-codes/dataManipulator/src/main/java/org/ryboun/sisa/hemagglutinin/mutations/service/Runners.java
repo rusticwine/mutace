@@ -1,5 +1,8 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
+import java.time.LocalDate;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledFuture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,9 @@ public class Runners {
 
     @Value("${sequenceDownloader.period.seconds}")
     Integer downloaderPeriodSeconds;
+
+    @Value("${sequenceDownloader.periodDuration.days}")
+    Integer downloaderPeriodDurationDays;
 
     ScheduledExecutorService downloaderService;
 
@@ -33,11 +39,27 @@ public class Runners {
         //somehow handle dates to download from and to
         Runnable sequenceDownloader = () -> {
             System.out.println("launching sequence download");
-            sequenceService.downloadAndSaveNewSequences(null, null);
+            LocalDate dateFrom = sequenceService.getLstSequenceDownloadDate();
+            System.out.println("date to start from: " + dateFrom.toString());
+            int downloadSequenceCount = sequenceService.downloadAndSaveNewSequences(dateFrom, dateFrom.plusDays(downloaderPeriodDurationDays));
+            System.out.println("downloadSequenceCount: " + downloadSequenceCount);
         };
 
-        downloaderService = new ScheduledThreadPoolExecutor(1);
-        downloaderService.schedule(sequenceDownloader, downloaderPeriodSeconds, TimeUnit.SECONDS);
-        sequenceService.downloadAndSaveNewSequences(null, null);
+        downloaderService = Executors.newSingleThreadScheduledExecutor();
+        downloaderService.scheduleAtFixedRate(sequenceDownloader, 1, downloaderPeriodSeconds, TimeUnit.SECONDS);
+
+//        ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
+//        ScheduledFuture sf = exec.scheduleAtFixedRate(new Runnable()
+//        {
+//            @Override
+//            public void run() {
+//                // do stuff
+//                System.out.println("garbage garbage garbage");
+//                LocalDate dateFrom = sequenceService.getLstSequenceDownloadDate();
+//                int downloadSequenceCount = sequenceService.downloadAndSaveNewSequences(dateFrom, dateFrom.plusDays(downloaderPeriodDurationDays));
+//                System.out.println("downloadSequenceCount: " + downloadSequenceCount);
+//
+//            }
+//        }, 5, 10, TimeUnit.SECONDS);
     }
 }
