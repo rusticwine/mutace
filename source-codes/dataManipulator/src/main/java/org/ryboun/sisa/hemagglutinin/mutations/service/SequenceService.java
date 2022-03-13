@@ -8,6 +8,7 @@ import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequenceDownloadEvent;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.AlignedSequenceRepository;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.ReferenceSequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceDownloadEventRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
@@ -36,6 +37,8 @@ public class SequenceService {
     @Value("${alignment.submitJob.jobType}")
     private String jobType;
 
+    @Autowired
+    ReferenceSequenceRepository referenceSequenceRepository;
 
     @Autowired
     SequenceRepository sequenceRepository;
@@ -94,13 +97,60 @@ public class SequenceService {
      * checks the downloaded sequences and tries to upload it.
      * Idea is to run it regularly, like once a day
      */
+//    @Transactional
+//    public void alignSequences() {
+//        List<Sequence> downloadedSequences = sequenceRepository.findByStatus(
+//                Sequence.STATUS.DOWNLOADED);
+//        //TODO - find reference sequence for each sequence
+//        Map<Sequence, List<Sequence>> sequencesToAlign = downloadedSequences.stream()
+//                .map(sequence -> Pair.of(this.getReferenceForAlignment_mock(sequence), sequence))
+//                .<Map<Sequence, List<Sequence>>>reduce(
+//                        new HashMap<Sequence, List<Sequence>>(),
+//                        (resultMap, item) -> {
+//                            resultMap.putIfAbsent(item.getKey(), new ArrayList<>());
+//                            resultMap.get(item.getKey()).add(item.getValue());
+//                            return resultMap;
+//                        },
+//                        (resultMap1, resultMap2) -> {
+//                            resultMap1.putAll(resultMap2);
+//                            return resultMap1;
+//                        });
+//
+//        //from sequences to align create from first a sequence entity for alignment
+//        Optional<SequencesProcessingStatus> sequencesProcessingStatus =
+//                sequencesToAlign.entrySet().stream()
+//                        .map(entry -> SequencesProcessingStatus.builder()
+//                                .referenceSequence(entry.getKey())
+//                                .rawSequences(entry.getValue())
+//                                .alignJobId("not_started")
+//                                .status(Sequence.STATUS.TO_BE_ALIGNED)
+//                                .build())
+//                        .findFirst();
+//
+//        //if there is an entity for alignment submit it for alignment
+//        //functional in imperative style?
+//        sequencesProcessingStatus.ifPresent(sps -> {
+//            //aligning status entity changed to dto for alignment request
+//            AlignDto alignDto = AlignDto.builder()
+//                    .format(jobType)
+//                    .email(email)
+//                    .addSequence(sps.getReferenceSequence())
+//                    .sequences(sps.getRawSequences())
+//                    .build();
+//
+//            //launch alinment and get job id from server
+//            String alignJobId = aligner.alignWithSingleReference(alignDto);
+//            //change status of job to being aligned
+//            sps.setAlignJobId(alignJobId);
+//        });
+//    }
     @Transactional
     public void alignSequences() {
         List<Sequence> downloadedSequences = sequenceRepository.findByStatus(
                 Sequence.STATUS.DOWNLOADED);
         //TODO - find reference sequence for each sequence
         Map<Sequence, List<Sequence>> sequencesToAlign = downloadedSequences.stream()
-                .map(sequence -> Pair.of(this.getReferenceForAlignment_mock(sequence), sequence))
+                .map(sequence -> Pair.of(this.getReferenceForAlignment_mock(), sequence))
                 .<Map<Sequence, List<Sequence>>>reduce(
                         new HashMap<Sequence, List<Sequence>>(),
                         (resultMap, item) -> {
@@ -114,7 +164,8 @@ public class SequenceService {
                         });
 
         //from sequences to align create from first a sequence entity for alignment
-        Optional<SequencesProcessingStatus> sequencesProcessingStatus =
+        //Optional<SequencesProcessingStatus> sequencesProcessingStatus =
+        List<SequencesProcessingStatus> sequencesProcessingStatuses =
                 sequencesToAlign.entrySet().stream()
                         .map(entry -> SequencesProcessingStatus.builder()
                                 .referenceSequence(entry.getKey())
@@ -122,24 +173,44 @@ public class SequenceService {
                                 .alignJobId("not_started")
                                 .status(Sequence.STATUS.TO_BE_ALIGNED)
                                 .build())
-                        .findFirst();
+                        .map(sequencesProcessingRepository::save)
+                        .collect(Collectors.toList());
+                        //.findFirst();
+
+        sequencesProcessingStatuses.stream()
+                .map(sps -> AlignDto.builder()
+                                    .format(jobType)
+                                                .email(email)
+                                                .addSequence(sps.getReferenceSequence())
+                                                .sequences(sps.getRawSequences())
+                                                .build())
+                .peek(aligner::alignWithSingleReference)
+                                   .forEach(System.out::println);
+//                .forEach(sps -> SequencesProcessingStatus::setAlignJobId);
+
+        //launch alinment and get job id from server
+//        String alignJobId = aligner.alignWithSingleReference(alignDto);
+
+        //change status of job to being aligned
+//        sps.setAlignJobId(alignJobId);
+
 
         //if there is an entity for alignment submit it for alignment
         //functional in imperative style?
-        sequencesProcessingStatus.ifPresent(sps -> {
-            //aligning status entity changed to dto for alignment request
-            AlignDto alignDto = AlignDto.builder()
-                    .format(jobType)
-                    .email(email)
-                    .addSequence(sps.getReferenceSequence())
-                    .sequences(sps.getRawSequences())
-                    .build();
-
-            //launch alinment and get job id from server
-            String alignJobId = aligner.alignWithSingleReference(alignDto);
-            //change status of job to being aligned
-            sps.setAlignJobId(alignJobId);
-        });
+//        sequencesProcessingStatus.ifPresent(sps -> {
+//            //aligning status entity changed to dto for alignment request
+//            AlignDto alignDto = AlignDto.builder()
+//                    .format(jobType)
+//                    .email(email)
+//                    .addSequence(sps.getReferenceSequence())
+//                    .sequences(sps.getRawSequences())
+//                    .build();
+//
+//            //launch alinment and get job id from server
+//            String alignJobId = aligner.alignWithSingleReference(alignDto);
+//            //change status of job to being aligned
+//            sps.setAlignJobId(alignJobId);
+//        });
     }
 
 
@@ -167,14 +238,16 @@ public class SequenceService {
                     //TODO - MAP result to object
                     System.out.println("Aligned sequences: " + alinedSequences);
                     //create AlignedSequence isntance
+
                     //persist
                     //remove corresponding SequencesProcessingStatus document
                 });
     }
-
     ///  aligned sequences ///
-    private Sequence getReferenceForAlignment_mock(Sequence sequence) {
-        return sequenceRepository.findByAccver("KC899669.1").get(0);
+    @Deprecated //to be replaced withreal reference, maybe in a file too?
+    public Sequence getReferenceForAlignment_mock() {
+        //return sequenceRepository.findByAccver("KC899669.1").get(0);
+        return referenceSequenceRepository.findAll().get(0);
     }
 
     public List<AlignedSequence> findAlignedSequences(LocalDateTime startDate, LocalDateTime endDate) {
@@ -191,8 +264,13 @@ public class SequenceService {
     }
 
     @Transactional
-    public List<AlignedSequence> saveAlignedSequence(List<AlignedSequence> sequence) {
+    public List<AlignedSequence> saveAlignedSequences(List<AlignedSequence> sequence) {
         return alignedSequenceRepository.saveAll(sequence);
+    }
+
+    @Deprecated //just for example sequences. Not usable so far
+    public AlignedSequence saveAlignedSequence(AlignedSequence sequence) {
+        return alignedSequenceRepository.save(sequence);
     }
 
     public int downloadAndSaveNewSequences(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
@@ -232,14 +310,6 @@ public class SequenceService {
                     sequences.stream().forEach(sequenceRepository::save);
                     return sequences;
                 });
-//        Mono<List<Sequence>> sequences2 = sequenceTest
-//                .map(Utils::mapperNotYetWorkingForMe)
-//                .map(sequences -> {
-//                    sequences.stream().forEach(sequenceRepository::save);
-//                    return sequences;
-//                });
-//
-//        return sequences2;
     }
 
     @Transactional
