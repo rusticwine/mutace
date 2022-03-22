@@ -17,6 +17,7 @@ import java.util.List;
 @Data
 //@Builder
 @SuperBuilder
+@NoArgsConstructor
 //@AllArgsConstructor
 @ToString
 public class Sequence {

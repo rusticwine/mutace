@@ -71,11 +71,11 @@ public class SequenceServiceForTest {
             e.printStackTrace();
         }
 
-        try {
-            loadAlignedSequences();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            loadAlignedSequences();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 

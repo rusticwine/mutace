@@ -119,7 +119,7 @@ public class RawSequenceDownloader {
     }
 
     private String termBuilder(String organism, LocalDate from, LocalDate to) {
-        return String.format("%s[Organism] AND hemagglutinin[All Fields] AND (\"%s\"[PDAT] : \"%s\"[PDAT])",
+        return String.format("%s[Organism] AND hemagglutinin[All Fields] AND (\"%s\"[`PDAT] : \"%s\"[PDAT])",
                 organism, formatter.format(from), formatter.format(to));
     }
 

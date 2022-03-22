@@ -327,4 +327,8 @@ public class SequenceService {
                 .map(SequenceDownloadEvent::getDownloadTill)
                 .orElse(LocalDate.of(2021, 1, 1));
     }
+
+    public List<Sequence> getAllDownloadedSequences() {
+        return sequenceRepository.findByStatus(Sequence.STATUS.DOWNLOADED);
+    }
 }

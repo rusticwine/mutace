@@ -1,5 +1,6 @@
 package org.ryboun.sisa.hemagglutinin.mutations.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AlignedSequence {
 
     private String jobId;
@@ -41,6 +43,7 @@ public class AlignedSequence {
     @NoArgsConstructor
     @AllArgsConstructor
     @ToString
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ReferenceSequence {
 
 //        public String orgname;
@@ -53,6 +56,7 @@ public class AlignedSequence {
     @SuperBuilder
     @NoArgsConstructor
     @ToString
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Alignment {
 
         private String accver;
