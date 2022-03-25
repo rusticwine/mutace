@@ -1,6 +1,7 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
@@ -28,6 +29,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 
+@Slf4j
 @Service
 public class SequenceService {
 
@@ -145,47 +147,55 @@ public class SequenceService {
 //        });
 //    }
     @Transactional
-    public void alignSequences() {
+    public List<SequencesProcessingStatus> alignSequences() {
         List<Sequence> downloadedSequences = sequenceRepository.findByStatus(
                 Sequence.STATUS.DOWNLOADED);
-        //TODO - find reference sequence for each sequence
-        Map<Sequence, List<Sequence>> sequencesToAlign = downloadedSequences.stream()
-                .map(sequence -> Pair.of(this.getReferenceForAlignment_mock(), sequence))
-                .<Map<Sequence, List<Sequence>>>reduce(
-                        new HashMap<Sequence, List<Sequence>>(),
-                        (resultMap, item) -> {
-                            resultMap.putIfAbsent(item.getKey(), new ArrayList<>());
-                            resultMap.get(item.getKey()).add(item.getValue());
-                            return resultMap;
-                        },
-                        (resultMap1, resultMap2) -> {
-                            resultMap1.putAll(resultMap2);
-                            return resultMap1;
-                        });
 
+//        WHY DEPRECATED? - there will be a common reference sequence (one or two) for all other sequences
+//        //TODO - find reference sequence for each sequence
+//        Map<Sequence, List<Sequence>> sequencesToAlign = downloadedSequences.stream()
+//                .map(sequence -> Pair.of(this.getReferenceForAlignment_mock(), sequence))
+//                .<Map<Sequence, List<Sequence>>>reduce(
+//                        new HashMap<Sequence, List<Sequence>>(),
+//                        (resultMap, item) -> {
+//                            resultMap.putIfAbsent(item.getKey(), new ArrayList<>());
+//                            resultMap.get(item.getKey()).add(item.getValue());
+//                            return resultMap;
+//                        },
+//                        (resultMap1, resultMap2) -> {
+//                            resultMap1.putAll(resultMap2);
+//                            return resultMap1;
+//                        });
+        Map<Sequence, List<Sequence>> sequencesToAlign = Map.of(this.getReferenceForAlignment_mock(), downloadedSequences);
+
+        //TODO - there may be just single "bunch" to align with 1 or 2 reference sequence
         //from sequences to align create from first a sequence entity for alignment
-        //Optional<SequencesProcessingStatus> sequencesProcessingStatus =
         List<SequencesProcessingStatus> sequencesProcessingStatuses =
                 sequencesToAlign.entrySet().stream()
                         .map(entry -> SequencesProcessingStatus.builder()
                                 .referenceSequence(entry.getKey())
                                 .rawSequences(entry.getValue())
-                                .alignJobId("not_started")
+//                                .alignJobId("not_started")
                                 .status(Sequence.STATUS.TO_BE_ALIGNED)
                                 .build())
                         .map(sequencesProcessingRepository::save)
                         .collect(Collectors.toList());
                         //.findFirst();
 
-        sequencesProcessingStatuses.stream()
-                .map(sps -> AlignDto.builder()
+        //TODO - why tuple? Handle errors!
+        List<SequencesProcessingStatus> submitAlignments = sequencesProcessingStatuses.stream()
+                .map(sps -> Pair.of(sps, AlignDto.builder()
                                     .format(jobType)
-                                                .email(email)
-                                                .addSequence(sps.getReferenceSequence())
-                                                .sequences(sps.getRawSequences())
-                                                .build())
-                .peek(aligner::alignWithSingleReference)
-                                   .forEach(System.out::println);
+                                    .email(email)
+                                    .addSequence(sps.getReferenceSequence())
+                                    .sequences(sps.getRawSequences())
+                                      .build()))
+                .map(sequenceDtoPair -> Pair.of(sequenceDtoPair.getLeft(), aligner.alignWithSingleReference(sequenceDtoPair.getRight())))
+                .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft().setAlignJobId(sequenceJobIdPair.getRight()))
+                .map(sequenceJobIdPair -> sequencesProcessingRepository.save(sequenceJobIdPair.getLeft()))
+                .collect(Collectors.toList());
+
+        return submitAlignments;
 //                .forEach(sps -> SequencesProcessingStatus::setAlignJobId);
 
         //launch alinment and get job id from server
@@ -275,8 +285,7 @@ public class SequenceService {
 
     public int downloadAndSaveNewSequences(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
         //move here some audit - like collection with data: from, to, sequenceCount
-//        System.out.println("periodic sequence download");
-        int newDownloadedSequnceCount = processNewSequences(downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo));
+        int newDownloadedSequnceCount = processNewDownloadedSequences(downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo));
 
         SequenceDownloadEvent sequenceDownloadEvent = SequenceDownloadEvent.builder()
                 .downloadedOn(LocalDateTime.now())
@@ -289,12 +298,18 @@ public class SequenceService {
         return newDownloadedSequnceCount;
     }
 
-    private int processNewSequences(Mono<List<Sequence>> sequences) {
+
+    /**
+     * Sequences are set with {@link Sequence.STATUS#DOWNLOADED} and persisted in main sequence repository
+     * @param sequences
+     * @return
+     */
+    private int processNewDownloadedSequences(Mono<List<Sequence>> sequences) {
         //TODO - move status setting over here
 //        sequences.map(sequenceRepository::saveAll);
         List<Sequence> savedSequences = sequences.block().stream()
                 .peek(sequence -> sequence.setStatus(Sequence.STATUS.DOWNLOADED))
-                .filter(sequence -> !CollectionUtils.isEmpty(sequenceRepository.findByAccver(sequence.getAccver())))
+                .filter(sequence -> CollectionUtils.isEmpty(sequenceRepository.findByAccver(sequence.getAccver())))
                 .map(sequenceRepository::save)
                 .collect(Collectors.toList());
 

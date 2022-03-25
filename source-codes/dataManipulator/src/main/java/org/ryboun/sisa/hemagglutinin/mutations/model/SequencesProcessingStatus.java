@@ -1,14 +1,18 @@
 package org.ryboun.sisa.hemagglutinin.mutations.model;
 
-import lombok.*;
+import java.util.List;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
 
 @Document
-@Data
+@Data //TODO - solve setStatus and make it immutable
 @Builder
 @ToString
 public class SequencesProcessingStatus {
