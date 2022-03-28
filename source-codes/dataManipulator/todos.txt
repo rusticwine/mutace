@@ -1,0 +1,4 @@
+private Runnable getSequenceDownloader() {
+
+1. get date from/to within single transaction and called within single method in service
+2. date "From" don't estimate based on last download sequence, rather on las "to" dates

@@ -1,7 +1,12 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
+import java.time.Duration;
 import java.util.stream.Collectors;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
@@ -33,6 +38,11 @@ import java.util.*;
 @Service
 public class SequenceService {
 
+
+    @Builder
+    @Getter
+    @Setter
+    record AlignSubmitResult(int downloadedSequencesSince, int sequenceSubmitForAlignment) {};
 
     @Value("${alignment.submitJob.email}")
     private String email;
@@ -147,25 +157,10 @@ public class SequenceService {
 //        });
 //    }
     @Transactional
-    public List<SequencesProcessingStatus> alignSequences() {
+    public AlignSubmitResult alignSequences() {
         List<Sequence> downloadedSequences = sequenceRepository.findByStatus(
                 Sequence.STATUS.DOWNLOADED);
 
-//        WHY DEPRECATED? - there will be a common reference sequence (one or two) for all other sequences
-//        //TODO - find reference sequence for each sequence
-//        Map<Sequence, List<Sequence>> sequencesToAlign = downloadedSequences.stream()
-//                .map(sequence -> Pair.of(this.getReferenceForAlignment_mock(), sequence))
-//                .<Map<Sequence, List<Sequence>>>reduce(
-//                        new HashMap<Sequence, List<Sequence>>(),
-//                        (resultMap, item) -> {
-//                            resultMap.putIfAbsent(item.getKey(), new ArrayList<>());
-//                            resultMap.get(item.getKey()).add(item.getValue());
-//                            return resultMap;
-//                        },
-//                        (resultMap1, resultMap2) -> {
-//                            resultMap1.putAll(resultMap2);
-//                            return resultMap1;
-//                        });
         Map<Sequence, List<Sequence>> sequencesToAlign = Map.of(this.getReferenceForAlignment_mock(), downloadedSequences);
 
         //TODO - there may be just single "bunch" to align with 1 or 2 reference sequence
@@ -192,50 +187,27 @@ public class SequenceService {
                                       .build()))
                 .map(sequenceDtoPair -> Pair.of(sequenceDtoPair.getLeft(), aligner.alignWithSingleReference(sequenceDtoPair.getRight())))
                 .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft().setAlignJobId(sequenceJobIdPair.getRight()))
+                .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft().setStatus(Sequence.STATUS.ALIGNING))
                 .map(sequenceJobIdPair -> sequencesProcessingRepository.save(sequenceJobIdPair.getLeft()))
                 .collect(Collectors.toList());
 
-        return submitAlignments;
-//                .forEach(sps -> SequencesProcessingStatus::setAlignJobId);
+        //awkward - not encapsulated. Maybe not using status in general sequence collection as it may be realigned anyway
+        downloadedSequences.stream()
+                .peek(sequence -> sequence.setStatus(Sequence.STATUS.ALIGNING))
+                .forEach(sequence -> sequenceRepository.save(sequence)); //FIXME - 1) no need to save? 2) Also not so separated. 3) Not being saved one by one
 
-        //launch alinment and get job id from server
-//        String alignJobId = aligner.alignWithSingleReference(alignDto);
-
-        //change status of job to being aligned
-//        sps.setAlignJobId(alignJobId);
-
-
-        //if there is an entity for alignment submit it for alignment
-        //functional in imperative style?
-//        sequencesProcessingStatus.ifPresent(sps -> {
-//            //aligning status entity changed to dto for alignment request
-//            AlignDto alignDto = AlignDto.builder()
-//                    .format(jobType)
-//                    .email(email)
-//                    .addSequence(sps.getReferenceSequence())
-//                    .sequences(sps.getRawSequences())
-//                    .build();
-//
-//            //launch alinment and get job id from server
-//            String alignJobId = aligner.alignWithSingleReference(alignDto);
-//            //change status of job to being aligned
-//            sps.setAlignJobId(alignJobId);
-//        });
+        return new AlignSubmitResult(sequencesToAlign.values().size(), submitAlignments.size());
     }
 
-
+@Getter
+record AlignerChecker(SequencesProcessingStatus sequencesProcessingStatus, String jobResult) {};
     @Transactional
-    public void updateAligningSequences() {
+    public long updateAligningSequences() {
         List<SequencesProcessingStatus> aligningSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNING);
-        aligningSequences.stream()
-                .forEach(sequenceProcessing -> {
-                    String jobStatus = aligner.getJobResult(sequenceProcessing.getAlignJobId());
-                    System.out.println("JOB for ID: " + sequenceProcessing.getAlignJobId() +
-                            " has status: " + jobStatus);
-                    if (jobStatus.equals("DONE")) {
-                        sequenceProcessing.setStatus(Sequence.STATUS.ALIGNED);
-                    }
-                });
+        return aligningSequences.stream()
+                .map(sequenceProcessing -> new AlignerChecker(sequenceProcessing, aligner.getJobResult(sequenceProcessing.getAlignJobId())))
+                .filter(alignerChecker -> StringUtils.endsWithAny(alignerChecker.getJobResult(), "FINISHED", "DONE")) //TODO - what's the correct one?
+                .count();
     }
 
     @Transactional
@@ -283,14 +255,19 @@ public class SequenceService {
         return alignedSequenceRepository.save(sequence);
     }
 
-    public int downloadAndSaveNewSequences(LocalDate downloadedDateTimeFrom, LocalDate downloadedDateTimeTo) {
+
+    @Transactional
+    public int downloadAndSaveNewSequences(Duration downloadInterval) {
+        LocalDate dateFrom = getLstSequenceDownloadDate();
+        LocalDate dateTo = dateFrom.plus(downloadInterval);
+        System.out.println("date to start from - to: " + dateFrom.toString() + " - " + dateTo.toString());
         //move here some audit - like collection with data: from, to, sequenceCount
-        int newDownloadedSequnceCount = processNewDownloadedSequences(downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo));
+        int newDownloadedSequnceCount = processNewDownloadedSequences(downloadSequencesFromTo(dateFrom, dateTo));
 
         SequenceDownloadEvent sequenceDownloadEvent = SequenceDownloadEvent.builder()
                 .downloadedOn(LocalDateTime.now())
-                .downloadFrom(downloadedDateTimeFrom)
-                .downloadTill(downloadedDateTimeTo)
+                .downloadFrom(dateFrom)
+                .downloadTill(dateTo)
                 .downloadedSequenceCount(newDownloadedSequnceCount)
                 .build();
 
@@ -340,9 +317,11 @@ public class SequenceService {
         //TODO - check if the date is somewhat current and download more often if not - maybe in initilLoad method?
         return sequenceDownloadEventRepository.findFirstByOrderByDownloadTillDesc()
                 .map(SequenceDownloadEvent::getDownloadTill)
-                .orElse(LocalDate.of(2021, 1, 1));
+                .orElse(LocalDate.of(2021, 1, 1)); //TODO - property for initial load?
     }
 
+
+    @Transactional(readOnly = true)
     public List<Sequence> getAllDownloadedSequences() {
         return sequenceRepository.findByStatus(Sequence.STATUS.DOWNLOADED);
     }
