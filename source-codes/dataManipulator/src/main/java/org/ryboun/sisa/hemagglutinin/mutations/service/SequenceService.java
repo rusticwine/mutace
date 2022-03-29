@@ -2,7 +2,9 @@ package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 import java.time.Duration;
 import java.util.stream.Collectors;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -40,9 +42,13 @@ public class SequenceService {
 
 
     @Builder
-    @Getter
-    @Setter
-    record AlignSubmitResult(int downloadedSequencesSince, int sequenceSubmitForAlignment) {};
+//    @Getter
+//    @Setter
+    @Data
+    static class AlignSubmitResult {
+        int downloadedSequencesSince;
+        int sequenceSubmitForAlignment;
+    }
 
     @Value("${alignment.submitJob.email}")
     private String email;
@@ -199,8 +205,14 @@ public class SequenceService {
         return new AlignSubmitResult(sequencesToAlign.values().size(), submitAlignments.size());
     }
 
-@Getter
-record AlignerChecker(SequencesProcessingStatus sequencesProcessingStatus, String jobResult) {};
+//@Getter
+//record AlignerChecker(SequencesProcessingStatus sequencesProcessingStatus, String jobResult) {};
+@Data
+@AllArgsConstructor
+static class AlignerChecker {
+    SequencesProcessingStatus sequencesProcessingStatus;
+    String jobResult;
+}
     @Transactional
     public long updateAligningSequences() {
         List<SequencesProcessingStatus> aligningSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNING);

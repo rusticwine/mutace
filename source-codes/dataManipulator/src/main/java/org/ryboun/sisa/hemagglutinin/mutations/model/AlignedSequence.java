@@ -1,6 +1,7 @@
 package org.ryboun.sisa.hemagglutinin.mutations.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -28,7 +29,7 @@ public class AlignedSequence {
     private String taxonomyId;
 
     private ReferenceSequence reference;
-    private Alignment alignment;
+    private List<Alignment> alignment;
 
     public enum ALIGNMENT_METHOD {
         MAFFT;
@@ -46,8 +47,9 @@ public class AlignedSequence {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class ReferenceSequence {
 
-//        public String orgname;
+        public int[] positions;
         public String accver;
+        public String rawReferenceSequence;
         public String alignedReferenceSequence;
     }
 

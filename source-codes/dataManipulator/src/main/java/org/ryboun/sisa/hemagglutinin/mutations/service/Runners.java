@@ -35,8 +35,8 @@ public class Runners {
     @Value("${sequenceAligner.download.period}")
     Duration alignerDownloadererPeriod;
 
-    @Value("${sequenceAligner.download.period.seconds}")
-    Integer alignerDownloaderPeriodSeconds;
+    @Value("${sequenceAligner.download.period}")
+    Duration alignerDownloaderPeriodSeconds;
 
     ScheduledExecutorService downloaderService;
 
@@ -60,13 +60,13 @@ public class Runners {
         downloaderService = Executors.newSingleThreadScheduledExecutor();
         downloaderService.scheduleAtFixedRate(sequenceDownloader, 1, downloaderPeriodSeconds, TimeUnit.SECONDS);
 
-        Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
-        alignerService = Executors.newSingleThreadScheduledExecutor();
-        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 1, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
+//        Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
+//        alignerService = Executors.newSingleThreadScheduledExecutor();
+//        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 1, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
 
-        Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
-        alignerService = Executors.newSingleThreadScheduledExecutor();
-        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 1, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
+//        Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
+//        alignerService = Executors.newSingleThreadScheduledExecutor();
+//        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 1, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
 
 
     }
@@ -87,25 +87,26 @@ public class Runners {
     }
 
 
-    private Runnable getSequenceAlignerSubmitter() {
-        Runnable sequenceAlignerSubmitter = () -> {
-            SequenceService.AlignSubmitResult alignSubmitResult = sequenceService.alignSequences();
-            System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
-                                             alignSubmitResult.getDownloadedSequencesSince(),
-                                             alignSubmitResult.getSequenceSubmitForAlignment()));
-        };
+//    private Runnable getSequenceAlignerSubmitter() {
+//        Runnable sequenceAlignerSubmitter = () -> {
+//            SequenceService.AlignSubmitResult alignSubmitResult = sequenceService.alignSequences();
+//            System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
+//                                             alignSubmitResult.getDownloadedSequencesSince(),
+//                                             alignSubmitResult.getSequenceSubmitForAlignment()));
+//        };
+//
+//        return sequenceAlignerSubmitter;
+//    }
 
-        return sequenceAlignerSubmitter;
-    }
-
-    private Runnable getSequenceAlignerChecker() {
-        Runnable sequenceAlignerSubmitter = () -> {
-            long jobsFinished = sequenceService.updateAligningSequences();
-            System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
-                                             alignSubmitResult.getDownloadedSequencesSince(),
-                                             alignSubmitResult.getSequenceSubmitForAlignment()));
-        };
-
-        return sequenceAlignerSubmitter;
-    }
+//    private Runnable getSequenceAlignerChecker() {
+//        Runnable sequenceAlignerSubmitter = () -> {
+//            long jobsFinished = sequenceService.updateAligningSequences();
+//            System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
+//                                             alignSubmitResult.getDownloadedSequencesSince(),
+//                                             alignSubmitResult.getSequenceSubmitForAlignment()));
+//        };
+//
+//        return sequenceAlignerSubmitter;
+//    }
 }
+//-->H7N7------

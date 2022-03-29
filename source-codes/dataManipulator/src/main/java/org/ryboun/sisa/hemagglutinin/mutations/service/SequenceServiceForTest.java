@@ -71,11 +71,11 @@ public class SequenceServiceForTest {
             e.printStackTrace();
         }
 
-//        try {
-//            loadAlignedSequences();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        //        try {
+        //            loadAlignedSequences();
+        //        } catch (IOException e) {
+        //            e.printStackTrace();
+        //        }
     }
 
 
@@ -112,7 +112,7 @@ public class SequenceServiceForTest {
         String NEW_SEQUENCE_MARKER = ">New|";
 
         InputStream is = this.getClass().getClassLoader().getResourceAsStream("vysledny_alignment_mafft_v1.fasta");
-        BufferedReader br  = new BufferedReader(new InputStreamReader(is));
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
         String line;
@@ -124,51 +124,64 @@ public class SequenceServiceForTest {
         String[] normalizedAlignedSequences = StringUtils.splitByWholeSeparator(normalizedAlignedSequencesStr,
                                                                                 NEW_SEQUENCE_MARKER);
 
-        //        ReferenceSequence referenceSequence = ReferenceSequence.builder()createSequenceFromStrings(StringUtils.split(
-        //                normalizedAlignedSequences[0],
-        //                "[]"));
         String[] referenceSequenceParameters = StringUtils.split(normalizedAlignedSequences[0], "[]");
+
+        String alignedReferenceSequence = referenceSequenceParameters[2].trim();
+        String rawReferenceSequence = StringUtils.remove(alignedReferenceSequence,"-");
         ReferenceSequence referenceSequence = ReferenceSequence.builder()
                                                                .accver(referenceSequenceParameters[0].trim())
                                                                .organism(referenceSequenceParameters[1].trim())
-                                                               .sequence(referenceSequenceParameters[2].trim())
+                                                               .sequence(rawReferenceSequence)
                                                                .build();
 
         referenceSequenceRepository.save(referenceSequence);
+
+        int[] positions = Utils.getAlignedPositions(rawReferenceSequence, alignedReferenceSequence);
 
         LocalDateTime alignDateTimeNow = LocalDateTime.now();
         LocalDateTime downloadDateTime = alignDateTimeNow.minusDays(1);
 
         AtomicInteger hoursDeductor = new AtomicInteger(0);
-        //        Arrays.stream(StringUtils.splitByWholeSeparator(normalizedAlignedSequencesStr, NEW_SEQUENCE_MARKER))
-        List<AlignedSequence> alignedSequence = IntStream.range(1, normalizedAlignedSequences.length)
-                                                         .mapToObj(i -> normalizedAlignedSequences[i])
-                                                         .map(sequence -> sequence.split("[\\[\\]]"))
-                                                         .map(this::<Sequence>createSequenceFromStrings)
-                                                         .map(sequenceService::saveSequence) //use saved sequence for AlignedSequence creation
-                                                         .map(savedSequence -> AlignedSequence.builder()
-                                                                                              .reference(AlignedSequence.ReferenceSequence.builder()
-                                                                                                                                          .accver(referenceSequence.getAccver())
-                                                                                                                                          .alignedReferenceSequence(referenceSequence.getSequence())
-                                                                                                                                          .build())
-                                                                                              .alignment(AlignedSequence.Alignment.builder()
-                                                                                                                                  .accver(savedSequence.getAccver())
-                                                                                                                                  .alignedSequence(
-                                                                                                                                          savedSequence.getSequence())
-                                                                                                                                  .build())
-                                                                                              .downloadDate(
-                                                                                                      downloadDateTime.minusHours(
-                                                                                                              hoursDeductor.incrementAndGet() *
-                                                                                                              3))
-                                                                                              .alignDate(
-                                                                                                      alignDateTimeNow.minusHours(
-                                                                                                              hoursDeductor.incrementAndGet())) //not proud of this
-                                                                                              .build())
-                                                         .collect(Collectors.toList());
 
-        sequenceService.saveAlignedSequences(alignedSequence);
+        final AtomicInteger counter = new AtomicInteger(0); //so ugly
+        List<Sequence> sequences = IntStream.range(1, normalizedAlignedSequences.length)
+                                            .mapToObj(i -> normalizedAlignedSequences[i])
+                                            .map(sequence -> sequence.split("[\\[\\]]"))
+                                            .map(this::<Sequence>createSequenceFromStrings)
+                                            .map(sequenceService::saveSequence) //use saved sequence for AlignedSequence creation
+                                            .collect(Collectors.toList());
 
-        return alignedSequence;
+        int BATCH = 100;
+        List<AlignedSequence> alignedSequences = IntStream.range(0, (sequences.size() + BATCH - 1) / BATCH)
+                 .mapToObj(i -> sequences.subList(i * BATCH, Math.min(sequences.size(), (i + 1) * BATCH)))
+                 .map(sequenceBatch -> {
+                     List<AlignedSequence.Alignment> alignments = sequenceBatch.stream()
+                                                                       .map(sequence -> AlignedSequence.Alignment.builder()
+                                                                                                                 .accver(sequence.getAccver())
+                                                                                                                 .alignedSequence(
+                                                                                                                         sequence.getSequence())
+                                                                                                                 .build())
+                                                                       .collect(Collectors.toList());
+
+                     return AlignedSequence.builder()
+                                                          .reference(AlignedSequence.ReferenceSequence.builder()
+                                                                                                      .accver(referenceSequence.getAccver())
+                                                                             .positions(positions)
+                                                                             .rawReferenceSequence(rawReferenceSequence)
+                                                                                                      .alignedReferenceSequence(
+                                                                                                              alignedReferenceSequence)
+                                                                                                      .build())
+                                                          .alignment(alignments)
+                                                          .downloadDate(downloadDateTime.minusHours(
+                                                                  hoursDeductor.incrementAndGet() * 3))
+                                                          .alignDate(alignDateTimeNow.minusHours(hoursDeductor.incrementAndGet())) //not proud of this
+                                                          .build();
+                 })
+                .collect(Collectors.toList());
+
+        sequenceService.saveAlignedSequences(alignedSequences);
+
+        return alignedSequences;
     }
 
 
