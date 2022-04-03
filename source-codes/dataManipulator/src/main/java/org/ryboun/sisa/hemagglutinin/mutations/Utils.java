@@ -1,7 +1,11 @@
 package org.ryboun.sisa.hemagglutinin.mutations;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceServiceForTest;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
@@ -51,5 +55,18 @@ public class Utils {
 
     public static int getNextLetterPosition(char letterToMatch, String alignedReferenceSequence, int startPosition) {
         return alignedReferenceSequence.indexOf(letterToMatch, startPosition);
+    }
+
+    public static List<String> accverFromSequences(Collection<Sequence> sequences) {
+         return sequences.stream().map(Sequence::getAccver).collect(Collectors.toList());
+    }
+
+    public static String accverFromSequencesToString(Collection<Sequence> sequences) {
+        return String.join(", ", accverFromSequences(sequences));
+    }
+
+    public static <T> Stream<T> createLoggingStream(Collection<T> stream, Function<T, String> informationGatherer) {
+        System.out.println("creating test stream logging");
+        return stream.stream().peek(( item) -> System.out.println(informationGatherer.apply(item)));
     }
 }

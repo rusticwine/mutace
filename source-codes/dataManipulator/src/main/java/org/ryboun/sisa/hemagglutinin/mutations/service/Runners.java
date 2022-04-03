@@ -22,18 +22,18 @@ public class Runners {
  - odvezt hlinu
  */
 
-    @Value("${sequenceDownloader.period.seconds}")
-    Integer downloaderPeriodSeconds;
+    @Value("${sequenceDownloader.period}")
+    Duration downloaderPeriod;
 
     @Value("${sequenceDownloader.periodDuration.days}")
-    Duration downloaderPeriod;
+    int downloaderPeriodDays;
 
     @Value("${sequenceAligner.submit.period}")
     Duration alignerSubmitterPeriod;
     @Value("${sequenceAligner.checker.period}")
     Duration alignerCheckerPeriod;
     @Value("${sequenceAligner.download.period}")
-    Duration alignerDownloadererPeriod;
+    Duration alignerDownloaderPeriod;
 
     @Value("${sequenceAligner.download.period}")
     Duration alignerDownloaderPeriodSeconds;
@@ -55,58 +55,92 @@ public class Runners {
     void initExecutors() {
         //somehow handle dates to download from and to
         Runnable sequenceDownloader = getSequenceDownloader();
-        System.out.println("launching sequence download, currently downloaded sequences: " +
-                           sequenceService.getAllDownloadedSequences().toString());
+//        System.out.println("initExecutors: sequence download, currently downloaded sequences: " +
+//                           sequenceService.getAllDownloadedSequences().toString());
         downloaderService = Executors.newSingleThreadScheduledExecutor();
-        downloaderService.scheduleAtFixedRate(sequenceDownloader, 1, downloaderPeriodSeconds, TimeUnit.SECONDS);
+        downloaderService.scheduleAtFixedRate(sequenceDownloader, 10, downloaderPeriod.getSeconds(), TimeUnit.SECONDS);
 
-//        Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
-//        alignerService = Executors.newSingleThreadScheduledExecutor();
-//        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 1, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
+        Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
+        alignerService = Executors.newSingleThreadScheduledExecutor();
+//        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 7, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
 
-//        Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
-//        alignerService = Executors.newSingleThreadScheduledExecutor();
-//        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 1, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
+        Runnable sequenceAlignChecker = getSequenceAlignerChecker();
+        alignerService = Executors.newSingleThreadScheduledExecutor();
+//        downloaderService.scheduleAtFixedRate(sequenceAlignChecker, 14, alignerCheckerPeriod.getSeconds(), TimeUnit.SECONDS);
 
+        Runnable sequenceAlignDownloader = getSequenceAlignerDownloader();
+        alignerService = Executors.newSingleThreadScheduledExecutor();
+//        downloaderService.scheduleAtFixedRate(sequenceAlignDownloader, 21, alignerDownloaderPeriod.getSeconds(), TimeUnit.SECONDS);
 
     }
 
 
     private Runnable getSequenceDownloader() {
         Runnable sequenceDownloader = () -> {
-            System.out.println("launching sequence download, currently downloaded sequences: " +
+            System.out.println("INITIATE DOWNLOADER getSequenceDownloader: launching sequence download, currently downloaded sequences: " +
                                sequenceService.getAllDownloadedSequences()
                                               .stream()
                                               .map(Sequence::getAccver)
                                               .collect(Collectors.joining(", ")));
 
-            int downloadSequenceCount = sequenceService.downloadAndSaveNewSequences(downloaderPeriod);
+            int downloadSequenceCount = sequenceService.downloadAndSaveNewSequences(downloaderPeriodDays);
             System.out.println("downloadSequenceCount: " + downloadSequenceCount);
         };
-        return sequenceDownloader;
+        return new CatchingRunnable(sequenceDownloader);
     }
 
 
-//    private Runnable getSequenceAlignerSubmitter() {
-//        Runnable sequenceAlignerSubmitter = () -> {
-//            SequenceService.AlignSubmitResult alignSubmitResult = sequenceService.alignSequences();
-//            System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
-//                                             alignSubmitResult.getDownloadedSequencesSince(),
-//                                             alignSubmitResult.getSequenceSubmitForAlignment()));
-//        };
-//
-//        return sequenceAlignerSubmitter;
-//    }
+    private Runnable getSequenceAlignerSubmitter() {
+        Runnable sequenceAlignerSubmitter = () -> {
+            System.out.println("INITIATE ALIGNER JOB SUBMIT");
+            SequenceService.AlignSubmitResult alignSubmitResult = sequenceService.alignSequences();
+            System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
+                                             alignSubmitResult.getDownloadedSequencesSince(),
+                                             alignSubmitResult.getSequenceSubmitForAlignment()));
+        };
 
-//    private Runnable getSequenceAlignerChecker() {
-//        Runnable sequenceAlignerSubmitter = () -> {
-//            long jobsFinished = sequenceService.updateAligningSequences();
-//            System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
-//                                             alignSubmitResult.getDownloadedSequencesSince(),
-//                                             alignSubmitResult.getSequenceSubmitForAlignment()));
-//        };
-//
-//        return sequenceAlignerSubmitter;
-//    }
+        return sequenceAlignerSubmitter;
+    }
+
+
+    private Runnable getSequenceAlignerChecker() {
+        Runnable sequenceAlignerSubmitter = () -> {
+            System.out.println("INITIATE ALIGNER JOB CHECK");
+            long jobsFinished = sequenceService.updateAligningSequences();
+            System.out.println(String.format("Aligner jobs updated: %d", jobsFinished));
+        };
+
+        return sequenceAlignerSubmitter;
+    }
+
+
+    private Runnable getSequenceAlignerDownloader() {
+        Runnable sequenceAlignerDownloader = () -> {
+            System.out.println(String.format("INITIATE ALIGNED SEQUENCE DOWNLOADER"));
+            long jobsFinished = sequenceService.processAlignedSequences();
+            System.out.println(String.format("Sequences aligned: %d", jobsFinished));
+        };
+
+        return sequenceAlignerDownloader;
+    }
+
+
+    public static class CatchingRunnable implements Runnable{
+        private final Runnable delegate;
+
+        public CatchingRunnable(Runnable runnable) {
+            this.delegate = runnable;
+        }
+
+        @Override
+        public void run() {
+            try {
+                delegate.run();
+            } catch (Exception e) {
+                System.out.println("Exception Occurred "+e.getMessage()); // Log, notify etc...
+                e.printStackTrace();
+//                throw e;
+            }
+        }
+    }
 }
-//-->H7N7------
