@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 public class Utils {
 
-    public static List<Sequence> mapperNotYetWorkingForMe(SequenceServiceForTest.SequenceTest sequenceTest) {
+    public static List<Sequence> mapperNotYetWorkingForMe(SequenceServiceForTest.SequenceTestable sequenceTest) {
         return sequenceTest.getSequenceList()
                            .stream()
                            .map(st -> Sequence.builder()

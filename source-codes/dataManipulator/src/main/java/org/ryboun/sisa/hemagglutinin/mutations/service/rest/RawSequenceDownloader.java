@@ -1,9 +1,9 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service.rest;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.client.WireMock;
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+//import com.github.tomakehurst.wiremock.WireMockServer;
+//import com.github.tomakehurst.wiremock.client.WireMock;
+//import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+//import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.annotation.PostConstruct;
@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceServiceForTest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -42,34 +43,34 @@ public class RawSequenceDownloader {
 
     @PostConstruct
     void init() {
-        //FIXME - check if such a reuse is allowed (WebClient is IIRC immutable)
-
-        WireMockConfiguration w = WireMockConfiguration.wireMockConfig().dynamicPort();
-        System.out.println("PROBABLE PORT: " + w.dynamicPort().portNumber());
-        WireMockServer wireMockServer = new WireMockServer(w);
-
-        //        WireMockServer wireMockServer = new WireMockServer(8080);
-        wireMockServer.start();
-        webClient = WebClient.builder().baseUrl(wireMockServer.baseUrl()).build();
-
-        //wireMockServer.stubFor(WireMock.get("entrez/eutils/esearch.fcgi?db=nucleotide&term=txid333278%5BOrganism%5D%20AND%20hemagglutinin%5BAll%20Fields%5D%20AND%20(%222021/01/01%22%5B%60PDAT%5D%20:%20%222021/01/03%22%5BPDAT%5D)&usehistory=y").willReturn(WireMock.ok(esearch)));
-        wireMockServer.stubFor(WireMock.get(
-                                               "/entrez/eutils/esearch.fcgi?db=nucleotide&term=txid333278%5BOrganism%5D%20AND%20hemagglutinin%5BAll%20Fields%5D%20AND%20(%222021/01/01%22%5B%60PDAT%5D%20:%20%222021/01/03%22%5BPDAT%5D)&usehistory=y")
-                                       .willReturn(aResponse()
-                                                           .withHeader("Content-Type", "text/xml")
-                                                           .withBody(esearch)));
-
-        wireMockServer.stubFor(WireMock.get("/entrez/eutils/efetch.fcgi?db=nucleotide&WebEnv=MCID_61f6329fbc9d2b299b4979e0&query_key=1&retmode=xml&rettype=fasta").willReturn(aResponse()
-                                                                                          .withHeader("Content-Type", "text/xml")
-                                                                                          .withBody(efetch)));
-        //        this.webClient = WebClient.builder()
-        //                .baseUrl(NCBI_EUTILS_BASE_URL) //FIXME - one from properties is not working
-        ////                .baseUrl("https://5fb6fe54-3b8f-4ab4-8963-f69b898d9b64.mock.pstmn.io/")
-        //                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
-        //                .filters(exchangeFilterFunctions -> {
-        //                    exchangeFilterFunctions.add(Utils.logRequest());
-        //                })
-        //                .build();
+//        //FIXME - check if such a reuse is allowed (WebClient is IIRC immutable)
+//
+//        WireMockConfiguration w = WireMockConfiguration.wireMockConfig().dynamicPort();
+//        System.out.println("PROBABLE PORT: " + w.dynamicPort().portNumber());
+//        WireMockServer wireMockServer = new WireMockServer(w);
+//
+//        //        WireMockServer wireMockServer = new WireMockServer(8080);
+//        wireMockServer.start();
+//        webClient = WebClient.builder().baseUrl(wireMockServer.baseUrl()).build();
+//
+//        //wireMockServer.stubFor(WireMock.get("entrez/eutils/esearch.fcgi?db=nucleotide&term=txid333278%5BOrganism%5D%20AND%20hemagglutinin%5BAll%20Fields%5D%20AND%20(%222021/01/01%22%5B%60PDAT%5D%20:%20%222021/01/03%22%5BPDAT%5D)&usehistory=y").willReturn(WireMock.ok(esearch)));
+//        wireMockServer.stubFor(WireMock.get(
+//                                               "/entrez/eutils/esearch.fcgi?db=nucleotide&term=txid333278%5BOrganism%5D%20AND%20hemagglutinin%5BAll%20Fields%5D%20AND%20(%222021/01/01%22%5B%60PDAT%5D%20:%20%222021/01/03%22%5BPDAT%5D)&usehistory=y")
+//                                       .willReturn(aResponse()
+//                                                           .withHeader("Content-Type", "text/xml")
+//                                                           .withBody(esearch)));
+//
+//        wireMockServer.stubFor(WireMock.get("/entrez/eutils/efetch.fcgi?db=nucleotide&WebEnv=MCID_61f6329fbc9d2b299b4979e0&query_key=1&retmode=xml&rettype=fasta").willReturn(aResponse()
+//                                                                                          .withHeader("Content-Type", "text/xml")
+//                                                                                          .withBody(efetch)));
+                this.webClient = WebClient.builder()
+                        .baseUrl(NCBI_EUTILS_BASE_URL) //FIXME - one from properties is not working
+                        .baseUrl("https://5fb6fe54-3b8f-4ab4-8963-f69b898d9b64.mock.pstmn.io/")
+//                        .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
+                        .filters(exchangeFilterFunctions -> {
+                            exchangeFilterFunctions.add(Utils.logRequest());
+                        })
+                        .build();
     }
 
 
@@ -86,7 +87,7 @@ public class RawSequenceDownloader {
     public Mono<SequenceServiceForTest.SequenceTest> efetchNcbi(EsearchResponse esearchResponse) {
         return webClient.get()
                         .uri(uriBuilder -> uriBuilder.path(NCBI_EFETCH_PATH_SEGMENT)
-                                                     .queryParam("db", "nucleotide")
+                                                     .queryParam("db", "protein")
                                                      .queryParam("WebEnv", esearchResponse.getWebEnv())
                                                      .queryParam("query_key", esearchResponse.getQueryKey())
                                                      .queryParam("retmode", "xml")
@@ -105,7 +106,7 @@ public class RawSequenceDownloader {
     private Mono<EsearchResponse> esearchNcbi(LocalDate from, LocalDate to) {
         Mono<EsearchResponse> esearchResponse = webClient.get()
                                                          .uri(uriBuilder -> uriBuilder.path(NCBI_ESEARCH_PATH_SEGMENT)
-                                                                                      .queryParam("db", "nucleotide")
+                                                                                      .queryParam("db", "protein")
                                                                                       .queryParam("term",
                                                                                                   termBuilder(
                                                                                                           "txid333278",
@@ -120,12 +121,12 @@ public class RawSequenceDownloader {
     }
 
 
-    private String termBuilder(String organism, LocalDate from, LocalDate to) {
-        return String.format("%s[Organism] AND hemagglutinin[All Fields] AND (\"%s\"[`PDAT] : \"%s\"[PDAT])",
-                             organism,
-                             formatter.format(from),
-                             formatter.format(to));
-    }
+        private String termBuilder(String organism, LocalDate from, LocalDate to) {
+            return String.format("%s[Organism] AND hemagglutinin[All Fields] AND (\"%s\"[`PDAT] : \"%s\"[PDAT])",
+                                 organism,
+                                 formatter.format(from),
+                                 formatter.format(to));
+        }
 
 
     /////******-----******/////

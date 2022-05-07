@@ -1,8 +1,8 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
-import java.io.IOException;
+//import com.github.tomakehurst.wiremock.WireMockServer;
+//import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+//import okhttp3.mockwebserver.MockWebServer;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,8 +14,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.mockwebserver.MockResponse;
-import okhttp3.mockwebserver.MockWebServer;
+//import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
@@ -81,34 +81,23 @@ public class SequenceService {
     @Autowired
     SequenceDownloadEventRepository sequenceDownloadEventRepository;
 
-
-    public static MockWebServer mockBackEnd;
-    @PostConstruct
-    void init() {
-
-    }
-
-//    void initMockServer() throws IOException {
-//        mockBackEnd = new MockWebServer();
-//        mockBackEnd.start();
-//        String baseUrl = String.format("http://localhost:%s",
-//                                       mockBackEnd.getPort());
 //
-//        mockBackEnd.enqueue(new MockResponse()
-//                                    .setBody(esearch)
-//                                    .addHeader("Content-Type", "application/json"));
+//    public static MockWebServer mockBackEnd;
+//    @PostConstruct
+//    void init() {
+//
 //    }
-
-    void initWireMock() {
-        WireMockServer wireMockServer;
-        WebClient webClient;
-
-        wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig().dynamicPort());
-        wireMockServer.start();
-        webClient = WebClient.builder().baseUrl(wireMockServer.baseUrl()).build();
-    }
-
-
+//
+//    void initWireMock() {
+//        WireMockServer wireMockServer;
+//        WebClient webClient;
+//
+//        wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig().dynamicPort());
+//        wireMockServer.start();
+//        webClient = WebClient.builder().baseUrl(wireMockServer.baseUrl()).build();
+//    }
+//
+//
 
     public List<Sequence> findAllSequences() {
         //        alignSequences();
@@ -396,6 +385,8 @@ public class SequenceService {
                                                  .map(sequenceRepository::save)
                                                  .collect(Collectors.toList());
 
+        System.out.println("savedSequences.size(): " + savedSequences.size());
+        System.out.println("sequenceRepository.findAll().size(): " + sequenceRepository.findAll().size());
         return savedSequences != null ? savedSequences.size() : 0;
     }
 

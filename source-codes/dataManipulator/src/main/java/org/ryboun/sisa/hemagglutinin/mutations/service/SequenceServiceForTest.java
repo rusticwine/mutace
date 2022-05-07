@@ -57,7 +57,7 @@ public class SequenceServiceForTest {
     @PostConstruct
     void init() {
         try {
-            SequenceTest st = loadDbData();
+            SequenceTestable st = loadDbData();
             List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(st);
             List<Sequence> savedSequences = sequences.stream()
                                                      .map(s -> sequenceService.saveSequence(s))
@@ -79,8 +79,13 @@ public class SequenceServiceForTest {
     }
 
 
-    private SequenceTest loadDbData() throws JAXBException {
+    private SequenceTestGenepept loadDbData() throws JAXBException {
 
+        return loadTestSequencesInGenepept();
+    }
+
+
+    private SequenceTest loadTestSequencesInFasta() throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(SequenceTest.class);
         InputStream is = this.getClass().getClassLoader().getResourceAsStream("sequences1Hemagglutinin.xml");
         SequenceTest st = (SequenceTest) context.createUnmarshaller().unmarshal(is);
@@ -88,6 +93,13 @@ public class SequenceServiceForTest {
         return st;
     }
 
+    private SequenceTestGenepept loadTestSequencesInGenepept() throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(SequenceTestGenepept.class);
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("sequences1HemagglutininGenepept.xml");
+        SequenceTestGenepept st = (SequenceTestGenepept) context.createUnmarshaller().unmarshal(is);
+
+        return st;
+    }
 
     private static String readFileFromResources(String fileName) throws IOException {
         return IOUtils.resourceToString(fileName, StandardCharsets.UTF_8);
@@ -119,7 +131,6 @@ public class SequenceServiceForTest {
         while ((line = br.readLine()) != null) {
             sb.append(line.replace("\r", "").replace("\n", ""));
         }
-        //String normalizedAlignedSequencesStr = StringUtils.chomp(new String(is.readAllBytes()).trim());
         String normalizedAlignedSequencesStr = sb.toString();
         String[] normalizedAlignedSequences = StringUtils.splitByWholeSeparator(normalizedAlignedSequencesStr,
                                                                                 NEW_SEQUENCE_MARKER);
@@ -194,18 +205,57 @@ public class SequenceServiceForTest {
     }
 
 
+    @XmlRootElement(name = "GBSet")
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @Data
+    public static class SequenceTestGenepept implements SequenceTestable {
+
+        @XmlElement(name = "GBSeq")
+        @Getter
+        private List<SequenceTestableInner> sequenceList;
+
+        @XmlRootElement(name = "GBSeq")
+        @Getter
+        public static class SequenceT2 implements SequenceTestableInner {
+
+            @XmlElement(name = "GBSeq_sequence")
+            private String sequence;
+
+            @XmlElement(name = "GBSeq_organism")
+            private String organism;
+
+            @XmlElement(name = "GBSeq_feature/GBFeature/GBFeature_quals/GBQualifier/GBQualifier_value")
+            private String taxid;
+
+            @XmlElement(name = "GBSeq_accession-version")
+            private String accver;
+        }
+    }
+
+    public interface SequenceTestable {
+
+        List<SequenceTestableInner> getSequenceList();
+
+        public interface SequenceTestableInner {
+            String getSequence();
+            String getOrganism();
+            String getTaxid();
+            String getAccver();
+        }
+    }
+
     @XmlRootElement(name = "TSeqSet")
     @XmlAccessorType(XmlAccessType.FIELD)
     @Data
-    public static class SequenceTest {
+    public static class SequenceTest implements SequenceTestable {
 
         @XmlElement(name = "TSeq")
-        private List<SequenceTest.SequenceT2> sequenceList;
+        private List<SequenceTestableInner> sequenceList;
 
         @XmlRootElement(name = "TSeq")
         //    @Data
         @Getter
-        public static class SequenceT2 {
+        public static class SequenceT2 implements SequenceTestableInner {
 
             @XmlElement(name = "TSeq_sequence")
             private String sequence;

@@ -62,15 +62,15 @@ public class Runners {
 
         Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
         alignerService = Executors.newSingleThreadScheduledExecutor();
-//        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 7, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
+        downloaderService.scheduleAtFixedRate(sequenceAlignSubmitter, 7, alignerSubmitterPeriod.getSeconds(), TimeUnit.SECONDS);
 
         Runnable sequenceAlignChecker = getSequenceAlignerChecker();
         alignerService = Executors.newSingleThreadScheduledExecutor();
-//        downloaderService.scheduleAtFixedRate(sequenceAlignChecker, 14, alignerCheckerPeriod.getSeconds(), TimeUnit.SECONDS);
+        downloaderService.scheduleAtFixedRate(sequenceAlignChecker, 14, alignerCheckerPeriod.getSeconds(), TimeUnit.SECONDS);
 
         Runnable sequenceAlignDownloader = getSequenceAlignerDownloader();
         alignerService = Executors.newSingleThreadScheduledExecutor();
-//        downloaderService.scheduleAtFixedRate(sequenceAlignDownloader, 21, alignerDownloaderPeriod.getSeconds(), TimeUnit.SECONDS);
+        downloaderService.scheduleAtFixedRate(sequenceAlignDownloader, 21, alignerDownloaderPeriod.getSeconds(), TimeUnit.SECONDS);
 
     }
 
