@@ -212,7 +212,7 @@ public class SequenceServiceForTest {
 
         @XmlElement(name = "GBSeq")
         @Getter
-        private List<SequenceTestableInner> sequenceList;
+        private List<SequenceTestGenepept.SequenceT2> sequenceList;
 
         @XmlRootElement(name = "GBSeq")
         @Getter
@@ -234,7 +234,7 @@ public class SequenceServiceForTest {
 
     public interface SequenceTestable {
 
-        List<SequenceTestableInner> getSequenceList();
+        List<? extends SequenceTestableInner> getSequenceList();
 
         public interface SequenceTestableInner {
             String getSequence();
@@ -250,7 +250,7 @@ public class SequenceServiceForTest {
     public static class SequenceTest implements SequenceTestable {
 
         @XmlElement(name = "TSeq")
-        private List<SequenceTestableInner> sequenceList;
+        private List<SequenceTest.SequenceT2> sequenceList;
 
         @XmlRootElement(name = "TSeq")
         //    @Data

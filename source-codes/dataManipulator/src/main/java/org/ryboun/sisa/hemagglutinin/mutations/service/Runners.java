@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
-@Service
+//@Service
 public class Runners {
 /*
  - Ryboun
@@ -51,7 +51,7 @@ public class Runners {
     }
 
 
-    @PostConstruct
+//    @PostConstruct
     void initExecutors() {
         //somehow handle dates to download from and to
         Runnable sequenceDownloader = getSequenceDownloader();
