@@ -13,15 +13,17 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
-import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceServiceForTest;
+import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceGenepeptList;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 
 @Service
-public class RawSequenceDownloader {
+@Profile({"default","dev"})
+public class NcbiRawSequenceDownloader implements RawSequenceDownloaderService {
 
     @Value("${ncbi.downloader.baseUrl}")
     public String NCBI_EUTILS_BASE_URL;
@@ -79,27 +81,29 @@ public class RawSequenceDownloader {
     }
 
 
-    public Mono<SequenceServiceForTest.SequenceTest> downloadSequencesFrom(LocalDate from, LocalDate to) {
+    /**
+     * First search on NSBI, then use the returned (kind of) "token" to retrieve results with another second, fetch, call
+     * @param from
+     * @param to
+     * @return
+     */
+    public Mono<SequenceGenepeptList> downloadSequencesFromTo(LocalDate from, LocalDate to) {
         return esearchNcbi(from, to).flatMap(this::efetchNcbi);
     }
 
 
-    public Mono<SequenceServiceForTest.SequenceTest> efetchNcbi(EsearchResponse esearchResponse) {
+    private Mono<SequenceGenepeptList> efetchNcbi(EsearchResponse esearchResponse) {
         return webClient.get()
                         .uri(uriBuilder -> uriBuilder.path(NCBI_EFETCH_PATH_SEGMENT)
                                                      .queryParam("db", "protein")
                                                      .queryParam("WebEnv", esearchResponse.getWebEnv())
                                                      .queryParam("query_key", esearchResponse.getQueryKey())
                                                      .queryParam("retmode", "xml")
-                                                     .queryParam("rettype", "fasta")
+                                .queryParam("rettype", "genepept")
+//                                                     .queryParam("rettype", "fasta")
                                                      .build())
                         .retrieve()
-                        .bodyToMono(SequenceServiceForTest.SequenceTest.class);
-        //                .bodyToMono(String.class)
-        //                .block();
-
-        //        System.out.println(sequenceTest);
-        //        return sequenceTest;
+                        .bodyToMono(SequenceGenepeptList.class);
     }
 
 
@@ -121,12 +125,12 @@ public class RawSequenceDownloader {
     }
 
 
-        private String termBuilder(String organism, LocalDate from, LocalDate to) {
-            return String.format("%s[Organism] AND hemagglutinin[All Fields] AND (\"%s\"[`PDAT] : \"%s\"[PDAT])",
-                                 organism,
-                                 formatter.format(from),
-                                 formatter.format(to));
-        }
+    private String termBuilder(String organism, LocalDate from, LocalDate to) {
+        return String.format("%s[Organism] AND hemagglutinin[All Fields] AND (\"%s\"[`PDAT] : \"%s\"[PDAT])",
+                             organism,
+                             formatter.format(from),
+                             formatter.format(to));
+    }
 
 
     /////******-----******/////

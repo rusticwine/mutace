@@ -2,6 +2,7 @@ package org.ryboun.sisa.hemagglutinin.mutations.service.rest;
 
 import org.ryboun.sisa.module.alignment.AlignDto;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,8 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
-public class EbiAligner {
+@Profile({"default","dev"})
+public class EbiAligner implements AlignerService {
 
 
     private static final String RESULT_TYPE = "out";

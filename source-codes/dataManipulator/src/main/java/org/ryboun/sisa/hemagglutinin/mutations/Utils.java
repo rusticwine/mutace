@@ -2,19 +2,19 @@ package org.ryboun.sisa.hemagglutinin.mutations;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
-import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceServiceForTest;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import reactor.core.publisher.Mono;
 
 
 public class Utils {
 
-    public static List<Sequence> mapperNotYetWorkingForMe(SequenceServiceForTest.SequenceTestable sequenceTest) {
+    public static List<Sequence> mapperNotYetWorkingForMe(SequenceTestable sequenceTest) {
         return sequenceTest.getSequenceList()
                            .stream()
                            .map(st -> Sequence.builder()

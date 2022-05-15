@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import javax.annotation.PostConstruct;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +28,7 @@ import org.ryboun.sisa.hemagglutinin.mutations.repository.ReferenceSequenceRepos
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceDownloadEventRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.service.rest.RawSequenceDownloader;
+import org.ryboun.sisa.hemagglutinin.mutations.service.rest.NcbiRawSequenceDownloader;
 import org.ryboun.sisa.module.alignment.AlignDto;
 import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 
@@ -67,7 +66,7 @@ public class SequenceService {
     SequenceRepository sequenceRepository;
 
     @Autowired
-    RawSequenceDownloader rawSequenceDownloader;
+    NcbiRawSequenceDownloader ncbiRawSequenceDownloader;
 
     @Autowired
     AlignedSequenceRepository alignedSequenceRepository;
@@ -394,7 +393,7 @@ public class SequenceService {
     @Transactional
     public Mono<List<Sequence>> downloadSequencesFromTo(LocalDate downloadedDateTimeFrom,
                                                         LocalDate downloadedDateTimeTo) {
-        return rawSequenceDownloader.downloadSequencesFrom(downloadedDateTimeFrom, downloadedDateTimeTo)
+        return ncbiRawSequenceDownloader.downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo)
                                     .map(Utils::mapperNotYetWorkingForMe)
                                     .map(sequences -> {
                                         sequences.stream().forEach(sequenceRepository::save);
@@ -404,9 +403,9 @@ public class SequenceService {
 
 
     @Transactional
-    public Mono<RawSequenceDownloader.EsearchResponse> downloadSequencesFromTo2(LocalDate downloadedDateTimeFrom,
-                                                                                LocalDate downloadedDateTimeTo) {
-        Mono<RawSequenceDownloader.EsearchResponse> sequenceTest = rawSequenceDownloader.downloadSequencesFrom2(
+    public Mono<NcbiRawSequenceDownloader.EsearchResponse> downloadSequencesFromTo2(LocalDate downloadedDateTimeFrom,
+                                                                                    LocalDate downloadedDateTimeTo) {
+        Mono<NcbiRawSequenceDownloader.EsearchResponse> sequenceTest = ncbiRawSequenceDownloader.downloadSequencesFrom2(
                 downloadedDateTimeFrom,
                 downloadedDateTimeTo);
         return sequenceTest;
