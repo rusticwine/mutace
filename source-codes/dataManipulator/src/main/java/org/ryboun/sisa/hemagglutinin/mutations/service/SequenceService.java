@@ -3,19 +3,11 @@ package org.ryboun.sisa.hemagglutinin.mutations.service;
 //import com.github.tomakehurst.wiremock.WireMockServer;
 //import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 //import okhttp3.mockwebserver.MockWebServer;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-//import org.apache.commons.lang3.StringUtils;
-//import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
@@ -23,21 +15,25 @@ import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequenceDownloadEvent;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.AlignedSequenceRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.ReferenceSequenceRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceDownloadEventRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.service.rest.NcbiRawSequenceDownloader;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.*;
+import org.ryboun.sisa.hemagglutinin.mutations.service.rest.AlignerServiceMock;
+import org.ryboun.sisa.hemagglutinin.mutations.service.rest.RawSequenceDownloaderService;
 import org.ryboun.sisa.module.alignment.AlignDto;
-import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -60,22 +56,19 @@ public class SequenceService {
     private String jobType;
 
     @Autowired
-    ReferenceSequenceRepository referenceSequenceRepository;
-
+    RawSequenceDownloaderService rawSequenceDownloader;
     @Autowired
     SequenceRepository sequenceRepository;
-
     @Autowired
-    NcbiRawSequenceDownloader ncbiRawSequenceDownloader;
-
+    ReferenceSequenceRepository referenceSequenceRepository;
+    @Autowired
+    SequencesProcessingRepository sequencesProcessingRepository;
     @Autowired
     AlignedSequenceRepository alignedSequenceRepository;
 
     @Autowired
-    SequencesProcessingRepository sequencesProcessingRepository;
-
-    @Autowired
-    Aligner aligner;
+    @Lazy //TODO - check why
+    AlignerServiceMock alignerService;
 
     @Autowired
     SequenceDownloadEventRepository sequenceDownloadEventRepository;
@@ -226,7 +219,7 @@ public class SequenceService {
                                                                                                                   .build()))
                                                                                       .map(sequenceDtoPair -> Pair.of(
                                                                                               sequenceDtoPair.getLeft(),
-                                                                                              aligner.alignWithSingleReference(
+                                                                                              alignerService.alignWithSingleReference(
                                                                                                       sequenceDtoPair.getRight())))
                                                                                       .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft()
                                                                                                                                   .setAlignJobId(
@@ -254,7 +247,7 @@ public class SequenceService {
     static class AlignerChecker {
 
         SequencesProcessingStatus sequencesProcessingStatus;
-        String jobResult;
+        String jobStatus;
     }
 
 
@@ -268,14 +261,14 @@ public class SequenceService {
                                                                             as.getStatus(),
                                                                             Utils.accverFromSequencesToString(as.getRawSequences())))
                     .map(sequenceProcessing -> new AlignerChecker(sequenceProcessing,
-                                                                  aligner.checkJobStatus(sequenceProcessing.getAlignJobId())))
+                                                                  alignerService.checkJobStatus(sequenceProcessing.getAlignJobId())))
                     .peek(alignerChecker -> System.out.println(String.format(
                             "Alignment checker/updater. For sequences %s aligning in a job id %s job the result is %s",
                             Utils.accverFromSequencesToString(alignerChecker.getSequencesProcessingStatus()
                                                                             .getRawSequences()),
                             alignerChecker.getSequencesProcessingStatus().getAlignJobId(),
-                            alignerChecker.getJobResult())))
-                    .filter(alignerChecker -> StringUtils.endsWithAny(alignerChecker.getJobResult(),
+                            alignerChecker.getJobStatus())))
+                    .filter(alignerChecker -> StringUtils.endsWithAny(alignerChecker.getJobStatus(),
                                                                       "FINISHED",
                                                                       "DONE")) //TODO - what's the correct one?
                     .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
@@ -285,7 +278,7 @@ public class SequenceService {
     }
 
 
-    Integer[] build(String alignedSequences, SequencesProcessingStatus inputSequences) {
+    Integer[] build(SequencesProcessingStatus inputSequences, String alignedSequences) {
         final StringBuilder alignedSequencesSb = new StringBuilder(alignedSequences);
         List<Integer> indexes = inputSequences.getRawSequences().stream()
                 .map(Sequence::getAccver)
@@ -298,8 +291,8 @@ public class SequenceService {
     public long processAlignedSequences() {
         List<SequencesProcessingStatus> alignedSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED);
         List<Integer[]> result = alignedSequences.stream()
-                .map(sequenceProcessingAligned -> Pair.of(sequenceProcessingAligned, aligner.getJobResult(sequenceProcessingAligned.getAlignJobId())))
-                .map(statusAlignmentPair -> build(statusAlignmentPair.getRight(), statusAlignmentPair.getLeft()))
+                .map(sequenceProcessingAligned -> Pair.of(sequenceProcessingAligned, alignerService.getJobResult(sequenceProcessingAligned.getAlignJobId())))
+                .map(statusAlignmentPair -> build(statusAlignmentPair.getLeft(), statusAlignmentPair.getRight()))
                 .collect(Collectors.toList());
 //                                              .map(sequenceProcessingAligned -> {
 //            String jobId = sequenceProcessingAligned.getAlignJobId();
@@ -349,7 +342,7 @@ public class SequenceService {
     public int downloadAndSaveNewSequences(int downloaderPeriodDays) {
         LocalDate dateFrom = getLstSequenceDownloadDate();
         LocalDate dateTo = dateFrom.plusDays(downloaderPeriodDays);
-        System.out.println("date to start from - to: " + dateFrom.toString() + " - " + dateTo.toString());
+        System.out.println("date to start from - to: " + dateFrom + " - " + dateTo);
         //move here some audit - like collection with data: from, to, sequenceCount
         int newDownloadedSequnceCount = processNewDownloadedSequences(downloadSequencesFromTo(dateFrom, dateTo));
 
@@ -393,7 +386,7 @@ public class SequenceService {
     @Transactional
     public Mono<List<Sequence>> downloadSequencesFromTo(LocalDate downloadedDateTimeFrom,
                                                         LocalDate downloadedDateTimeTo) {
-        return ncbiRawSequenceDownloader.downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo)
+        return rawSequenceDownloader.downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo)
                                     .map(Utils::mapperNotYetWorkingForMe)
                                     .map(sequences -> {
                                         sequences.stream().forEach(sequenceRepository::save);
@@ -402,14 +395,14 @@ public class SequenceService {
     }
 
 
-    @Transactional
-    public Mono<NcbiRawSequenceDownloader.EsearchResponse> downloadSequencesFromTo2(LocalDate downloadedDateTimeFrom,
-                                                                                    LocalDate downloadedDateTimeTo) {
-        Mono<NcbiRawSequenceDownloader.EsearchResponse> sequenceTest = ncbiRawSequenceDownloader.downloadSequencesFrom2(
-                downloadedDateTimeFrom,
-                downloadedDateTimeTo);
-        return sequenceTest;
-    }
+//    @Transactional
+//    public Mono<NcbiRawSequenceDownloader.EsearchResponse> downloadSequencesFromTo2(LocalDate downloadedDateTimeFrom,
+//                                                                                    LocalDate downloadedDateTimeTo) {
+//        Mono<NcbiRawSequenceDownloader.EsearchResponse> sequenceTest = rawSequenceDownloader.downloadSequencesFrom2(
+//                downloadedDateTimeFrom,
+//                downloadedDateTimeTo);
+//        return sequenceTest;
+//    }
 
 
     //TODO - move to distinc service??

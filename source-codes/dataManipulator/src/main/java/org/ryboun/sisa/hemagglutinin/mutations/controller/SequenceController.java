@@ -44,12 +44,12 @@ public class SequenceController {
 
         return sequenceService.downloadSequencesFromTo(downloadedDateTimeFrom.toLocalDate(), downloadedDateTimeTo.toLocalDate());
     }
-
-    @GetMapping(path = "/testDownloadSequences2")
-    public Mono<NcbiRawSequenceDownloader.EsearchResponse> testDownloadSequences2(
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeFrom,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeTo) {
-
-        return sequenceService.downloadSequencesFromTo2(downloadedDateTimeFrom.toLocalDate(), downloadedDateTimeTo.toLocalDate());
-    }
+//
+//    @GetMapping(path = "/testDownloadSequences2")
+//    public Mono<NcbiRawSequenceDownloader.EsearchResponse> testDownloadSequences2(
+//            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeFrom,
+//            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeTo) {
+//
+//        return sequenceService.downloadSequencesFromTo2(downloadedDateTimeFrom.toLocalDate(), downloadedDateTimeTo.toLocalDate());
+//    }
 }

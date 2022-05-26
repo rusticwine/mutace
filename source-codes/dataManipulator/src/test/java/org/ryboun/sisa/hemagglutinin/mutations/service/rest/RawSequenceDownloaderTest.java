@@ -2,6 +2,7 @@ package org.ryboun.sisa.hemagglutinin.mutations.service.rest;
 
 import org.junit.jupiter.api.Test;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceGenepeptList;
+import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
@@ -26,8 +27,8 @@ class RawSequenceDownloaderTest {
 
     @Test
     void downloadSequencesFrom() {
-        Mono<SequenceGenepeptList> sequencesMono = ncbiRawSequenceDownloader.downloadSequencesFromTo(testDateFrom, testDateTo);
-        SequenceGenepeptList sequences = sequencesMono.block();
+        Mono<SequenceTestable> sequencesMono = ncbiRawSequenceDownloader.downloadSequencesFromTo(testDateFrom, testDateTo);
+        SequenceTestable sequences = sequencesMono.block();
         System.out.println(sequences.getSequenceList().size());
         Arrays.toString(sequences.getSequenceList().toArray());
     }

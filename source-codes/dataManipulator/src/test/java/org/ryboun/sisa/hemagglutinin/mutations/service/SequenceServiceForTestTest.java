@@ -15,9 +15,10 @@ class SequenceServiceForTestTest {
         sequenceServiceForTest = new SequenceServiceForTest();
     }
 
-    @Test
-    void loadAlignedNormalizedSequences() throws IOException {
-        sequenceServiceForTest.loadAlignedNormalizedSequences();
-    }
+//    calling method moved to a ...mock. May discard this whole class
+//    @Test
+//    void loadAlignedNormalizedSequences() throws IOException {
+//        sequenceServiceForTest.loadAlignedNormalizedSequences();
+//    }
 
 }

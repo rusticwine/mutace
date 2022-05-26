@@ -8,11 +8,13 @@ import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.ReferenceSequenceRepository;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.PostConstruct;
@@ -24,13 +26,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@Service
 @Profile("dev-mock")
 public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderService {
 
@@ -39,29 +42,72 @@ public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderSe
     @Autowired
     Environment env;
 
-    @Autowired
-    private SequenceService sequenceService;
+    int BATCH_SIZE = 100;
 
-    private static final AtomicInteger invocationCounter = new AtomicInteger(0);
+//    @Autowired
+//    private SequenceService sequenceService;
+
+    @Autowired
     private ReferenceSequenceRepository referenceSequenceRepository;
 
+    @Autowired
+    SequenceRepository sequenceRepository;
+
+    private static final AtomicInteger invocationCounter = new AtomicInteger(0);
+
     @Override
-    public Mono<SequenceGenepeptList> downloadSequencesFromTo(LocalDate from, LocalDate to) {
+    public Mono<SequenceTestable> downloadSequencesFromTo(LocalDate from, LocalDate to) {
 
         invocationCounter.incrementAndGet();
-        return null;
+        //SequenceT2 implements SequenceTestableInner
+        List<? extends SequenceTestable.SequenceTestableInner> filteredSequences = genePeptSequences.getSequenceList().stream()
+                .filter(sequence -> from.isBefore(sequence.getDateCreated()) && to.isAfter(sequence.getDateCreated()))
+                .collect(Collectors.toList());
+
+        return Mono.just(new SequenceGenepeptList((List<SequenceGenepeptList.SequenceT2>) filteredSequences));
     }
 
+    SequenceTestable genePeptSequences;
 
+    ///////////-------------------------------------/////////////
+    ///////////-------------------------------------/////////////
+    ///////////-------------------------------------/////////////
     @PostConstruct
     void init() {
         System.out.println("ACTIVE PROFILES: " + Arrays.toString(env.getActiveProfiles()));
-        System.out.println("MANUAL ACTIVE PROFILE: " + profile);
+        try {
+            genePeptSequences = loadDbData();
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private SequenceGenepeptList loadDbData() throws JAXBException {
+
+        return loadTestSequencesInGenepept();
+    }
+
+
+    private SequenceGenepeptList loadTestSequencesInGenepept() throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(SequenceGenepeptList.class);
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("sequences1HemagglutininGenepept.xml");
+        SequenceGenepeptList st = (SequenceGenepeptList) context.createUnmarshaller().unmarshal(is);
+
+        return st;
+    }
+
+
+/*
+    @PostConstruct
+    void init() {
+        System.out.println("ACTIVE PROFILES: " + Arrays.toString(env.getActiveProfiles()));
         try {
             SequenceTestable st = loadDbData();
             List<Sequence> sequences = Utils.mapperNotYetWorkingForMe(st);
             List<Sequence> savedSequences = sequences.stream()
-                    .map(s -> sequenceService.saveSequence(s))
+//                    .map(s -> sequenceService.saveSequence(s))
+                    .map(s -> sequenceRepository.save(s))
                     .collect(Collectors.toList());
 
             //            SequencesProcessingStatus downloadedSequences = addDownloadedSequences(savedSequences);
@@ -131,9 +177,8 @@ public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderSe
                 .map(sequenceService::saveSequence) //use saved sequence for AlignedSequence creation
                 .collect(Collectors.toList());
 
-        int BATCH = 100;
-        List<AlignedSequence> alignedSequences = IntStream.range(0, (sequences.size() + BATCH - 1) / BATCH)
-                .mapToObj(i -> sequences.subList(i * BATCH, Math.min(sequences.size(), (i + 1) * BATCH)))
+        List<AlignedSequence> alignedSequences = IntStream.range(0, (sequences.size() + BATCH_SIZE - 1) / BATCH_SIZE)
+                .mapToObj(i -> sequences.subList(i * BATCH_SIZE, Math.min(sequences.size(), (i + 1) * BATCH_SIZE)))
                 .map(sequenceBatch -> {
                     List<AlignedSequence.Alignment> alignments = sequenceBatch.stream()
                             .map(sequence -> AlignedSequence.Alignment.builder()
@@ -172,4 +217,5 @@ public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderSe
                 .sequence(sequence[2].trim())
                 .build();
     }
+    /**/
 }

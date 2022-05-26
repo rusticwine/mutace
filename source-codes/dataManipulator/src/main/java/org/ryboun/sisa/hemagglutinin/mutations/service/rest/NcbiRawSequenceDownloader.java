@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceGenepeptList;
+import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -87,12 +88,12 @@ public class NcbiRawSequenceDownloader implements RawSequenceDownloaderService {
      * @param to
      * @return
      */
-    public Mono<SequenceGenepeptList> downloadSequencesFromTo(LocalDate from, LocalDate to) {
+    public Mono<SequenceTestable> downloadSequencesFromTo(LocalDate from, LocalDate to) {
         return esearchNcbi(from, to).flatMap(this::efetchNcbi);
     }
 
 
-    private Mono<SequenceGenepeptList> efetchNcbi(EsearchResponse esearchResponse) {
+    private Mono<? extends SequenceTestable> efetchNcbi(EsearchResponse esearchResponse) {
         return webClient.get()
                         .uri(uriBuilder -> uriBuilder.path(NCBI_EFETCH_PATH_SEGMENT)
                                                      .queryParam("db", "protein")
