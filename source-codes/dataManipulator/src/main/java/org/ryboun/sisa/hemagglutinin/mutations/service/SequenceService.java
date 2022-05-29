@@ -10,11 +10,9 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
+import org.ryboun.sisa.hemagglutinin.mutations.Parsers;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.SequenceDownloadEvent;
-import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
+import org.ryboun.sisa.hemagglutinin.mutations.model.*;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.*;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.AlignerServiceMock;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.RawSequenceDownloaderService;
@@ -28,7 +26,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.PostConstruct;
 import javax.validation.constraints.NotNull;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -66,7 +66,6 @@ public class SequenceService {
     SequencesProcessingRepository sequencesProcessingRepository;
     @Autowired
     AlignedSequenceRepository alignedSequenceRepository;
-
     @Autowired
     @Lazy //TODO - check why
     AlignerServiceMock alignerService;
@@ -74,23 +73,16 @@ public class SequenceService {
     @Autowired
     SequenceDownloadEventRepository sequenceDownloadEventRepository;
 
-//
-//    public static MockWebServer mockBackEnd;
-//    @PostConstruct
-//    void init() {
-//
-//    }
-//
-//    void initWireMock() {
-//        WireMockServer wireMockServer;
-//        WebClient webClient;
-//
-//        wireMockServer = new WireMockServer(WireMockConfiguration.wireMockConfig().dynamicPort());
-//        wireMockServer.start();
-//        webClient = WebClient.builder().baseUrl(wireMockServer.baseUrl()).build();
-//    }
-//
-//
+
+    @PostConstruct
+    void init() throws IOException {
+        List<ReferenceSequence> referenceSequences = Parsers.loadFastaSequenceFromResource();
+        log.debug(CollectionUtils.isEmpty(referenceSequences) ? "no reference sequence loaded" :  referenceSequences.stream().map(ReferenceSequence::getAccver).collect(Collectors.joining()));
+        referenceSequenceRepository.saveAll(referenceSequences);
+//        System.out.println(referenceSequenceRepository.findAll());
+//        referenceSequenceRepository.saveAll(referenceSequences);
+//        System.out.println(referenceSequenceRepository.findAll());
+    }
 
     public List<Sequence> findAllSequences() {
         //        alignSequences();

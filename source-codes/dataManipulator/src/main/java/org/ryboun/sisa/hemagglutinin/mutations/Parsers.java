@@ -1,16 +1,59 @@
 package org.ryboun.sisa.hemagglutinin.mutations;
 
+import lombok.Builder;
+import lombok.Singular;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Parsers {
+
+    //TODO - move outside util class
+    public static final String REFERENCE_SEQUENCE_RESOURCE = "referenceSequences.fasta";
+    public static final String FASTA_SEQUENCE_SEPARATOR = ">";
+    public static final String SPACE_CHARACTERS = "\u0020\t\u00A0\u1680\u180e\u2000\u200a\u202f\u205f\u3000";
+
+    public static List<ReferenceSequence> loadFastaSequenceFromResource() throws IOException {
+
+        try (InputStream is = Parsers.class.getClassLoader().getResourceAsStream(REFERENCE_SEQUENCE_RESOURCE);
+             BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+
+            StringBuilder sb = new StringBuilder();
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                sb.append(line.replace("\r", "").replace("\n", ""));
+            }
+            String normalizedAlignedSequencesStr = sb.toString();
+            String[] alignedSequencesStr = StringUtils.splitByWholeSeparator(normalizedAlignedSequencesStr,
+                    FASTA_SEQUENCE_SEPARATOR);
+
+            return Arrays.stream(alignedSequencesStr)
+                    .map(sequencesStr -> StringUtils.split(sequencesStr, "[]"))
+                    .map(sequenceElementsList -> {
+                        String[] accverWithProteing = StringUtils.split(sequenceElementsList[0], SPACE_CHARACTERS);
+                        return ReferenceSequence.builder()
+                                .accver(accverWithProteing[0].trim())
+                                .protein(accverWithProteing[1].trim())
+                                .organism(sequenceElementsList[1].trim())
+                                .sequence(sequenceElementsList[2].trim())
+                                .build();
+                    })
+                    .collect(Collectors.toList());
+        }
+
+    }
 
 //    public List<AlignedSequence> loadAlignedNormalizedSequences() throws IOException {
 //        String NEW_SEQUENCE_MARKER = ">New|";

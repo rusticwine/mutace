@@ -3,3 +3,8 @@ private Runnable getSequenceDownloader() {
 1. get date from/to within single transaction and called within single method in service
 2. date "From" don't estimate based on last download sequence, rather on las "to" dates
 3. Parametrize taxid in NCBI esearch
+
+
+
+RANDOM
+ - what is this? https://modbase.compbio.ucsf.edu/modbase/projects/sg/PDBe-fold/4ifq.PDBe-fold.html
