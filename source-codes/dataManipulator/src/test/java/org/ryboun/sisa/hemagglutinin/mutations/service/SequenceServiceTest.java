@@ -2,32 +2,24 @@ package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 //import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.ryboun.sisa.hemagglutinin.mutations.Application;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
-import org.ryboun.sisa.hemagglutinin.mutations.service.rest.AlignerServiceMock;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.EbiAligner;
 import org.ryboun.sisa.module.alignment.AlignDto;
 import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import reactor.core.publisher.Mono;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
@@ -143,19 +135,16 @@ class SequenceServiceTest {
     @Test
     @Order(5)
     void testAlign1_checkJobStatus() throws InterruptedException {
-        long alignmentJobFinishedCount = sequenceService.updateAligningSequences();
-        System.out.println("alignmentJobFinishedCount: " + alignmentJobFinishedCount);
-        Assertions.assertEquals( 1L, alignmentJobFinishedCount, "Expected alignment job finished count is 1");
+        List<SequencesProcessingStatus> alignmentsStatusesJobsFinished = sequenceService.checkAlignmentDoneAndReturn();
+        System.out.println(String.format("Aligner jobs updated: %d, \ncontent: %s", alignmentsStatusesJobsFinished.size(), StringUtils.join(alignmentsStatusesJobsFinished, "\n")));
+        Assertions.assertEquals( 1L, alignmentsStatusesJobsFinished.size(), "Expected alignment job finished count is 1");
     }
 
 
     @Test
     @Order(6)
     void testAlign1_getResult() {
-        String jobResult = ma.getJobResult(TEST_JOB_ID);
-        Assertions.assertNotNull(jobResult, "There should be some data in job result");
-        jobResult.lines().forEach(l -> System.out.println("LINE: " + l));
-        System.out.println("job result" + System.lineSeparator() + jobResult);
+        long jobsFinished = sequenceService.processAlignedSequences();
     }
 
 

@@ -28,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import reactor.core.publisher.Mono;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -251,8 +252,9 @@ public class SequenceService {
     }
 
 
+    //TODO - separate check job and finished job proccessing
     @Transactional
-    public long updateAligningSequences() {
+    public @NotNull List<SequencesProcessingStatus> checkAlignmentDoneAndReturn() {
         List<SequencesProcessingStatus> aligningSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNING);
         return Utils.<SequencesProcessingStatus>createLoggingStream(aligningSequences,
                                                                     (SequencesProcessingStatus as) -> String.format(
@@ -273,8 +275,10 @@ public class SequenceService {
                                                                       "DONE")) //TODO - what's the correct one?
                     .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
                                                           .setStatus(Sequence.STATUS.ALIGNED))
-                    .map(alignerChecker -> sequencesProcessingRepository.save(alignerChecker.getSequencesProcessingStatus()))
-                    .count();
+//                    .map(alignerChecker -> sequencesProcessingRepository.save(alignerChecker.getSequencesProcessingStatus())) //no need =  changes are propagated
+//                    .count();
+                    .map(AlignerChecker::getSequencesProcessingStatus)
+                    .collect(Collectors.toList());
     }
 
 
@@ -287,11 +291,12 @@ public class SequenceService {
 
         return indexes.toArray(new Integer[indexes.size()]);
     }
+
     @Transactional
     public long processAlignedSequences() {
         List<SequencesProcessingStatus> alignedSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED);
         List<Integer[]> result = alignedSequences.stream()
-                .map(sequenceProcessingAligned -> Pair.of(sequenceProcessingAligned, alignerService.getJobResult(sequenceProcessingAligned.getAlignJobId())))
+                .map(sequenceProcessingStatusAligned -> Pair.of(sequenceProcessingStatusAligned, alignerService.getJobResult(sequenceProcessingStatusAligned.getAlignJobId())))
                 .map(statusAlignmentPair -> build(statusAlignmentPair.getLeft(), statusAlignmentPair.getRight()))
                 .collect(Collectors.toList());
 //                                              .map(sequenceProcessingAligned -> {

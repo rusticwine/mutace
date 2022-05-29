@@ -1,16 +1,17 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-import javax.annotation.PostConstruct;
+
+import org.apache.commons.lang3.StringUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
+import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
 
 //@Service
 public class Runners {
@@ -24,6 +25,7 @@ public class Runners {
 
     @Value("${sequenceDownloader.period}")
     Duration downloaderPeriod;
+
 
     @Value("${sequenceDownloader.periodDuration.days}")
     int downloaderPeriodDays;
@@ -106,8 +108,8 @@ public class Runners {
     private Runnable getSequenceAlignerChecker() {
         Runnable sequenceAlignerSubmitter = () -> {
             System.out.println("INITIATE ALIGNER JOB CHECK");
-            long jobsFinished = sequenceService.updateAligningSequences();
-            System.out.println(String.format("Aligner jobs updated: %d", jobsFinished));
+            List<SequencesProcessingStatus> alignmentsStatusesJobsFinished = sequenceService.checkAlignmentDoneAndReturn();
+            System.out.println(String.format("Aligner jobs updated: %d, \ncontent: %s", alignmentsStatusesJobsFinished.size(), StringUtils.join(alignmentsStatusesJobsFinished, "\n")));
         };
 
         return sequenceAlignerSubmitter;

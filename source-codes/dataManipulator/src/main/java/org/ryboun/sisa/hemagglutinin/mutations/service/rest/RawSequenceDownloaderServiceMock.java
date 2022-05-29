@@ -134,7 +134,7 @@ public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderSe
         return st;
     }
 
-
+copied away
     public List<AlignedSequence> loadAlignedNormalizedSequences() throws IOException {
         String NEW_SEQUENCE_MARKER = ">New|";
 
