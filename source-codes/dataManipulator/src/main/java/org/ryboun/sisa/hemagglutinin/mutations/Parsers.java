@@ -6,6 +6,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
+import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.w3c.dom.ls.LSOutput;
 
 import java.io.BufferedReader;
@@ -15,6 +16,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Parsers {
@@ -29,30 +31,26 @@ public class Parsers {
         try (InputStream is = Parsers.class.getClassLoader().getResourceAsStream(REFERENCE_SEQUENCE_RESOURCE);
              BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
-            StringBuilder sb = new StringBuilder();
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                sb.append(line.replace("\r", "").replace("\n", ""));
-            }
-            String normalizedAlignedSequencesStr = sb.toString();
-            String[] alignedSequencesStr = StringUtils.splitByWholeSeparator(normalizedAlignedSequencesStr,
-                    FASTA_SEQUENCE_SEPARATOR);
-
-            return Arrays.stream(alignedSequencesStr)
-                    .map(sequencesStr -> StringUtils.split(sequencesStr, "[]"))
-                    .map(sequenceElementsList -> {
-                        String[] accverWithProteing = StringUtils.split(sequenceElementsList[0], SPACE_CHARACTERS);
-                        return ReferenceSequence.builder()
-                                .accver(accverWithProteing[0].trim())
-                                .protein(accverWithProteing[1].trim())
-                                .organism(sequenceElementsList[1].trim())
-                                .sequence(sequenceElementsList[2].trim())
-                                .build();
-                    })
-                    .collect(Collectors.toList());
+            String sequencesStr = br.lines().collect(Collectors.joining());
+            return parseSequences(sequencesStr, ReferenceSequence::builder);
         }
+    }
 
+    public static List<Sequence> parseFastaSequences(String sequencesStr) throws IOException {
+
+        return parseSequences(sequencesStr, Sequence::builder);
+    }
+
+    private static <T extends Sequence.SequenceBuilder, T2 extends Sequence> List<T2> parseSequences(String sequences, Supplier<T> sequenceBuilderFactory) {
+
+        String normalizedAlignedSequencesStr = sequences.replace("\r", "").replace("\n", "");
+        String[] alignedSequencesStr = StringUtils.splitByWholeSeparator(normalizedAlignedSequencesStr, FASTA_SEQUENCE_SEPARATOR);
+
+        return Arrays.stream(alignedSequencesStr).map(sequencesStr -> StringUtils.split(sequencesStr, "[]")).map(sequenceElementsList -> {
+            String[] accverWithProteing = StringUtils.split(sequenceElementsList[0], SPACE_CHARACTERS);
+//                    this is doable just becaus objects are the same thouh
+            return (T2) sequenceBuilderFactory.get().accver(accverWithProteing[0].trim()).protein(accverWithProteing[1].trim()).organism(sequenceElementsList[1].trim()).sequence(sequenceElementsList[2].trim()).build();
+        }).collect(Collectors.toList());
     }
 
 //    public List<AlignedSequence> loadAlignedNormalizedSequences() throws IOException {

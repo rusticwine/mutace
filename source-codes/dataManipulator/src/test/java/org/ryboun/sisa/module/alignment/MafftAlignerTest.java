@@ -3,6 +3,7 @@ package org.ryboun.sisa.module.alignment;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.ryboun.sisa.TestUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
@@ -11,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataM
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +40,7 @@ class MafftAlignerTest {
 
 //    @Test
     void alignWithSingleReference() throws IOException {
-        String sequencesString = loadStringFileFromResources(TEST_SEQUENCES_REFERENCE);
+        String sequencesString = TestUtils.loadStringFileFromResources(TEST_SEQUENCES_REFERENCE);
 
         List<Sequence> sequences = parseSequences(sequencesString);
 
@@ -75,20 +75,5 @@ class MafftAlignerTest {
                         .sequence(s)
                         .build())
                 .collect(Collectors.toList());
-    }
-
-    private String loadStringFileFromResources(String filePath) throws IOException {
-        try (BufferedInputStream bis = new BufferedInputStream(this.getClass().getClassLoader()
-                .getResourceAsStream(filePath))) {
-            byte[] contents = new byte[1024];
-
-            int bytesRead = 0;
-            String strFileContents = null;
-            while((bytesRead = bis.read(contents)) != -1) {
-                strFileContents += new String(contents, 0, bytesRead);
-            }
-
-            return strFileContents.substring(4);
-        }
     }
 }
