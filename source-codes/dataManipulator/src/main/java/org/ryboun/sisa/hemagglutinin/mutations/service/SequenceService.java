@@ -76,7 +76,7 @@ public class SequenceService {
 
     @PostConstruct
     void init() throws IOException {
-        List<ReferenceSequence> referenceSequences = Parsers.loadFastaSequenceFromResource();
+        List<ReferenceSequence> referenceSequences = Parsers.loadReferenceSequenceFromResource();
         log.debug(CollectionUtils.isEmpty(referenceSequences) ? "no reference sequence loaded" :  referenceSequences.stream().map(ReferenceSequence::getAccver).collect(Collectors.joining()));
         referenceSequenceRepository.saveAll(referenceSequences);
 //        System.out.println(referenceSequenceRepository.findAll());
@@ -188,7 +188,7 @@ public class SequenceService {
                                                                                       .stream()
                                                                                       .map(entry -> SequencesProcessingStatus.builder()
                                                                                                                              .referenceSequence(
-                                                                                                                                     entry.getKey())
+                                                                                                                                     new ReferenceSequence(entry.getKey()))
                                                                                                                              .rawSequences(
                                                                                                                                      entry.getValue())
                                                                                                                              //                                .alignJobId("not_started")
@@ -310,7 +310,7 @@ public class SequenceService {
     }
 
 
-    public List<AlignedSequence> findAlignedSequences(LocalDateTime startDate, LocalDateTime endDate) {
+    public List<AlignedSequences> findAlignedSequences(LocalDateTime startDate, LocalDateTime endDate) {
         if (startDate != null && endDate != null) {
             return alignedSequenceRepository.downloadDateBetween(startDate, endDate);
         } else if (startDate != null) {
@@ -324,13 +324,13 @@ public class SequenceService {
 
 
     @Transactional
-    public List<AlignedSequence> saveAlignedSequences(List<AlignedSequence> sequence) {
+    public List<AlignedSequences> saveAlignedSequences(List<AlignedSequences> sequence) {
         return alignedSequenceRepository.saveAll(sequence);
     }
 
 
     @Deprecated //just for example sequences. Not usable so far
-    public AlignedSequence saveAlignedSequence(AlignedSequence sequence) {
+    public AlignedSequences saveAlignedSequence(AlignedSequences sequence) {
         return alignedSequenceRepository.save(sequence);
     }
 

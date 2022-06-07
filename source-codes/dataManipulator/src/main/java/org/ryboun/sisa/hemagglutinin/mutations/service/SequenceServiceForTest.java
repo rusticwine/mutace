@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 import org.apache.commons.io.IOUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
+import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.ReferenceSequenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -76,7 +76,7 @@ public class SequenceServiceForTest {
                                               .build();
 
         String json = readFileFromResources("/fromTest/sequences/aligned/alignmentMultiple2.json");
-        AlignedSequence[] alignments = objectMapper.readValue(json, AlignedSequence[].class);
+        AlignedSequences[] alignments = objectMapper.readValue(json, AlignedSequences[].class);
         sequenceService.saveAlignedSequences(Arrays.asList(alignments));
     }
 

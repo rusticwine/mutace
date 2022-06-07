@@ -148,14 +148,13 @@ class SequenceServiceTest {
     }
 
 
-    private List<Sequence> parseSequences(String sequences) {
-        return Arrays.stream(sequences.split(AlignDto.SEQUENCE_SPLITTER))
-                .map(s -> Sequence.builder()
-                        .sequence(s)
-                        .build())
-                .collect(Collectors.toList());
-    }
-
+//    private List<Sequence> parseSequences(String sequences) {
+//        return Arrays.stream(sequences.split(AlignDto.SEQUENCE_SPLITTER))
+//                .map(s -> Sequence.builder()
+//                        .sequence(s)
+//                        .build())
+//                .collect(Collectors.toList());
+//    }
 
 
 //    @Test

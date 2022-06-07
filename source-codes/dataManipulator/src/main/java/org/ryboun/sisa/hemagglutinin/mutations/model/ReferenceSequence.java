@@ -16,4 +16,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 public class ReferenceSequence extends Sequence {
     //to have separate collection for reference. Is that wise?
+
+    public ReferenceSequence(Sequence sequence) {
+        super(sequence);
+    }
 }

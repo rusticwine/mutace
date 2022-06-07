@@ -1,9 +1,8 @@
 package org.ryboun.sisa.hemagglutinin.mutations.controller;
 
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
+import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceService;
-import org.ryboun.sisa.hemagglutinin.mutations.service.rest.NcbiRawSequenceDownloader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +29,7 @@ public class SequenceController {
     }
 
     @GetMapping(path = "/aligned")
-    public List<AlignedSequence> getFilteredAlignedSequences(
+    public List<AlignedSequences> getFilteredAlignedSequences(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeFrom,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime downloadedDateTimeTo) {
 

@@ -1,5 +1,9 @@
 package org.ryboun.sisa.hemagglutinin.mutations;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
@@ -7,6 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
+import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import reactor.core.publisher.Mono;
@@ -68,5 +73,14 @@ public class Utils {
     public static <T> Stream<T> createLoggingStream(Collection<T> stream, Function<T, String> informationGatherer) {
         System.out.println("creating test stream logging");
         return stream.stream().peek(( item) -> System.out.println(informationGatherer.apply(item)));
+    }
+
+    public static String loadResourceToString(String resourcePath) throws IOException {
+
+        try (InputStream is = Parsers.class.getClassLoader().getResourceAsStream(resourcePath);
+             BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+
+            return br.lines().collect(Collectors.joining());
+        }
     }
 }

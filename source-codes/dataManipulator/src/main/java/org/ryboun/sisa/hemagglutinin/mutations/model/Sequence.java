@@ -39,6 +39,17 @@ public class Sequence {
 
     List<Tuple2<Long, STATUS>> statuses;
 
+    //Awkward. Redo this concept of reference-sequence-inheritance
+    public Sequence(Sequence sequence) {
+        this.positions = sequence.getPositions();
+        this.organism = sequence.getOrganism();
+        this.accver = sequence.getAccver();
+        this.sequence = sequence.getSequence();
+        this.protein = sequence.getProtein();
+        this.taxid = sequence.getTaxid();
+        //this. = sequence.get;
+    }
+
 
     public enum STATUS {
         DOWNLOADED, ALIGNING, TO_BE_ALIGNED, ALIGNED

@@ -1,5 +1,6 @@
 package org.ryboun.sisa.hemagglutinin.mutations.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -25,7 +26,12 @@ public class SequencesProcessingStatus {
 
     private Sequence.STATUS status;
 
-    Sequence referenceSequence;
+    ReferenceSequence referenceSequence;
+
+    private final LocalDateTime alidnmentSubmitted;
+
+    //or separate collection?
+    private LocalDateTime alidnmentFinishedFoundout;
 
     private List<Sequence> rawSequences;
 }

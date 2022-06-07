@@ -1,15 +1,9 @@
 package org.ryboun.sisa.hemagglutinin.mutations.service.rest;
 
-import org.apache.commons.lang3.StringUtils;
-import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceGenepeptList;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.ReferenceSequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.service.SequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
@@ -20,18 +14,12 @@ import reactor.core.publisher.Mono;
 import javax.annotation.PostConstruct;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Service
 @Profile("dev-mock")

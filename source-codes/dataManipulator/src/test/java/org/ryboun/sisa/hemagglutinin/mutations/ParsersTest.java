@@ -1,22 +1,24 @@
 package org.ryboun.sisa.hemagglutinin.mutations;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.ryboun.sisa.TestUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
+import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ParsersTest {
 
+    private static final String REFERENCE_SEQUENCE_FASTA = "sequences/referenceSequence.fasta";
     private static final String TEST_SEQUENCES_RAW_FASTA = "sequences/rawSequences_test1.fasta";
     @Test
     void loadFastaSequenceFromResource() throws IOException {
-        List<ReferenceSequence> referenceSequences = Parsers.loadFastaSequenceFromResource();
+        List<ReferenceSequence> referenceSequences = Parsers.loadReferenceSequenceFromResource();
         Assertions.assertNotNull(referenceSequences);
         Assertions.assertEquals(1, referenceSequences.size(), "One reference sequence is expected");
         Assertions.assertEquals("AAR02640.2", referenceSequences.get(0).getAccver(), "accver does not correspond");
@@ -27,11 +29,34 @@ class ParsersTest {
 
     @Test
     void parseFastaSequencesTest() throws IOException {
-        String sequencesStr = TestUtils.loadStringFileFromResources(TEST_SEQUENCES_RAW_FASTA);
+//        String sequencesStr = TestUtils.loadStringFileFromResources(TEST_SEQUENCES_RAW_FASTA);
+        String sequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_RAW_FASTA);
         List<Sequence> sequences = Parsers.parseFastaSequences(sequencesStr);
         Assertions.assertNotNull(sequences);
         Assertions.assertEquals(1209, sequences.size(), "Parsed sequence count does not correspond");
 //        System.out.printf("seq:" + (sequences != null));
 //        may add more assertions
+    }
+
+
+    private static ReferenceSequence referenceSequence;
+    private static SequencesProcessingStatus sequencesProcessingStatusMock;
+    private static List<Sequence> rawFastaSequences;
+
+    private static final String ALIGNEMENT_ID_MOCK = "alignment_id_mock";
+    @BeforeAll
+    static void init() throws IOException {
+
+        referenceSequence = Parsers.loadReferenceSequenceFromResource().get(0);
+        String sequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_RAW_FASTA);
+        rawFastaSequences = Parsers.parseFastaSequences(sequencesStr);
+
+        sequencesProcessingStatusMock = SequencesProcessingStatus.builder()
+                .status(Sequence.STATUS.DOWNLOADED)
+                .referenceSequence(referenceSequence)
+                .alidnmentSubmitted(LocalDateTime.now())
+                .rawSequences(rawFastaSequences)
+                .alignJobId(ALIGNEMENT_ID_MOCK)
+                .build();
     }
 }

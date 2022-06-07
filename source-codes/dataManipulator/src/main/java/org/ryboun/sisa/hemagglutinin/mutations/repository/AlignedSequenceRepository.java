@@ -1,6 +1,6 @@
 package org.ryboun.sisa.hemagglutinin.mutations.repository;
 
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequence;
+import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface AlignedSequenceRepository extends MongoRepository<AlignedSequence, String> {
+public interface AlignedSequenceRepository extends MongoRepository<AlignedSequences, String> {
 
 
-    List<AlignedSequence> downloadDateAfter(LocalDateTime startDate);
+    List<AlignedSequences> downloadDateAfter(LocalDateTime startDate);
 
-    List<AlignedSequence> downloadDateBefore(LocalDateTime endDate);
+    List<AlignedSequences> downloadDateBefore(LocalDateTime endDate);
 
-    List<AlignedSequence> downloadDateBetween(LocalDateTime startDate, LocalDateTime endDate);
+    List<AlignedSequences> downloadDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 }
