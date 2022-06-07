@@ -38,6 +38,9 @@ class ParsersTest {
 //        may add more assertions
     }
 
+    void parseAlignedSequencesTest() {
+        Parsers.parseAlignedSequences(sequencesProcessingStatusMock);
+    }
 
     private static ReferenceSequence referenceSequence;
     private static SequencesProcessingStatus sequencesProcessingStatusMock;

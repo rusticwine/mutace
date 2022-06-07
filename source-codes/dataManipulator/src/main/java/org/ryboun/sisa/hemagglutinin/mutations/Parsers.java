@@ -53,7 +53,7 @@ public class Parsers {
         }).collect(Collectors.toList());
     }
 
-    private static AlignedSequences parseAlignedSequences(final SequencesProcessingStatus processingStatus, String alignmenedSequencesStr) {
+    private static AlignedSequences parseAlignedSequences(final SequencesProcessingStatus processingStatus) {
 
         String accverReferenceSequences = processingStatus.getReferenceSequence().getAccver();
 
