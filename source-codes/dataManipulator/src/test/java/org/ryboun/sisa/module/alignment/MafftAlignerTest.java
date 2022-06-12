@@ -29,7 +29,7 @@ class MafftAlignerTest {
 
     private static final String TEST_SEQUENCES_RAW = "sequences/rawSequences_test1.fasta";
 
-    private static final String TEST_SEQUENCES_REFERENCE = "sequences/references_test1.fasta";
+    private static final String TEST_SEQUENCES_REFERENCE = "sequences/referenceSequences_multiple_noAccver.fasta";
 
     private static final String TEST_JOB_ID = "mafft-R20211106-102801-0729-88936282-p1m";
 

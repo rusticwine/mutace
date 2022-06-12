@@ -41,6 +41,8 @@ import java.util.stream.Collectors;
 @Service
 public class SequenceService {
 
+    private final String EBI_ALIGNER_JOB_FINISHED = "FINISHED";
+
     @Builder
     //    @Getter
     //    @Setter
@@ -262,13 +264,9 @@ public class SequenceService {
                                                                             .getRawSequences()),
                             alignerChecker.getSequencesProcessingStatus().getAlignJobId(),
                             alignerChecker.getJobStatus())))
-                    .filter(alignerChecker -> StringUtils.endsWithAny(alignerChecker.getJobStatus(),
-                                                                      "FINISHED",
-                                                                      "DONE")) //TODO - what's the correct one?
+                    .filter(alignerChecker -> StringUtils.endsWith(alignerChecker.getJobStatus(), EBI_ALIGNER_JOB_FINISHED)) //um, aligner implementation  details ;|
                     .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
                                                           .setStatus(Sequence.STATUS.ALIGNED))
-//                    .map(alignerChecker -> sequencesProcessingRepository.save(alignerChecker.getSequencesProcessingStatus())) //no need =  changes are propagated
-//                    .count();
                     .map(AlignerChecker::getSequencesProcessingStatus)
                     .collect(Collectors.toList());
     }

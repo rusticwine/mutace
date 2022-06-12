@@ -3,6 +3,7 @@ package org.ryboun.sisa.hemagglutinin.mutations;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
@@ -15,7 +16,9 @@ import java.util.List;
 class ParsersTest {
 
     private static final String REFERENCE_SEQUENCE_FASTA = "sequences/referenceSequence.fasta";
-    private static final String TEST_SEQUENCES_RAW_FASTA = "sequences/rawSequences_test1.fasta";
+    private static final String TEST_SEQUENCES_RAW_FASTA = "sequences/rawSequences.fasta";
+    private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSequences_test1.fasta";
+
     @Test
     void loadFastaSequenceFromResource() throws IOException {
         List<ReferenceSequence> referenceSequences = Parsers.loadReferenceSequenceFromResource();
@@ -29,17 +32,22 @@ class ParsersTest {
 
     @Test
     void parseFastaSequencesTest() throws IOException {
-//        String sequencesStr = TestUtils.loadStringFileFromResources(TEST_SEQUENCES_RAW_FASTA);
         String sequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_RAW_FASTA);
         List<Sequence> sequences = Parsers.parseFastaSequences(sequencesStr);
         Assertions.assertNotNull(sequences);
         Assertions.assertEquals(1209, sequences.size(), "Parsed sequence count does not correspond");
-//        System.out.printf("seq:" + (sequences != null));
-//        may add more assertions
     }
 
-    void parseAlignedSequencesTest() {
-        Parsers.parseAlignedSequences(sequencesProcessingStatusMock);
+    @Test
+    void parseAlignedSequencesTest() throws IOException {
+        String alignedSequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_ALIGNED_FASTA);
+        AlignedSequences alignedSequences = Parsers.parseAlignedSequences(alignedSequencesStr, sequencesProcessingStatusMock);
+
+        System.out.println("alignedSequences: " + alignedSequences.getAlignedSequences().size());
+
+        Assertions.assertNotNull(alignedSequences);
+        Assertions.assertEquals(101, alignedSequences.getAlignedSequences().size(), "Parsed sequence count does not correspond");
+
     }
 
     private static ReferenceSequence referenceSequence;

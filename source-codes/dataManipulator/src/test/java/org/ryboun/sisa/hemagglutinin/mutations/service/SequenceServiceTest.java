@@ -58,9 +58,7 @@ class SequenceServiceTest {
     @Value("${alignment.submitJob.jobType}")
     private String jobType;
 
-    private static final String TEST_SEQUENCES_RAW = "sequences/rawSequences_test1.fasta";
-
-    private static final String TEST_SEQUENCES_REFERENCE = "sequences/references_test1.fasta";
+    private static final String TEST_SEQUENCES_RAW = "sequences/rawSequences.fasta";
 
     private static final String TEST_JOB_ID = "mafft-R20220213-162814-0268-85185325-p2m";
 
