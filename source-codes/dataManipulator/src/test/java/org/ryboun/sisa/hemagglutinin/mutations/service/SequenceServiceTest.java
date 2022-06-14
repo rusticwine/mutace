@@ -5,6 +5,7 @@ package org.ryboun.sisa.hemagglutinin.mutations.service;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.*;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
+import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.EbiAligner;
@@ -142,7 +143,9 @@ class SequenceServiceTest {
     @Test
     @Order(6)
     void testAlign1_getResult() {
-        long jobsFinished = sequenceService.processAlignedSequences();
+        List<AlignedSequences> alignedSequences = sequenceService.processAlignedSequences();
+        System.out.println("aligned sequence count:" + alignedSequences.get(0).getAlignedSequences().size());
+        System.out.println("all sequences:" + StringUtils.join(alignedSequences.get(0).getAlignedSequences(), ", "));
     }
 
 

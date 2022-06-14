@@ -58,6 +58,9 @@ public class SequenceService {
     @Value("${alignment.submitJob.jobType}")
     private String jobType;
 
+    @Value("${alignment.sequenceCount}")
+    private int alignmentSequencesCount;
+
     @Autowired
     RawSequenceDownloaderService rawSequenceDownloader;
     @Autowired
@@ -180,7 +183,14 @@ public class SequenceService {
     @Transactional
     public AlignSubmitResult alignSequences() {
         List<Sequence> downloadedSequences = sequenceRepository.findByStatus(Sequence.STATUS.DOWNLOADED);
+        //TODO - better and all? Maybe introduce min/max
+        if (downloadedSequences != null && downloadedSequences.size() >= alignmentSequencesCount){
+            return alignSequences(downloadedSequences.subList(0, alignmentSequencesCount));
+        }
+        return null; //ajaj
+    }
 
+    public AlignSubmitResult alignSequences(List<Sequence> downloadedSequences) {
         Map<Sequence, List<Sequence>> sequencesToAlign = Map.of(this.getReferenceForAlignment_mock(),
                                                                 downloadedSequences);
 
@@ -267,7 +277,8 @@ public class SequenceService {
                     .filter(alignerChecker -> StringUtils.endsWith(alignerChecker.getJobStatus(), EBI_ALIGNER_JOB_FINISHED)) //um, aligner implementation  details ;|
                     .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
                                                           .setStatus(Sequence.STATUS.ALIGNED))
-                    .map(AlignerChecker::getSequencesProcessingStatus)
+                    .map(alignerChecker -> sequencesProcessingRepository.save(alignerChecker.getSequencesProcessingStatus()))
+                .peek(s -> System.out.println("really SAVED"))
                     .collect(Collectors.toList());
     }
 
@@ -283,20 +294,15 @@ public class SequenceService {
     }
 
     @Transactional
-    public long processAlignedSequences() {
-        List<SequencesProcessingStatus> alignedSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED);
-        List<Integer[]> result = alignedSequences.stream()
+    public List<AlignedSequences> processAlignedSequences() {
+        List<SequencesProcessingStatus> alignedSequencesStatus = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED);
+
+        List<AlignedSequences> alignedSequences = alignedSequencesStatus.stream()
                 .map(sequenceProcessingStatusAligned -> Pair.of(sequenceProcessingStatusAligned, alignerService.getJobResult(sequenceProcessingStatusAligned.getAlignJobId())))
-                .map(statusAlignmentPair -> build(statusAlignmentPair.getLeft(), statusAlignmentPair.getRight()))
+                .map(statusAlignmentPair -> Parsers.parseAlignedSequences(statusAlignmentPair.getRight(), statusAlignmentPair.getLeft()))
+                .map(alignedSequenceRepository::save)
                 .collect(Collectors.toList());
-//                                              .map(sequenceProcessingAligned -> {
-//            String jobId = sequenceProcessingAligned.getAlignJobId();
-//            String alignment = aligner.getJobResult(jobId);
-//            System.out.println("Aligned sequences: " + alignment);
-//            return alignment;
-//        }).collect(Collectors.toList());
-//remove from statuses?
-        return result.size();
+        return alignedSequences;
     }
 
 

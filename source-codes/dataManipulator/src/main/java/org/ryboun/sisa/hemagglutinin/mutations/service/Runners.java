@@ -8,12 +8,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-//@Service
+import javax.annotation.PostConstruct;
+
+@Service
 public class Runners {
 /*
  - Ryboun
@@ -27,6 +31,7 @@ public class Runners {
     Duration downloaderPeriod;
 
 
+    //to determine end date for date filter for sequence download. Start date is taken from last download end date
     @Value("${sequenceDownloader.periodDuration.days}")
     int downloaderPeriodDays;
 
@@ -53,12 +58,12 @@ public class Runners {
     }
 
 
-//    @PostConstruct
+    @PostConstruct
     void initExecutors() {
         //somehow handle dates to download from and to
         Runnable sequenceDownloader = getSequenceDownloader();
-//        System.out.println("initExecutors: sequence download, currently downloaded sequences: " +
-//                           sequenceService.getAllDownloadedSequences().toString());
+        System.out.println("initExecutors: sequence download, currently downloaded sequences: " +
+                           sequenceService.getAllDownloadedSequences().toString());
         downloaderService = Executors.newSingleThreadScheduledExecutor();
         downloaderService.scheduleAtFixedRate(sequenceDownloader, 10, downloaderPeriod.getSeconds(), TimeUnit.SECONDS);
 
@@ -119,8 +124,8 @@ public class Runners {
     private Runnable getSequenceAlignerDownloader() {
         Runnable sequenceAlignerDownloader = () -> {
             System.out.println(String.format("INITIATE ALIGNED SEQUENCE DOWNLOADER"));
-            long jobsFinished = sequenceService.processAlignedSequences();
-            System.out.println(String.format("Sequences aligned: %d", jobsFinished));
+            List<AlignedSequences> alignedSequences = sequenceService.processAlignedSequences();
+            System.out.println(String.format("Sequences aligned: %d", alignedSequences.size()));
         };
 
         return sequenceAlignerDownloader;
