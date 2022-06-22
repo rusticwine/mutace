@@ -20,6 +20,7 @@ import org.ryboun.sisa.module.alignment.AlignDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,13 +45,20 @@ public class SequenceService {
     private final String EBI_ALIGNER_JOB_FINISHED = "FINISHED";
 
     @Builder
-    //    @Getter
-    //    @Setter
     @Data
     static class AlignSubmitResult {
 
         int downloadedSequencesSince;
         int sequenceSubmitForAlignment;
+
+        private static AlignSubmitResult emptyAlignSubmitResult = AlignSubmitResult.builder()
+                .sequenceSubmitForAlignment(0)
+                .downloadedSequencesSince(0)
+                .build();
+
+        public static AlignSubmitResult emptyAlignSubmitResult() {
+            return emptyAlignSubmitResult;
+        }
     }
 
     @Value("${alignment.submitJob.email}")
@@ -60,6 +68,10 @@ public class SequenceService {
 
     @Value("${alignment.sequenceCount}")
     private int alignmentSequencesCount;
+
+    @Value("${date.start.downloading}")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
+    LocalDate dateStartDownloading;
 
     @Autowired
     RawSequenceDownloaderService rawSequenceDownloader;
@@ -187,7 +199,7 @@ public class SequenceService {
         if (downloadedSequences != null && downloadedSequences.size() >= alignmentSequencesCount){
             return alignSequences(downloadedSequences.subList(0, alignmentSequencesCount));
         }
-        return null; //ajaj
+        return AlignSubmitResult.emptyAlignSubmitResult();
     }
 
     public AlignSubmitResult alignSequences(List<Sequence> downloadedSequences) {
@@ -205,6 +217,7 @@ public class SequenceService {
                                                                                                                                      entry.getValue())
                                                                                                                              //                                .alignJobId("not_started")
                                                                                                                              .status(Sequence.STATUS.TO_BE_ALIGNED)
+                                                                                                                             .rawSequenceCount(entry.getValue().size())
                                                                                                                              .build())
                                                                                       .map(sequencesProcessingRepository::save)
                                                                                       .collect(Collectors.toList());
@@ -412,7 +425,8 @@ public class SequenceService {
         //TODO - check if the date is somewhat current and download more often if not - maybe in initilLoad method?
         return sequenceDownloadEventRepository.findFirstByOrderByDownloadTillDesc()
                                               .map(SequenceDownloadEvent::getDownloadTill)
-                                              .orElse(LocalDate.of(2021, 1, 1)); //TODO - property for initial load?
+                .orElse(dateStartDownloading);
+//                                              .orElse(LocalDate.of(2021, 1, 1)); //TODO - property for initial load?
     }
 
 

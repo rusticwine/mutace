@@ -65,7 +65,7 @@ public class Runners {
         System.out.println("initExecutors: sequence download, currently downloaded sequences: " +
                            sequenceService.getAllDownloadedSequences().toString());
         downloaderService = Executors.newSingleThreadScheduledExecutor();
-        downloaderService.scheduleAtFixedRate(sequenceDownloader, 10, downloaderPeriod.getSeconds(), TimeUnit.SECONDS);
+        downloaderService.scheduleAtFixedRate(sequenceDownloader, 1, downloaderPeriod.getSeconds(), TimeUnit.SECONDS);
 
         Runnable sequenceAlignSubmitter = getSequenceAlignerSubmitter();
         alignerService = Executors.newSingleThreadScheduledExecutor();
@@ -76,6 +76,7 @@ public class Runners {
         downloaderService.scheduleAtFixedRate(sequenceAlignChecker, 14, alignerCheckerPeriod.getSeconds(), TimeUnit.SECONDS);
 
         Runnable sequenceAlignDownloader = getSequenceAlignerDownloader();
+        alignerService = Executors.newSingleThreadScheduledExecutor();
         alignerService = Executors.newSingleThreadScheduledExecutor();
         downloaderService.scheduleAtFixedRate(sequenceAlignDownloader, 21, alignerDownloaderPeriod.getSeconds(), TimeUnit.SECONDS);
 
@@ -101,12 +102,13 @@ public class Runners {
         Runnable sequenceAlignerSubmitter = () -> {
             System.out.println("INITIATE ALIGNER JOB SUBMIT");
             SequenceService.AlignSubmitResult alignSubmitResult = sequenceService.alignSequences();
+
             System.out.println(String.format("Align submit attempt, downloaded sequences: %d, submitted sequences %d",
                                              alignSubmitResult.getDownloadedSequencesSince(),
                                              alignSubmitResult.getSequenceSubmitForAlignment()));
         };
 
-        return sequenceAlignerSubmitter;
+        return new CatchingRunnable(sequenceAlignerSubmitter);
     }
 
 
@@ -117,7 +119,7 @@ public class Runners {
             System.out.println(String.format("Aligner jobs updated: %d, \ncontent: %s", alignmentsStatusesJobsFinished.size(), StringUtils.join(alignmentsStatusesJobsFinished, "\n")));
         };
 
-        return sequenceAlignerSubmitter;
+        return new CatchingRunnable(sequenceAlignerSubmitter);
     }
 
 
@@ -128,7 +130,7 @@ public class Runners {
             System.out.println(String.format("Sequences aligned: %d", alignedSequences.size()));
         };
 
-        return sequenceAlignerDownloader;
+        return new CatchingRunnable(sequenceAlignerDownloader);
     }
 
 

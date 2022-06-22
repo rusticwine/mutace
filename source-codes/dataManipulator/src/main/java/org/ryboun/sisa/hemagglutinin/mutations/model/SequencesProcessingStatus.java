@@ -26,7 +26,10 @@ public class SequencesProcessingStatus {
 
     private Sequence.STATUS status;
 
-    ReferenceSequence referenceSequence;
+    //pretty much redundant, just for easy observability
+    private int rawSequenceCount;
+
+    private ReferenceSequence referenceSequence;
 
     private final LocalDateTime alidnmentSubmitted;
 

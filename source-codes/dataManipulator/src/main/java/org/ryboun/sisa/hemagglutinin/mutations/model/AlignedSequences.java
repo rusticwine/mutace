@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 
 @Document
-@Data
+@Data //TODO - make it @Value, though there may be some exceptional statuses or variables
 @SuperBuilder
 //@Value
 //@Builder
@@ -28,6 +28,8 @@ public class AlignedSequences {
     ALIGNMENT_METHOD alignmentMethod = ALIGNMENT_METHOD.MAFFT;// = ALIGNMENT_METHOD.MAFFT;
     ALIGNMENT_PROVIDER alignmentProvider = ALIGNMENT_PROVIDER.EBI;// = ALIGNMENT_PROVIDER.EBI;
     private String taxonomyId;
+
+    private int rawSequenceCount;
 
     private ReferenceInAlignemnt reference;
     private List<Alignment> alignedSequences;

@@ -52,6 +52,7 @@ public class AlignerServiceMock implements Aligner {
                 .referenceSequence(referenceSequences.get(0))
                 .alidnmentSubmitted(LocalDateTime.now())
                 .rawSequences(sequncesDownloaded)
+                .rawSequenceCount(sequncesDownloaded.size()) //WHY ALL???
                 .alignJobId(ALIGNEMENT_ID_MOCK)
                 .build();
         sequencesAlignedStr = Utils.loadResourceToString(TEST_SEQUENCES_ALIGNED_FASTA);

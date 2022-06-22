@@ -25,12 +25,6 @@ import java.util.stream.Collectors;
 @Profile("dev-mock")
 public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderService {
 
-    @Value("${profile.my}")
-    String profile;
-    @Autowired
-    Environment env;
-
-    int BATCH_SIZE = 100;
 
 //    @Autowired
 //    private SequenceService sequenceService;
@@ -52,6 +46,7 @@ public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderSe
                 .filter(sequence -> from.isBefore(sequence.getDateCreated()) && to.isAfter(sequence.getDateCreated()))
                 .collect(Collectors.toList());
 
+        System.out.println("download in a mock \r\nfrom: " + from + "\r\nto: " + to + "\r\nsequence count: " + (filteredSequences == null ? "null" : filteredSequences.size()));
         return Mono.just(new SequenceGenepeptList((List<SequenceGenepeptList.SequenceT2>) filteredSequences));
     }
 
@@ -62,9 +57,11 @@ public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderSe
     ///////////-------------------------------------/////////////
     @PostConstruct
     void init() {
-        System.out.println("ACTIVE PROFILES: " + Arrays.toString(env.getActiveProfiles()));
         try {
             genePeptSequences = loadDbData();
+            genePeptSequences.getSequenceList().stream()
+                    .map(SequenceTestable.SequenceTestableInner::getDateCreated)
+                    .forEach(System.out::println);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -79,7 +76,7 @@ public class RawSequenceDownloaderServiceMock implements RawSequenceDownloaderSe
 
     private SequenceGenepeptList loadTestSequencesInGenepept() throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(SequenceGenepeptList.class);
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream("sequences1HemagglutininGenepept.xml");
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("sequences/sequences_1_1_2013-30_6_2014_279_HemagglutininGenepept.xml");
         SequenceGenepeptList st = (SequenceGenepeptList) context.createUnmarshaller().unmarshal(is);
 
         return st;

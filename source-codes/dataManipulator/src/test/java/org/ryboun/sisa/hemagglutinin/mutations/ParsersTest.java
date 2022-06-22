@@ -67,6 +67,7 @@ class ParsersTest {
                 .referenceSequence(referenceSequence)
                 .alidnmentSubmitted(LocalDateTime.now())
                 .rawSequences(rawFastaSequences)
+                .rawSequenceCount(rawFastaSequences.size()) //WHY ALL???
                 .alignJobId(ALIGNEMENT_ID_MOCK)
                 .build();
     }

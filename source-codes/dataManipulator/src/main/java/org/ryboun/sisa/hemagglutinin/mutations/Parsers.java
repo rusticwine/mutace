@@ -78,6 +78,7 @@ public class Parsers {
                         .build())
                 .jobId(processingStatus.getAlignJobId())
                 .alignedSequences(alignedSequences)
+                .rawSequenceCount(processingStatus.getRawSequenceCount())
                 .build();
 
     }
