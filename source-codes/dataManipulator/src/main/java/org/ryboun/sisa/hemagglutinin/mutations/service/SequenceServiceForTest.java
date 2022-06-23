@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.Data;
 import lombok.Getter;
 import org.apache.commons.io.IOUtils;
+import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceGenepeptList;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.ReferenceSequenceRepository;
@@ -22,9 +23,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -105,6 +108,11 @@ public class SequenceServiceForTest {
 
             @XmlElement(name = "TSeq_accver")
             private String accver;
+
+
+            private LocalDate dateCreated = LocalDate.MIN;
+
+            private LocalDate dateUpdated = LocalDate.MIN;
         }
     }
 }

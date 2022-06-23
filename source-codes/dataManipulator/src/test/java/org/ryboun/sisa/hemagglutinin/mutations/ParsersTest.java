@@ -40,6 +40,8 @@ class ParsersTest {
 
     @Test
     void parseAlignedSequencesTest() throws IOException {
+        final String FIRST_SEQUENCE_BEGINING = "MNTQILVFALVASIPTNA";
+        final String FIRST_SEQUENCE_END = "MRCTICI";
         String alignedSequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_ALIGNED_FASTA);
         AlignedSequences alignedSequences = Parsers.parseAlignedSequences(alignedSequencesStr, sequencesProcessingStatusMock);
 
@@ -47,6 +49,9 @@ class ParsersTest {
 
         Assertions.assertNotNull(alignedSequences);
         Assertions.assertEquals(101, alignedSequences.getAlignedSequences().size(), "Parsed sequence count does not correspond");
+        String firstAlignedSequence = alignedSequences.getAlignedSequences().get(0).getAlignedSequence();
+        Assertions.assertTrue(firstAlignedSequence.startsWith(FIRST_SEQUENCE_BEGINING), "First aligned sequence (the begining) 'does not compute'");
+        Assertions.assertTrue(firstAlignedSequence.endsWith(FIRST_SEQUENCE_END), "First aligned sequence (the end) 'does not compute'");
 
     }
 

@@ -3,13 +3,13 @@ package org.ryboun.sisa.hemagglutinin.mutations.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import reactor.util.function.Tuple2;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -19,7 +19,6 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 //@AllArgsConstructor
-@ToString
 public class Sequence {
 
     @Id
@@ -33,6 +32,13 @@ public class Sequence {
     @Indexed(unique=true)
     private String accver;
     private String taxid;
+
+    @Indexed
+    private LocalDate sequenceCreatedOn;
+
+    private LocalDate sequenceUpdatedOn;
+
+    private LocalDateTime recordCreatedOn;
 
     //value is position of index value. Value of index 0 says where position 0 of the sequence reside, etc.
     int[] positions;

@@ -1,10 +1,12 @@
 package org.ryboun.sisa.hemagglutinin.mutations;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
 import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
+import org.springframework.cglib.core.CollectionUtils;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -44,12 +46,7 @@ public class Parsers {
         return Arrays.stream(alignedSequencesStr).map(sequencesStr -> StringUtils.split(sequencesStr, "[]")).map(sequenceElementsList -> {
             String[] accverWithProteing = StringUtils.split(sequenceElementsList[0], SPACE_CHARACTERS);
 //                    this is doable just becaus objects are the same thouh
-            return (T2) sequenceBuilderFactory.get()
-                    .accver(accverWithProteing[0].trim())
-                    .protein(accverWithProteing[1].trim())
-                    .organism(sequenceElementsList[1].trim())
-                    .sequence(sequenceElementsList[2].trim())
-                    .build();
+            return (T2) sequenceBuilderFactory.get().accver(accverWithProteing[0].trim()).protein(accverWithProteing[1].trim()).organism(sequenceElementsList[1].trim()).sequence(sequenceElementsList[2].trim()).build();
         }).collect(Collectors.toList());
     }
 
@@ -57,31 +54,14 @@ public class Parsers {
 
         String accverReferenceSequences = processingStatus.getReferenceSequence().getAccver();
 
-        List<AlignedSequences.Alignment>  alignedSequences = parseAlignedSequences(alignedSequencesStr,
-                (splitSequence) -> AlignedSequences.Alignment.builder()
-                        .accver(splitSequence[0])
-                        .alignedSequence(splitSequence[1])
-                        .build());
+        List<AlignedSequences.Alignment> alignedSequences = parseAlignedSequences(alignedSequencesStr, (splitSequence) -> AlignedSequences.Alignment.builder().accver(splitSequence[0]).alignedSequence(splitSequence[3]).build());
 
-        String alignedReferenceSequence = alignedSequences.stream()
-                .filter(sequence -> sequence.getAccver().equals(accverReferenceSequences))
-                .map(AlignedSequences.Alignment::getAlignedSequence)
-                .findFirst()
-                .get();
+        String alignedReferenceSequence = alignedSequences.stream().filter(sequence -> sequence.getAccver().equals(accverReferenceSequences)).map(AlignedSequences.Alignment::getAlignedSequence).findFirst().get();
 
-        return AlignedSequences.builder()
-                .alignDate(processingStatus.getAlidnmentSubmitted())
-                .reference(AlignedSequences.ReferenceInAlignemnt.builder()
-                        .accver(accverReferenceSequences)
-                        .rawReferenceSequence(processingStatus.getReferenceSequence().getSequence())
-                        .alignedReferenceSequence(alignedReferenceSequence)
-                        .build())
-                .jobId(processingStatus.getAlignJobId())
-                .alignedSequences(alignedSequences)
-                .rawSequenceCount(processingStatus.getRawSequenceCount())
-                .build();
+        return AlignedSequences.builder().alignDate(processingStatus.getAlidnmentSubmitted()).reference(AlignedSequences.ReferenceInAlignemnt.builder().accver(accverReferenceSequences).rawReferenceSequence(processingStatus.getReferenceSequence().getSequence()).alignedReferenceSequence(alignedReferenceSequence).build()).jobId(processingStatus.getAlignJobId()).alignedSequences(alignedSequences).rawSequenceCount(processingStatus.getRawSequenceCount()).build();
 
     }
+
     /**
      * To be refactored with other parsing method. Need sequences to have common hierarchy
      *
@@ -91,17 +71,17 @@ public class Parsers {
      * @param <T2>
      * @return
      */
-    private static List<AlignedSequences.Alignment> parseAlignedSequences(String sequences, Function<String[], AlignedSequences.Alignment> buildSequence) {
+    private static List<AlignedSequences.Alignment> parseAlignedSequences(final String sequences, Function<String[], AlignedSequences.Alignment> buildSequence) {
 
         String[] alignedSequencesStr = normalizeFastaAndSplitBySequence(sequences);
 
-        return Arrays.stream(alignedSequencesStr)
-                .map(sequenceElementsList -> {
-                    //this refactored
-                    String[] accverWithProteing = StringUtils.split(sequenceElementsList, SPACE_CHARACTERS);
-                    return buildSequence.apply(accverWithProteing);
+        return Arrays.stream(alignedSequencesStr).map(sequenceElementsList -> {
+            String[] accverWithProteing = StringUtils.split(sequenceElementsList, "[]");
+            String[] sequenceSyntacticElements = ArrayUtils.addAll(StringUtils.split(accverWithProteing[0], SPACE_CHARACTERS),
+                    ArrayUtils.subarray(accverWithProteing, 1, accverWithProteing.length));
+            return buildSequence.apply(sequenceSyntacticElements);
 
-                }).collect(Collectors.toList());
+        }).collect(Collectors.toList());
     }
 
 

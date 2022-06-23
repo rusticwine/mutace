@@ -17,6 +17,8 @@ import lombok.Data;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceGenepeptList;
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
+import org.ryboun.sisa.hemagglutinin.mutations.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -45,6 +47,9 @@ public class NcbiRawSequenceDownloader implements RawSequenceDownloaderService {
 
     private WebClient webClient;
 
+    @Autowired
+    EventService eventService;
+
 
     @PostConstruct
     void init() {
@@ -53,7 +58,8 @@ public class NcbiRawSequenceDownloader implements RawSequenceDownloaderService {
                 .baseUrl("https://5fb6fe54-3b8f-4ab4-8963-f69b898d9b64.mock.pstmn.io/")
 //                        .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE)
                 .filters(exchangeFilterFunctions -> {
-                    exchangeFilterFunctions.add(Utils.logRequest());
+                    eventService.logSequenceDownloadRequest();
+//                    exchangeFilterFunctions.add(Utils.logRequest());
                 })
                 .build();
     }

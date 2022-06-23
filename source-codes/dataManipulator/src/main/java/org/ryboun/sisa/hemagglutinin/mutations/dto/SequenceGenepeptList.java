@@ -49,6 +49,10 @@ public class SequenceGenepeptList implements SequenceTestable {
         @XmlJavaTypeAdapter(type=LocalDate.class, value = SequenceGenepeptList.LocalDateAdapter.class)
         @XmlElement(name = "GBSeq_create-date")
         private LocalDate dateCreated;
+
+        @XmlJavaTypeAdapter(type=LocalDate.class, value = SequenceGenepeptList.LocalDateAdapter.class)
+        @XmlElement(name = "GBSeq_update-date")
+        private LocalDate dateUpdated;
     }
 
     //may want to move away. Though so far prefer this encapsulation for now.

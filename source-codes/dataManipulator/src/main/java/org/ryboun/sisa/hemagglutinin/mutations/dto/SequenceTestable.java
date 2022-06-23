@@ -15,10 +15,13 @@ public interface SequenceTestable {
         String getTaxid();
 
         String getAccver();
-
-        default LocalDate getDateCreated() {
+        
+        LocalDate getDateCreated();
+//        default LocalDate getDateCreated() {
+//            return null;
+//        }
+        default LocalDate getDateUpdated() {
             return null;
-//            return LocalDate.of(1970, 12, 12);
         }
 
     }
