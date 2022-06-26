@@ -16,6 +16,11 @@ import javax.validation.constraints.NotEmpty;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @Service
 @Profile("dev-mock")
@@ -23,13 +28,15 @@ public class AlignerServiceMock implements Aligner {
 
     private static final String REFERENCE_SEQUENCE_FASTA = "sequences/referenceSequence.fasta";
     private static final String TEST_SEQUENCES_RAW_FASTA = "sequences/rawSequences.fasta";
-    private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSequences_test1.fasta";
+//    private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSequences_test1.fasta";
+private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSequences_1_1_2013-30_6_2014_279_fasta.xml";
     public static final String ALIGN_JOB_ID = "_pm1_sdfsd_alignJobId";
     @NotEmpty
     private List<Sequence> sequncesDownloaded;
 
+    private static final AtomicInteger invocationCounter = new AtomicInteger(0);
     @Deprecated
-    private AlignedSequences alignedSequences;
+    private AlignedSequences singleBigAlignment;
     @Deprecated
     private List<ReferenceSequence> referenceSequences;
 
@@ -40,6 +47,15 @@ public class AlignerServiceMock implements Aligner {
 
     private String sequencesStr;
     private String sequencesAlignedStr;
+
+    Random random = new Random();
+
+
+    //map to hold mocked alignment jobs Map<alignment_job_id, accver>
+    Map<String, List<String>> alignmentJobs = new ConcurrentHashMap<>();
+
+    Map<String, String> alignedSequencesByAccverMap = new ConcurrentHashMap<>();
+
     @PostConstruct
     void initMockData() throws IOException {
         sequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_RAW_FASTA);
@@ -56,21 +72,43 @@ public class AlignerServiceMock implements Aligner {
                 .alignJobId(ALIGNEMENT_ID_MOCK)
                 .build();
         sequencesAlignedStr = Utils.loadResourceToString(TEST_SEQUENCES_ALIGNED_FASTA);
-        alignedSequences = Parsers.parseAlignedSequences(sequencesAlignedStr, sequencesProcessingStatusMock);
+        singleBigAlignment = Parsers.parseAlignedSequences(sequencesAlignedStr, sequencesProcessingStatusMock);
+
+        alignedSequencesByAccverMap = singleBigAlignment.getAlignedSequences()
+                .stream()
+                .collect(Collectors.toMap(AlignedSequences.Alignment::getAccver, AlignedSequences.Alignment::getAlignedSequence));
+//        alignedSequences.st
     }
 
     @Override
     public String alignWithSingleReference(AlignDto alignDto) {
-        return ALIGN_JOB_ID;
+        String jobId = ALIGN_JOB_ID + invocationCounter.incrementAndGet();
+        alignmentJobs.put(jobId, getAccversFromAlignDtoSequences(alignDto));
+        return jobId;
     }
 
     @Override
     public String getJobResult(String jobId) {
-        return sequencesAlignedStr;
+        return alignmentJobs.get(jobId)
+                .stream()
+                .map(accver -> accver + " " + alignedSequencesByAccverMap.get(accver))
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 
     @Override
     public String checkJobStatus(String jobId) {
-        return "FINISHED";
+        return random50Boolean() ? "FINISHED" : "RUNNNING";
+    }
+
+
+    private List<String> getAccversFromAlignDtoSequences(AlignDto alignDto) {
+        return alignDto.getSequences()
+                .stream()
+                .map(Sequence::getAccver)
+                .collect(Collectors.toList());
+    }
+
+    private boolean random50Boolean() {
+        return random.nextBoolean();
     }
 }

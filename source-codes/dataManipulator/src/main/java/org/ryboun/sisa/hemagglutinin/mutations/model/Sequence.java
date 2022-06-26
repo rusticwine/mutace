@@ -19,11 +19,7 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 //@AllArgsConstructor
-public class Sequence {
-
-    @Id
-    @Setter(AccessLevel.NONE)
-    private String id;
+public class Sequence extends BaseEntity {
 
     @JsonProperty("X")
     private String organism;

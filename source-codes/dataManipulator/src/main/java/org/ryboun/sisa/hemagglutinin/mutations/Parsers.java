@@ -9,6 +9,7 @@ import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
 import org.springframework.cglib.core.CollectionUtils;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -34,10 +35,6 @@ public class Parsers {
         return parseSequences(sequencesStr, Sequence::builder);
     }
 
-//    public static List<AlignedSequences> parseAlignment(String sequencesStr) throws IOException {
-//        poslat custom builder - consumer ?
-////        return parseSequences(sequencesStr, Sequence::builder);
-//    }
 
     private static <T extends Sequence.SequenceBuilder, T2 extends Sequence> List<T2> parseSequences(String sequences, Supplier<T> sequenceBuilderFactory) {
 
@@ -66,9 +63,6 @@ public class Parsers {
      * To be refactored with other parsing method. Need sequences to have common hierarchy
      *
      * @param sequences
-     * @param createSequence
-     * @param <T>
-     * @param <T2>
      * @return
      */
     private static List<AlignedSequences.Alignment> parseAlignedSequences(final String sequences, Function<String[], AlignedSequences.Alignment> buildSequence) {

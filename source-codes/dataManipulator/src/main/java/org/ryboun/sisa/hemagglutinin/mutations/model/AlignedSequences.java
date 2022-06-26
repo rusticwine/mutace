@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AlignedSequences {
+public class AlignedSequences extends BaseEntity {
 
     private String jobId;
     private LocalDateTime collectionDate;

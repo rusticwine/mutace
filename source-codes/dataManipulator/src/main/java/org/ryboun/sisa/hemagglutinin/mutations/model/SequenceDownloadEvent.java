@@ -3,11 +3,9 @@ package org.ryboun.sisa.hemagglutinin.mutations.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Setter;
-import lombok.ToString;
+
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,13 +13,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 @Data
-@Builder
+@SuperBuilder
+@NoArgsConstructor
 @ToString
-public class SequenceDownloadEvent {
+public class SequenceDownloadEvent extends BaseEntity {
 
-    @Id
-    @Setter(AccessLevel.NONE)
-    private String id;
+//    @Id
+//    @Setter(AccessLevel.NONE)
+//    private String id;
 
     LocalDate downloadFrom;
 
