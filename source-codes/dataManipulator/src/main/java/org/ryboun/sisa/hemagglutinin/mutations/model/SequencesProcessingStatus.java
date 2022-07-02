@@ -35,5 +35,5 @@ public class SequencesProcessingStatus extends BaseEntity {
     //or separate collection?
     private LocalDateTime alidnmentFinishedFoundout;
 
-    private List<Sequence> rawSequences;
+    private List<BareSequenceWithAccver> rawSequences;
 }

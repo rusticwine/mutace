@@ -3,6 +3,7 @@ package org.ryboun.sisa.module.alignment;
 import lombok.Builder;
 import lombok.Singular;
 import lombok.Value;
+import org.ryboun.sisa.hemagglutinin.mutations.model.BareSequenceWithAccver;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -19,12 +20,12 @@ public class AlignDto {
     String email;
     String format;
     @Singular("addSequence")
-    List<Sequence> sequences;
+    List<BareSequenceWithAccver> sequences;
 
     //to some utils class?
-    public static String sequencesToString(List<Sequence> sequences) {
+    public static String sequencesToString(List<BareSequenceWithAccver> sequences) {
         return sequences.stream()
-                .map(Sequence::getSequence)
+                .map(BareSequenceWithAccver::getBareSequence)
                 .collect(Collectors.joining(SEQUENCE_SPLITTER + " "));
     }
 }

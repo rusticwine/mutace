@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
+import org.ryboun.sisa.hemagglutinin.mutations.model.BareSequenceWithAccver;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import reactor.core.publisher.Mono;
@@ -79,11 +80,11 @@ public class Utils {
         return alignedReferenceSequence.indexOf(letterToMatch, startPosition);
     }
 
-    public static List<String> accverFromSequences(Collection<Sequence> sequences) {
-        return sequences.stream().map(Sequence::getAccver).collect(Collectors.toList());
+    public static List<String> accverFromSequences(Collection<BareSequenceWithAccver> sequences) {
+        return sequences.stream().map(BareSequenceWithAccver::getAccver).collect(Collectors.toList());
     }
 
-    public static String accverFromSequencesToString(Collection<Sequence> sequences) {
+    public static String accverFromSequencesToString(Collection<BareSequenceWithAccver> sequences) {
         return String.join(", ", accverFromSequences(sequences));
     }
 

@@ -3,15 +3,12 @@ package org.ryboun.sisa.hemagglutinin.mutations;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
-import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
+import org.ryboun.sisa.hemagglutinin.mutations.model.*;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class ParsersTest {
 
@@ -42,14 +39,19 @@ class ParsersTest {
     void parseAlignedSequencesTest() throws IOException {
         final String FIRST_SEQUENCE_BEGINING = "MNTQILVFALVASIPTNA";
         final String FIRST_SEQUENCE_END = "MRCTICI";
-        String alignedSequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_ALIGNED_FASTA);
+        String sequencesStr = Utils.loadResourceToString(TEST_SEQUENCES_ALIGNED_FASTA);
+        //from sequence string do the proper "alignment result format"
+        String alignedSequencesStr = Parsers.parseFastaSequences(sequencesStr)
+                .stream()
+                .map(seq -> Parsers.FASTA_SEQUENCE_SEPARATOR + seq.getAccver() + " " + seq.getSequence())
+                .collect(Collectors.joining(System.lineSeparator()));
         AlignedSequences alignedSequences = Parsers.parseAlignedSequences(alignedSequencesStr, sequencesProcessingStatusMock);
 
         System.out.println("alignedSequences: " + alignedSequences.getAlignedSequences().size());
 
         Assertions.assertNotNull(alignedSequences);
         Assertions.assertEquals(101, alignedSequences.getAlignedSequences().size(), "Parsed sequence count does not correspond");
-        String firstAlignedSequence = alignedSequences.getAlignedSequences().get(0).getAlignedSequence();
+        String firstAlignedSequence = alignedSequences.getAlignedSequences().get(0).getBareSequence();
         Assertions.assertTrue(firstAlignedSequence.startsWith(FIRST_SEQUENCE_BEGINING), "First aligned sequence (the begining) 'does not compute'");
         Assertions.assertTrue(firstAlignedSequence.endsWith(FIRST_SEQUENCE_END), "First aligned sequence (the end) 'does not compute'");
 
@@ -71,7 +73,12 @@ class ParsersTest {
                 .status(Sequence.STATUS.DOWNLOADED)
                 .referenceSequence(referenceSequence)
                 .alidnmentSubmitted(LocalDateTime.now())
-                .rawSequences(rawFastaSequences)
+                .rawSequences(rawFastaSequences.stream()
+                        .map(seq -> BareSequenceWithAccver.builder()
+                                .accver(seq.getAccver())
+                                .bareSequence(seq.getSequence())
+                                .build())
+                        .collect(Collectors.toList()))
                 .rawSequenceCount(rawFastaSequences.size()) //WHY ALL???
                 .alignJobId(ALIGNEMENT_ID_MOCK)
                 .build();

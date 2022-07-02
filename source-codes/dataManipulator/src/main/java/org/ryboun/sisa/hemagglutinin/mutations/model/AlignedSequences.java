@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -29,10 +28,10 @@ public class AlignedSequences extends BaseEntity {
     ALIGNMENT_PROVIDER alignmentProvider = ALIGNMENT_PROVIDER.EBI;// = ALIGNMENT_PROVIDER.EBI;
     private String taxonomyId;
 
-    private int rawSequenceCount;
+    private int alignedSequenceCount;
 
     private ReferenceInAlignemnt reference;
-    private List<Alignment> alignedSequences;
+    private List<BareSequenceWithAccver> alignedSequences;
 
     public enum ALIGNMENT_METHOD {
         MAFFT;
@@ -55,20 +54,4 @@ public class AlignedSequences extends BaseEntity {
         public String alignedReferenceSequence;
     }
 
-    @Document
-    @Data
-    @SuperBuilder
-    @NoArgsConstructor
-    @ToString
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class Alignment {
-
-        @Indexed
-        private String accver;
-//        private String orgname;
-//        private List<Integer> positions;
-//        int[] positions;
-//        private String referenceSequence;
-        private String alignedSequence;
-    }
 }

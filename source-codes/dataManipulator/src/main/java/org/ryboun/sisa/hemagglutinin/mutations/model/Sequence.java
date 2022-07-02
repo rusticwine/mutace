@@ -3,7 +3,6 @@ package org.ryboun.sisa.hemagglutinin.mutations.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import reactor.util.function.Tuple2;
@@ -54,7 +53,7 @@ public class Sequence extends BaseEntity {
 
 
     public enum STATUS {
-        DOWNLOADED, ALIGNING, TO_BE_ALIGNED, ALIGNED
+        DOWNLOADED, ALIGNING, TO_BE_ALIGNED, ALIGNED_NOT_DOWNLOADED, ALIGNED_DOWNLOADED;
     }
 
     private STATUS status;

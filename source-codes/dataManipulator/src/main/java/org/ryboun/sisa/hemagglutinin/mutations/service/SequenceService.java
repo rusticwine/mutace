@@ -94,7 +94,7 @@ public class SequenceService {
     @PostConstruct
     void init() throws IOException {
         List<ReferenceSequence> referenceSequences = Parsers.loadReferenceSequenceFromResource();
-        log.debug(CollectionUtils.isEmpty(referenceSequences) ? "no reference sequence loaded" :  referenceSequences.stream().map(ReferenceSequence::getAccver).collect(Collectors.joining()));
+        log.debug(CollectionUtils.isEmpty(referenceSequences) ? "no reference sequence loaded" : referenceSequences.stream().map(ReferenceSequence::getAccver).collect(Collectors.joining()));
         referenceSequenceRepository.saveAll(referenceSequences);
 //        System.out.println(referenceSequenceRepository.findAll());
 //        referenceSequenceRepository.saveAll(referenceSequences);
@@ -196,7 +196,7 @@ public class SequenceService {
     public AlignSubmitResult alignSequences() {
         List<Sequence> downloadedSequences = sequenceRepository.findByStatus(Sequence.STATUS.DOWNLOADED);
         //TODO - better and all? Maybe introduce min/max
-        if (downloadedSequences != null && downloadedSequences.size() >= alignmentSequencesCount){
+        if (downloadedSequences != null && downloadedSequences.size() >= alignmentSequencesCount) {
             return alignSequences(downloadedSequences.subList(0, alignmentSequencesCount));
         }
         return AlignSubmitResult.emptyAlignSubmitResult();
@@ -204,55 +204,65 @@ public class SequenceService {
 
     public AlignSubmitResult alignSequences(List<Sequence> downloadedSequences) {
         Map<Sequence, List<Sequence>> sequencesToAlign = Map.of(this.getReferenceForAlignment_mock(),
-                                                                downloadedSequences);
+                downloadedSequences);
 
         //TODO - there may be just single "bunch" to align with 1 or 2 reference sequence
         //from sequences to align create from first a sequence entity for alignment
         List<SequencesProcessingStatus> sequencesProcessingStatuses = sequencesToAlign.entrySet()
-                                                                                      .stream()
-                                                                                      .map(entry -> SequencesProcessingStatus.builder()
-                                                                                                                             .referenceSequence(
-                                                                                                                                     new ReferenceSequence(entry.getKey()))
-                                                                                                                             .rawSequences(
-                                                                                                                                     entry.getValue())
-                                                                                                                             //                                .alignJobId("not_started")
-                                                                                                                             .status(Sequence.STATUS.TO_BE_ALIGNED)
-                                                                                                                             .rawSequenceCount(entry.getValue().size())
-                                                                                                                             .build())
-                                                                                      .map(sequencesProcessingRepository::save)
-                                                                                      .collect(Collectors.toList());
+                .stream()
+                .map(entry -> SequencesProcessingStatus.builder()
+                        .referenceSequence(
+                                new ReferenceSequence(entry.getKey()))
+                        .rawSequences(
+                                entry.getValue().stream()
+                                        .map(sequence ->
+                                                BareSequenceWithAccver.builder()
+                                                        .accver(sequence.getAccver())
+                                                        .bareSequence(sequence.getSequence())
+                                                        .build())
+                                        .collect(Collectors.toList())
+                        )
+                        //                                .alignJobId("not_started")
+                        .status(Sequence.STATUS.TO_BE_ALIGNED)
+                        .rawSequenceCount(entry.getValue().size())
+                        .build())
+                .map(sequencesProcessingRepository::save)
+                .collect(Collectors.toList());
         //.findFirst();
 
         //TODO - why tuple? Handle errors!
         //now create alignment DTO and submit the alignment process
         List<SequencesProcessingStatus> submitAlignments = sequencesProcessingStatuses.stream()
-                                                                                      .map(sps -> Pair.of(sps,
-                                                                                                          AlignDto.builder()
-                                                                                                                  .format(jobType)
-                                                                                                                  .email(email)
-                                                                                                                  .addSequence(
-                                                                                                                          sps.getReferenceSequence())
-                                                                                                                  .sequences(
-                                                                                                                          sps.getRawSequences())
-                                                                                                                  .build()))
-                                                                                      .map(sequenceDtoPair -> Pair.of(
-                                                                                              sequenceDtoPair.getLeft(),
-                                                                                              alignerService.alignWithSingleReference(
-                                                                                                      sequenceDtoPair.getRight())))
-                                                                                      .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft()
-                                                                                                                                  .setAlignJobId(
-                                                                                                                                          sequenceJobIdPair.getRight()))
-                                                                                      .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft()
-                                                                                                                                  .setStatus(
-                                                                                                                                          Sequence.STATUS.ALIGNING))
-                                                                                      .map(sequenceJobIdPair -> sequencesProcessingRepository.save(
-                                                                                              sequenceJobIdPair.getLeft()))//TODO - probably no need to save
-                                                                                      .collect(Collectors.toList());
+                .map(sps -> Pair.of(sps,
+                        AlignDto.builder()
+                                .format(jobType)
+                                .email(email)
+                                .addSequence(BareSequenceWithAccver.builder()
+                                                .accver(sps.getReferenceSequence().getAccver())
+                                                .bareSequence(sps.getReferenceSequence().getSequence())
+                                                .build()
+                                        )
+                                .sequences(
+                                        sps.getRawSequences())
+                                .build()))
+                .map(sequenceDtoPair -> Pair.of(
+                        sequenceDtoPair.getLeft(),
+                        alignerService.alignWithSingleReference(
+                                sequenceDtoPair.getRight())))
+                .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft()
+                        .setAlignJobId(
+                                sequenceJobIdPair.getRight()))
+                .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft()
+                        .setStatus(
+                                Sequence.STATUS.ALIGNING))
+                .map(sequenceJobIdPair -> sequencesProcessingRepository.save(
+                        sequenceJobIdPair.getLeft()))//TODO - probably no need to save
+                .collect(Collectors.toList());
 
         //awkward - not encapsulated. Maybe not using status in general sequence collection as it may be realigned anyway
         downloadedSequences.stream()
-                           .peek(sequence -> sequence.setStatus(Sequence.STATUS.ALIGNING))
-                           .forEach(sequence -> sequenceRepository.save(sequence)); //FIXME - 1) no need to save? 2) Also not so separated. 3) Not being saved one by one
+                .peek(sequence -> sequence.setStatus(Sequence.STATUS.ALIGNING))
+                .forEach(sequence -> sequenceRepository.save(sequence)); //FIXME - 1) no need to save? 2) Also not so separated. 3) Not being saved one by one
 
         return new AlignSubmitResult(sequencesToAlign.values().size(), submitAlignments.size());
     }
@@ -274,32 +284,32 @@ public class SequenceService {
     public @NotNull List<SequencesProcessingStatus> checkAlignmentDoneAndReturn() {
         List<SequencesProcessingStatus> aligningSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNING);
         return Utils.<SequencesProcessingStatus>createLoggingStream(aligningSequences,
-                                                                    (SequencesProcessingStatus as) -> String.format(
-                                                                            "alignment check, job ID %s, prior status %s, accvers %s",
-                                                                            as.getAlignJobId(),
-                                                                            as.getStatus(),
-                                                                            Utils.accverFromSequencesToString(as.getRawSequences())))
-                    .map(sequenceProcessing -> new AlignerChecker(sequenceProcessing,
-                                                                  alignerService.checkJobStatus(sequenceProcessing.getAlignJobId())))
-                    .peek(alignerChecker -> System.out.println(String.format(
-                            "Alignment checker/updater. For sequences %s aligning in a job id %s job the result is %s",
-                            Utils.accverFromSequencesToString(alignerChecker.getSequencesProcessingStatus()
-                                                                            .getRawSequences()),
-                            alignerChecker.getSequencesProcessingStatus().getAlignJobId(),
-                            alignerChecker.getJobStatus())))
-                    .filter(alignerChecker -> StringUtils.endsWith(alignerChecker.getJobStatus(), EBI_ALIGNER_JOB_FINISHED)) //um, aligner implementation  details ;|
-                    .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
-                                                          .setStatus(Sequence.STATUS.ALIGNED))
-                    .map(alignerChecker -> sequencesProcessingRepository.save(alignerChecker.getSequencesProcessingStatus()))
+                        (SequencesProcessingStatus as) -> String.format(
+                                "alignment check, job ID %s, prior status %s, accvers %s",
+                                as.getAlignJobId(),
+                                as.getStatus(),
+                                Utils.accverFromSequencesToString(as.getRawSequences())))
+                .map(sequenceProcessing -> new AlignerChecker(sequenceProcessing,
+                        alignerService.checkJobStatus(sequenceProcessing.getAlignJobId())))
+                .peek(alignerChecker -> System.out.println(String.format(
+                        "Alignment checker/updater. For sequences %s aligning in a job id %s job the result is %s",
+                        Utils.accverFromSequencesToString(alignerChecker.getSequencesProcessingStatus()
+                                .getRawSequences()),
+                        alignerChecker.getSequencesProcessingStatus().getAlignJobId(),
+                        alignerChecker.getJobStatus())))
+                .filter(alignerChecker -> StringUtils.endsWith(alignerChecker.getJobStatus(), EBI_ALIGNER_JOB_FINISHED)) //um, aligner implementation  details ;|
+                .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
+                        .setStatus(Sequence.STATUS.ALIGNED_NOT_DOWNLOADED))
+                .map(alignerChecker -> sequencesProcessingRepository.save(alignerChecker.getSequencesProcessingStatus()))
                 .peek(s -> System.out.println("really SAVED"))
-                    .collect(Collectors.toList());
+                .collect(Collectors.toList());
     }
 
 
     Integer[] build(SequencesProcessingStatus inputSequences, String alignedSequences) {
         final StringBuilder alignedSequencesSb = new StringBuilder(alignedSequences);
         List<Integer> indexes = inputSequences.getRawSequences().stream()
-                .map(Sequence::getAccver)
+                .map(BareSequenceWithAccver::getAccver)
                 .map(alignedSequencesSb::indexOf)
                 .collect(Collectors.toList());
 
@@ -308,12 +318,17 @@ public class SequenceService {
 
     @Transactional
     public List<AlignedSequences> processAlignedSequences() {
-        List<SequencesProcessingStatus> alignedSequencesStatus = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED);
+        List<SequencesProcessingStatus> alignedSequencesStatus = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED_NOT_DOWNLOADED);
 
         List<AlignedSequences> alignedSequences = alignedSequencesStatus.stream()
                 .map(sequenceProcessingStatusAligned -> Pair.of(sequenceProcessingStatusAligned, alignerService.getJobResult(sequenceProcessingStatusAligned.getAlignJobId())))
-                .map(statusAlignmentPair -> Parsers.parseAlignedSequences(statusAlignmentPair.getRight(), statusAlignmentPair.getLeft()))
-                .map(alignedSequenceRepository::save)
+                .map(statusAlignmentPair -> Pair.of(statusAlignmentPair.getLeft(), Parsers.parseAlignedSequences(statusAlignmentPair.getRight(), statusAlignmentPair.getLeft())))
+                .map(statusAlignedPair -> {
+                    var savedAlignedSequences = alignedSequenceRepository.save(statusAlignedPair.getRight());
+                    statusAlignedPair.getLeft().setStatus(Sequence.STATUS.ALIGNED_DOWNLOADED);
+                    sequencesProcessingRepository.save(statusAlignedPair.getLeft());
+                    return savedAlignedSequences;
+                })
                 .collect(Collectors.toList());
         return alignedSequences;
     }
@@ -361,12 +376,12 @@ public class SequenceService {
         int newDownloadedSequnceCount = processNewDownloadedSequences(downloadSequencesFromTo(dateFrom, dateTo));
 
         SequenceDownloadEvent sequenceDownloadEvent = SequenceDownloadEvent.builder()
-                                                                           .downloadedOn(LocalDateTime.now())
-                                                                           .downloadFrom(dateFrom)
-                                                                           .downloadTill(dateTo)
-                                                                           .downloadedSequenceCount(
-                                                                                   newDownloadedSequnceCount)
-                                                                           .build();
+                .downloadedOn(LocalDateTime.now())
+                .downloadFrom(dateFrom)
+                .downloadTill(dateTo)
+                .downloadedSequenceCount(
+                        newDownloadedSequnceCount)
+                .build();
 
         sequenceDownloadEventRepository.save(sequenceDownloadEvent);
         return newDownloadedSequnceCount;
@@ -377,19 +392,18 @@ public class SequenceService {
      * Sequences are set with {@link Sequence.STATUS#DOWNLOADED} and persisted in main sequence repository
      *
      * @param sequences
-     *
      * @return
      */
     private int processNewDownloadedSequences(Mono<List<Sequence>> sequences) {
         //TODO - move status setting over here
         //        sequences.map(sequenceRepository::saveAll);
         List<Sequence> savedSequences = sequences.block()
-                                                 .stream()
-                                                 .peek(sequence -> sequence.setStatus(Sequence.STATUS.DOWNLOADED))
-                                                 .filter(sequence -> CollectionUtils.isEmpty(sequenceRepository.findByAccver(
-                                                         sequence.getAccver())))
-                                                 .map(sequenceRepository::save)
-                                                 .collect(Collectors.toList());
+                .stream()
+                .peek(sequence -> sequence.setStatus(Sequence.STATUS.DOWNLOADED))
+                .filter(sequence -> CollectionUtils.isEmpty(sequenceRepository.findByAccver(
+                        sequence.getAccver())))
+                .map(sequenceRepository::save)
+                .collect(Collectors.toList());
 
         System.out.println("savedSequences.size(): " + savedSequences.size());
         System.out.println("sequenceRepository.findAll().size(): " + sequenceRepository.findAll().size());
@@ -401,11 +415,11 @@ public class SequenceService {
     public Mono<List<Sequence>> downloadSequencesFromTo(LocalDate downloadedDateTimeFrom,
                                                         LocalDate downloadedDateTimeTo) {
         return rawSequenceDownloader.downloadSequencesFromTo(downloadedDateTimeFrom, downloadedDateTimeTo)
-                                    .map(Utils::mapperNotYetWorkingForMe)
-                                    .map(sequences -> {
-                                        sequences.stream().forEach(sequenceRepository::save);
-                                        return sequences;
-                                    });
+                .map(Utils::mapperNotYetWorkingForMe)
+                .map(sequences -> {
+                    sequences.stream().forEach(sequenceRepository::save);
+                    return sequences;
+                });
     }
 
 
@@ -424,7 +438,7 @@ public class SequenceService {
         //TODO - date when to start with downloads
         //TODO - check if the date is somewhat current and download more often if not - maybe in initilLoad method?
         return sequenceDownloadEventRepository.findFirstByOrderByDownloadTillDesc()
-                                              .map(SequenceDownloadEvent::getDownloadTill)
+                .map(SequenceDownloadEvent::getDownloadTill)
                 .orElse(dateStartDownloading);
 //                                              .orElse(LocalDate.of(2021, 1, 1)); //TODO - property for initial load?
     }

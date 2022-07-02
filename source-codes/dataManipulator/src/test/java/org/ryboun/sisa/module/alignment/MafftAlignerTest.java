@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.ryboun.sisa.TestUtils;
+import org.ryboun.sisa.hemagglutinin.mutations.model.BareSequenceWithAccver;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
@@ -47,7 +48,12 @@ class MafftAlignerTest {
         AlignDto alignDto = AlignDto.builder()
                 .email("valerius@centrum.cz")
                 .format("fasta")
-                .sequences(sequences)
+                .sequences(sequences.stream()
+                        .map(seq -> BareSequenceWithAccver.builder()
+                                .accver(seq.getAccver())
+                                .bareSequence(seq.getSequence())
+                                .build())
+                        .collect(Collectors.toList()))
                 .build();
 
         String result = ma.alignWithSingleReference(alignDto);

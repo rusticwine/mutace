@@ -2,10 +2,7 @@ package org.ryboun.sisa.hemagglutinin.mutations.service.rest;
 
 import org.ryboun.sisa.hemagglutinin.mutations.Parsers;
 import org.ryboun.sisa.hemagglutinin.mutations.Utils;
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
-import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
+import org.ryboun.sisa.hemagglutinin.mutations.model.*;
 import org.ryboun.sisa.module.alignment.AlignDto;
 import org.ryboun.sisa.module.alignment.Aligner;
 import org.springframework.context.annotation.Profile;
@@ -31,6 +28,7 @@ public class AlignerServiceMock implements Aligner {
 //    private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSequences_test1.fasta";
 private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSequences_1_1_2013-30_6_2014_279_fasta.xml";
     public static final String ALIGN_JOB_ID = "_pm1_sdfsd_alignJobId";
+    private final String ALIGNED_SEQUENCE_SEPARATOR = ">";
     @NotEmpty
     private List<Sequence> sequncesDownloaded;
 
@@ -54,7 +52,7 @@ private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSeq
     //map to hold mocked alignment jobs Map<alignment_job_id, accver>
     Map<String, List<String>> alignmentJobs = new ConcurrentHashMap<>();
 
-    Map<String, String> alignedSequencesByAccverMap = new ConcurrentHashMap<>();
+    Map<String, String> alignedSequencesByAccverMap;
 
     @PostConstruct
     void initMockData() throws IOException {
@@ -67,7 +65,12 @@ private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSeq
                 .status(Sequence.STATUS.DOWNLOADED)
                 .referenceSequence(referenceSequences.get(0))
                 .alidnmentSubmitted(LocalDateTime.now())
-                .rawSequences(sequncesDownloaded)
+                .rawSequences(sequncesDownloaded.stream()
+                        .map(seq -> BareSequenceWithAccver.builder()
+                                .accver(seq.getAccver())
+                                .bareSequence(seq.getSequence())
+                                .build())
+                        .collect(Collectors.toList()))
                 .rawSequenceCount(sequncesDownloaded.size()) //WHY ALL???
                 .alignJobId(ALIGNEMENT_ID_MOCK)
                 .build();
@@ -76,7 +79,7 @@ private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSeq
 
         alignedSequencesByAccverMap = singleBigAlignment.getAlignedSequences()
                 .stream()
-                .collect(Collectors.toMap(AlignedSequences.Alignment::getAccver, AlignedSequences.Alignment::getAlignedSequence));
+                .collect(Collectors.toMap(BareSequenceWithAccver::getAccver, BareSequenceWithAccver::getBareSequence));
 //        alignedSequences.st
     }
 
@@ -91,7 +94,7 @@ private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSeq
     public String getJobResult(String jobId) {
         return alignmentJobs.get(jobId)
                 .stream()
-                .map(accver -> accver + " " + alignedSequencesByAccverMap.get(accver))
+                .map(accver -> ALIGNED_SEQUENCE_SEPARATOR + accver + " " + alignedSequencesByAccverMap.get(accver))
                 .collect(Collectors.joining(System.lineSeparator()));
     }
 
@@ -104,7 +107,7 @@ private static final String TEST_SEQUENCES_ALIGNED_FASTA = "sequences/alignedSeq
     private List<String> getAccversFromAlignDtoSequences(AlignDto alignDto) {
         return alignDto.getSequences()
                 .stream()
-                .map(Sequence::getAccver)
+                .map(BareSequenceWithAccver::getAccver)
                 .collect(Collectors.toList());
     }
 

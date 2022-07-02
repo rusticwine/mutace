@@ -2,14 +2,9 @@ package org.ryboun.sisa.hemagglutinin.mutations;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.ryboun.sisa.hemagglutinin.mutations.model.AlignedSequences;
-import org.ryboun.sisa.hemagglutinin.mutations.model.ReferenceSequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
-import org.springframework.cglib.core.CollectionUtils;
+import org.ryboun.sisa.hemagglutinin.mutations.model.*;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -51,11 +46,27 @@ public class Parsers {
 
         String accverReferenceSequences = processingStatus.getReferenceSequence().getAccver();
 
-        List<AlignedSequences.Alignment> alignedSequences = parseAlignedSequences(alignedSequencesStr, (splitSequence) -> AlignedSequences.Alignment.builder().accver(splitSequence[0]).alignedSequence(splitSequence[3]).build());
+        String[] alignedSequencesStrArray = normalizeFastaAndSplitBySequence(alignedSequencesStr);
 
-        String alignedReferenceSequence = alignedSequences.stream().filter(sequence -> sequence.getAccver().equals(accverReferenceSequences)).map(AlignedSequences.Alignment::getAlignedSequence).findFirst().get();
+        List<BareSequenceWithAccver> alignedSeq = Arrays.stream(alignedSequencesStrArray)
+                .map(seq -> StringUtils.split(seq, SPACE_CHARACTERS))
+                .map(splitBareSequence -> BareSequenceWithAccver.builder()
+                        .accver(splitBareSequence[0])
+                        .bareSequence(splitBareSequence[1])
+                        .build())
+                .collect(Collectors.toList());
 
-        return AlignedSequences.builder().alignDate(processingStatus.getAlidnmentSubmitted()).reference(AlignedSequences.ReferenceInAlignemnt.builder().accver(accverReferenceSequences).rawReferenceSequence(processingStatus.getReferenceSequence().getSequence()).alignedReferenceSequence(alignedReferenceSequence).build()).jobId(processingStatus.getAlignJobId()).alignedSequences(alignedSequences).rawSequenceCount(processingStatus.getRawSequenceCount()).build();
+        String alignedReferenceSequence = alignedSeq.stream().filter(sequence -> sequence.getAccver().equals(accverReferenceSequences)).map(BareSequenceWithAccver::getBareSequence).findFirst().get();
+
+        return AlignedSequences.builder()
+                .alignDate(processingStatus.getAlidnmentSubmitted())
+                .reference(AlignedSequences.ReferenceInAlignemnt.builder()
+                        .accver(accverReferenceSequences)
+                        .rawReferenceSequence(processingStatus.getReferenceSequence().getSequence())
+                        .alignedReferenceSequence(alignedReferenceSequence).build())
+                .jobId(processingStatus.getAlignJobId())
+                .alignedSequences(alignedSeq)
+                .alignedSequenceCount(alignedSeq.size()).build();
 
     }
 
@@ -65,7 +76,7 @@ public class Parsers {
      * @param sequences
      * @return
      */
-    private static List<AlignedSequences.Alignment> parseAlignedSequences(final String sequences, Function<String[], AlignedSequences.Alignment> buildSequence) {
+    private static List<BareSequenceWithAccver> parseAlignedSequences(final String sequences, Function<String[], BareSequenceWithAccver> buildSequence) {
 
         String[] alignedSequencesStr = normalizeFastaAndSplitBySequence(sequences);
 
