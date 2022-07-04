@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface SequenceRepository extends MongoRepository<Sequence, String> {
 
-    List<Sequence> findByAccver(String accver);
+    Sequence findByAccver(String accver);
     List<Sequence> findByStatus(Sequence.STATUS status);
 
     List<Sequence> findByStatus(Sequence.STATUS status, Pageable pageable);

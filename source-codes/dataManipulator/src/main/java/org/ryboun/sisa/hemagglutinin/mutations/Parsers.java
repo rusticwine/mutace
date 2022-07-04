@@ -56,7 +56,9 @@ public class Parsers {
                         .build())
                 .collect(Collectors.toList());
 
-        String alignedReferenceSequence = alignedSeq.stream().filter(sequence -> sequence.getAccver().equals(accverReferenceSequences)).map(BareSequenceWithAccver::getBareSequence).findFirst().get();
+        String alignedReferenceSequence = alignedSeq.stream()
+                .filter(sequence -> sequence.getAccver().equals(accverReferenceSequences))
+                .map(BareSequenceWithAccver::getBareSequence).findFirst().get();
 
         return AlignedSequences.builder()
                 .alignDate(processingStatus.getAlidnmentSubmitted())
@@ -65,7 +67,10 @@ public class Parsers {
                         .rawReferenceSequence(processingStatus.getReferenceSequence().getSequence())
                         .alignedReferenceSequence(alignedReferenceSequence).build())
                 .jobId(processingStatus.getAlignJobId())
-                .alignedSequences(alignedSeq)
+                .alignedSequences(alignedSeq.stream()
+                        .filter(bareSequenceWithAccver -> !bareSequenceWithAccver.getAccver().equals(accverReferenceSequences))
+                        .collect(Collectors.toList()))
+                //TODO - count includes reference sequence
                 .alignedSequenceCount(alignedSeq.size()).build();
 
     }

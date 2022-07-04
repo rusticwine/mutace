@@ -326,14 +326,27 @@ public class SequenceService {
         List<AlignedSequences> alignedSequences = alignedSequencesStatus.stream()
                 .map(sequenceProcessingStatusAligned -> Pair.of(sequenceProcessingStatusAligned, alignerService.getJobResult(sequenceProcessingStatusAligned.getAlignJobId())))
                 .map(statusAlignmentPair -> Pair.of(statusAlignmentPair.getLeft(), Parsers.parseAlignedSequences(statusAlignmentPair.getRight(), statusAlignmentPair.getLeft())))
-                .map(statusAlignedPair -> {
-                    var savedAlignedSequences = alignedSequenceRepository.save(statusAlignedPair.getRight());
-                    statusAlignedPair.getLeft().setStatus(Sequence.STATUS.ALIGNED_DOWNLOADED);
-                    sequencesProcessingStatusRepository.save(statusAlignedPair.getLeft());
-                    return savedAlignedSequences;
-                })
+                .map(this::postProcessAndSaveAlignedSequences)
                 .collect(Collectors.toList());
         return alignedSequences;
+    }
+
+    /**
+     *
+     * @param statusAlignedPair
+     * @return
+     */
+    private AlignedSequences postProcessAndSaveAlignedSequences(Pair<SequencesProcessingStatus, AlignedSequences> statusAlignedPair) {
+        var savedAlignedSequences = alignedSequenceRepository.save(statusAlignedPair.getRight());
+        statusAlignedPair.getLeft().setStatus(Sequence.STATUS.ALIGNED_DOWNLOADED);
+        sequencesProcessingStatusRepository.save(statusAlignedPair.getLeft());
+        statusAlignedPair.getRight().getAlignedSequences()
+                .stream()
+                .map(BareSequenceWithAccver::getAccver)
+                .map(sequenceRepository::findByAccver)
+                .peek(sequence -> sequence.setStatus(Sequence.STATUS.ALIGNED_DOWNLOADED))
+                .forEach(sequenceRepository::save);//TODO - not to have status in main sequence collection!!
+        return savedAlignedSequences;
     }
 
 
@@ -403,8 +416,8 @@ public class SequenceService {
         List<Sequence> savedSequences = sequences.block()
                 .stream()
                 .peek(sequence -> sequence.setStatus(Sequence.STATUS.DOWNLOADED))
-                .filter(sequence -> CollectionUtils.isEmpty(sequenceRepository.findByAccver(
-                        sequence.getAccver())))
+                .filter(sequence -> sequenceRepository.findByAccver(
+                        sequence.getAccver()) == null)
                 .map(sequenceRepository::save)
                 .collect(Collectors.toList());
 
