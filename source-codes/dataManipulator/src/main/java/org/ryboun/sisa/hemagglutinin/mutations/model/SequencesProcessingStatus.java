@@ -7,6 +7,8 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -15,11 +17,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @SuperBuilder
 @NoArgsConstructor
 @ToString
+@CompoundIndexes({ //not yet needed - preparation for path of deciding what sequences to align not based on the status in main sequence collection, but rather on "last not aligned" or somehow else
+        @CompoundIndex(name = "status_recordCreated_idx", def = "{'status' : 1, 'recordCreated' : 1}"),
+        @CompoundIndex(name = "recordCreated_idx", def = "{'recordCreated' : 1}")
+})
 public class SequencesProcessingStatus extends BaseEntity {
-
-//    @Id
-//    @Setter(AccessLevel.NONE)
-//    private String id;
 
     private String alignJobId;
 

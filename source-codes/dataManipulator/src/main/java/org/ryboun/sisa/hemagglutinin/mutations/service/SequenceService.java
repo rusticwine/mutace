@@ -20,6 +20,8 @@ import org.ryboun.sisa.module.alignment.AlignDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -80,7 +82,7 @@ public class SequenceService {
     @Autowired
     ReferenceSequenceRepository referenceSequenceRepository;
     @Autowired
-    SequencesProcessingRepository sequencesProcessingRepository;
+    SequencesProcessingStatusRepository sequencesProcessingStatusRepository;
     @Autowired
     AlignedSequenceRepository alignedSequenceRepository;
     @Autowired
@@ -113,7 +115,7 @@ public class SequenceService {
 
 
     public long getInAlignmetnProcessSequenceCount() {
-        return sequencesProcessingRepository.count();
+        return sequencesProcessingStatusRepository.count();
     }
 
 
@@ -133,12 +135,12 @@ public class SequenceService {
 
 
     public Optional<SequencesProcessingStatus> findSequenceProcessingStatusById(String id) {
-        return sequencesProcessingRepository.findById(id);
+        return sequencesProcessingStatusRepository.findById(id);
     }
 
 
     public List<SequencesProcessingStatus> findAllSequencesProcessingStatuses() {
-        return sequencesProcessingRepository.findAll();
+        return sequencesProcessingStatusRepository.findAll();
     }
 
 
@@ -194,7 +196,8 @@ public class SequenceService {
     //    }
     @Transactional
     public AlignSubmitResult alignSequences() {
-        List<Sequence> downloadedSequences = sequenceRepository.findByStatus(Sequence.STATUS.DOWNLOADED);
+        Pageable topTen = PageRequest.of(0, 10);
+        List<Sequence> downloadedSequences = sequenceRepository.findByStatus(Sequence.STATUS.DOWNLOADED, topTen);
         //TODO - better and all? Maybe introduce min/max
         if (downloadedSequences != null && downloadedSequences.size() >= alignmentSequencesCount) {
             return alignSequences(downloadedSequences.subList(0, alignmentSequencesCount));
@@ -226,7 +229,7 @@ public class SequenceService {
                         .status(Sequence.STATUS.TO_BE_ALIGNED)
                         .rawSequenceCount(entry.getValue().size())
                         .build())
-                .map(sequencesProcessingRepository::save)
+                .map(sequencesProcessingStatusRepository::save)
                 .collect(Collectors.toList());
         //.findFirst();
 
@@ -255,7 +258,7 @@ public class SequenceService {
                 .peek(sequenceJobIdPair -> sequenceJobIdPair.getLeft()
                         .setStatus(
                                 Sequence.STATUS.ALIGNING))
-                .map(sequenceJobIdPair -> sequencesProcessingRepository.save(
+                .map(sequenceJobIdPair -> sequencesProcessingStatusRepository.save(
                         sequenceJobIdPair.getLeft()))//TODO - probably no need to save
                 .collect(Collectors.toList());
 
@@ -282,7 +285,7 @@ public class SequenceService {
     //TODO - separate check job and finished job proccessing
     @Transactional
     public @NotNull List<SequencesProcessingStatus> checkAlignmentDoneAndReturn() {
-        List<SequencesProcessingStatus> aligningSequences = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNING);
+        List<SequencesProcessingStatus> aligningSequences = sequencesProcessingStatusRepository.findByStatus(Sequence.STATUS.ALIGNING);
         return Utils.<SequencesProcessingStatus>createLoggingStream(aligningSequences,
                         (SequencesProcessingStatus as) -> String.format(
                                 "alignment check, job ID %s, prior status %s, accvers %s",
@@ -300,7 +303,7 @@ public class SequenceService {
                 .filter(alignerChecker -> StringUtils.endsWith(alignerChecker.getJobStatus(), EBI_ALIGNER_JOB_FINISHED)) //um, aligner implementation  details ;|
                 .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
                         .setStatus(Sequence.STATUS.ALIGNED_NOT_DOWNLOADED))
-                .map(alignerChecker -> sequencesProcessingRepository.save(alignerChecker.getSequencesProcessingStatus()))
+                .map(alignerChecker -> sequencesProcessingStatusRepository.save(alignerChecker.getSequencesProcessingStatus()))
                 .peek(s -> System.out.println("really SAVED"))
                 .collect(Collectors.toList());
     }
@@ -318,7 +321,7 @@ public class SequenceService {
 
     @Transactional
     public List<AlignedSequences> processAlignedSequences() {
-        List<SequencesProcessingStatus> alignedSequencesStatus = sequencesProcessingRepository.findByStatus(Sequence.STATUS.ALIGNED_NOT_DOWNLOADED);
+        List<SequencesProcessingStatus> alignedSequencesStatus = sequencesProcessingStatusRepository.findByStatus(Sequence.STATUS.ALIGNED_NOT_DOWNLOADED);
 
         List<AlignedSequences> alignedSequences = alignedSequencesStatus.stream()
                 .map(sequenceProcessingStatusAligned -> Pair.of(sequenceProcessingStatusAligned, alignerService.getJobResult(sequenceProcessingStatusAligned.getAlignJobId())))
@@ -326,7 +329,7 @@ public class SequenceService {
                 .map(statusAlignedPair -> {
                     var savedAlignedSequences = alignedSequenceRepository.save(statusAlignedPair.getRight());
                     statusAlignedPair.getLeft().setStatus(Sequence.STATUS.ALIGNED_DOWNLOADED);
-                    sequencesProcessingRepository.save(statusAlignedPair.getLeft());
+                    sequencesProcessingStatusRepository.save(statusAlignedPair.getLeft());
                     return savedAlignedSequences;
                 })
                 .collect(Collectors.toList());

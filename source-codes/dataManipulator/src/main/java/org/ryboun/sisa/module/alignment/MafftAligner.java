@@ -1,8 +1,6 @@
 package org.ryboun.sisa.module.alignment;
 
-import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
-import org.ryboun.sisa.hemagglutinin.mutations.model.SequencesProcessingStatus;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingStatusRepository;
 import org.ryboun.sisa.hemagglutinin.mutations.service.rest.EbiAligner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -13,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class MafftAligner implements Aligner {
 
     @Autowired
-    SequencesProcessingRepository sequencesProcessingRepository;
+    SequencesProcessingStatusRepository sequencesProcessingStatusRepository;
 
     @Autowired
     EbiAligner ebiAligner;

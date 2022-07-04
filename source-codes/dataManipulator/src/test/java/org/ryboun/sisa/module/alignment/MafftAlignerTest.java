@@ -7,7 +7,7 @@ import org.ryboun.sisa.TestUtils;
 import org.ryboun.sisa.hemagglutinin.mutations.model.BareSequenceWithAccver;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.ryboun.sisa.hemagglutinin.mutations.repository.SequenceRepository;
-import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingRepository;
+import org.ryboun.sisa.hemagglutinin.mutations.repository.SequencesProcessingStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @AutoConfigureDataMongo()
 @ExtendWith({SpringExtension.class})
 //@DataMongoTest(includeFilters = @ComponentScan.Filter(MafftAligner.class))
-@EnableMongoRepositories(basePackageClasses = {SequenceRepository.class, SequencesProcessingRepository.class})
+@EnableMongoRepositories(basePackageClasses = {SequenceRepository.class, SequencesProcessingStatusRepository.class})
 //@SpringBootTest(classes = MafftAligner.class)
 class MafftAlignerTest {
 

@@ -1,4 +1,4 @@
->AAR02640.2 
+>AAR02640.2 hemagglutinin [Influenza A virus (A/Netherlands/219/2003(H7N7))]
 MNTQILVFALVASIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -9,7 +9,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAIQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->4N64_D 
+>pdb|4N64|D Chain D, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -20,7 +20,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N64_C 
+>pdb|4N64|C Chain C, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -31,7 +31,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N64_B 
+>pdb|4N64|B Chain B, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -42,7 +42,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N64_A 
+>pdb|4N64|A Chain A, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -53,7 +53,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N61_D 
+>pdb|4N61|D Chain D, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -64,7 +64,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQ--------------------------
 -------------SGRLVPR-----
->4N61_C 
+>pdb|4N61|C Chain C, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -75,7 +75,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N61_B 
+>pdb|4N61|B Chain B, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -86,7 +86,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQ--------------------------
 -------------SGRLVPR-----
->4N61_A 
+>pdb|4N61|A Chain A, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -97,7 +97,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N5J_D 
+>pdb|4N5J|D Chain D, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -108,7 +108,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N5J_C 
+>pdb|4N5J|C Chain C, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -119,7 +119,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N5J_B 
+>pdb|4N5J|B Chain B, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -130,7 +130,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N5J_A 
+>pdb|4N5J|A Chain A, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -141,7 +141,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N63_D 
+>pdb|4N63|D Chain D, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -152,7 +152,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N63_C 
+>pdb|4N63|C Chain C, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -163,7 +163,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N63_B 
+>pdb|4N63|B Chain B, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -174,7 +174,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N63_A 
+>pdb|4N63|A Chain A, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -185,7 +185,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N62_D 
+>pdb|4N62|D Chain D, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -196,7 +196,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N62_C 
+>pdb|4N62|C Chain C, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -207,7 +207,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N62_B 
+>pdb|4N62|B Chain B, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -218,7 +218,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N62_A 
+>pdb|4N62|A Chain A, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -229,7 +229,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N60_D 
+>pdb|4N60|D Chain D, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -240,7 +240,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQ--------------------------
 -------------SGRLVPR-----
->4N60_C 
+>pdb|4N60|C Chain C, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -251,7 +251,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N60_B 
+>pdb|4N60|B Chain B, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -262,7 +262,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQ--------------------------
 -------------SGRLVPR-----
->4N60_A 
+>pdb|4N60|A Chain A, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -273,7 +273,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N5K_D 
+>pdb|4N5K|D Chain D, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -284,7 +284,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N5K_C 
+>pdb|4N5K|C Chain C, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -295,7 +295,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4N5K_B 
+>pdb|4N5K|B Chain B, Hemagglutinin HA2
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -306,7 +306,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDP-----------------------
 ------------VSGRLVPR-----
->4N5K_A 
+>pdb|4N5K|A Chain A, Hemagglutinin HA1
 ------------------DKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -317,7 +317,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN3_L 
+>pdb|4LN3|L Chain L, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -328,7 +328,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN3_K 
+>pdb|4LN3|K Chain K, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -339,7 +339,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN3_J 
+>pdb|4LN3|J Chain J, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -350,7 +350,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN3_I 
+>pdb|4LN3|I Chain I, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -361,7 +361,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN3_H 
+>pdb|4LN3|H Chain H, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -372,7 +372,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN3_G 
+>pdb|4LN3|G Chain G, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -383,7 +383,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN3_F 
+>pdb|4LN3|F Chain F, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -394,7 +394,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN3_E 
+>pdb|4LN3|E Chain E, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -405,7 +405,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN3_D 
+>pdb|4LN3|D Chain D, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -416,7 +416,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN3_C 
+>pdb|4LN3|C Chain C, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -427,7 +427,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN3_B 
+>pdb|4LN3|B Chain B, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -438,7 +438,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN3_A 
+>pdb|4LN3|A Chain A, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -449,7 +449,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN4_L 
+>pdb|4LN4|L Chain L, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -460,7 +460,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN4_K 
+>pdb|4LN4|K Chain K, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -471,7 +471,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN4_J 
+>pdb|4LN4|J Chain J, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -482,7 +482,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN4_I 
+>pdb|4LN4|I Chain I, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -493,7 +493,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN4_H 
+>pdb|4LN4|H Chain H, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -504,7 +504,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN4_G 
+>pdb|4LN4|G Chain G, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -515,7 +515,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN4_F 
+>pdb|4LN4|F Chain F, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -526,7 +526,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN4_E 
+>pdb|4LN4|E Chain E, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -537,7 +537,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN4_D 
+>pdb|4LN4|D Chain D, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -548,7 +548,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN4_C 
+>pdb|4LN4|C Chain C, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -559,7 +559,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN4_B 
+>pdb|4LN4|B Chain B, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -570,7 +570,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN4_A 
+>pdb|4LN4|A Chain A, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSSCRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -581,7 +581,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN6_L 
+>pdb|4LN6|L Chain L, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -592,7 +592,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN6_K 
+>pdb|4LN6|K Chain K, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -603,7 +603,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN6_J 
+>pdb|4LN6|J Chain J, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -614,7 +614,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN6_I 
+>pdb|4LN6|I Chain I, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -625,7 +625,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN6_H 
+>pdb|4LN6|H Chain H, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -636,7 +636,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN6_G 
+>pdb|4LN6|G Chain G, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -647,7 +647,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN6_F 
+>pdb|4LN6|F Chain F, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -658,7 +658,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN6_E 
+>pdb|4LN6|E Chain E, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -669,7 +669,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN6_D 
+>pdb|4LN6|D Chain D, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -680,7 +680,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN6_C 
+>pdb|4LN6|C Chain C, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -691,7 +691,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN6_B 
+>pdb|4LN6|B Chain B, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -702,7 +702,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN6_A 
+>pdb|4LN6|A Chain A, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -713,7 +713,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN8_L 
+>pdb|4LN8|L Chain L, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -724,7 +724,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN8_K 
+>pdb|4LN8|K Chain K, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -735,7 +735,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN8_J 
+>pdb|4LN8|J Chain J, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -746,7 +746,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN8_I 
+>pdb|4LN8|I Chain I, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -757,7 +757,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN8_H 
+>pdb|4LN8|H Chain H, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -768,7 +768,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN8_G 
+>pdb|4LN8|G Chain G, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -779,7 +779,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN8_F 
+>pdb|4LN8|F Chain F, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -790,7 +790,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN8_E 
+>pdb|4LN8|E Chain E, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -801,7 +801,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN8_D 
+>pdb|4LN8|D Chain D, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -812,7 +812,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN8_C 
+>pdb|4LN8|C Chain C, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -823,7 +823,7 @@ NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GR------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------
->4LN8_B 
+>pdb|4LN8|B Chain B, Hemagglutinin
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -834,7 +834,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQID------------------------
 -------------SGRLVPR-----
->4LN8_A 
+>pdb|4LN8|A Chain A, Hemagglutinin
 --------------ADPGDKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -856,7 +856,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQINPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AHL21382.1 
+>AHL21382.1 hemagglutinin [Influenza A virus (A/Guangzhou/1/2014(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -867,7 +867,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGU70015.1 
+>AGU70015.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/017/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -878,7 +878,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGU70003.1 
+>AGU70003.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/019/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -889,7 +889,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGJ72861.1 
+>AGJ72861.1 hemagglutinin [Influenza A virus (A/chicken/Zhejiang/DTID-ZJU01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGGEVVNATETVERTNIPRIC
 SKGKKTVDLGQGGPRGTITGPPQCDQFLEFSADLIMERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -900,7 +900,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGJ51953.1 
+>AGJ51953.1 hemagglutinin [Influenza A virus (A/Zhejiang/DTID-ZJU01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -911,7 +911,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHK10800.1 
+>AHK10800.1 hemagglutinin [Influenza A virus (A/Shanghai/01/2014(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -922,7 +922,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRIIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGN69430.1 
+>AGN69430.1 hemagglutinin [Influenza A virus (A/pigeon/Zhejiang/P1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -933,7 +933,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGN69420.1 
+>AGN69420.1 hemagglutinin [Influenza A virus (A/pigeon/Zhejiang/P2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -944,7 +944,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGN69410.1 
+>AGN69410.1 hemagglutinin [Influenza A virus (A/chicken/Zhejiang/C481/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -955,7 +955,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGN69400.1 
+>AGN69400.1 hemagglutinin [Influenza A virus (A/chicken/Zhejiang/C483/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -966,7 +966,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGI60292.1 
+>AGI60292.1 hemagglutinin [Influenza A virus (A/Shanghai/4664T/2013(H7N9))]
 MNTQILVFALIAIIPANADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -977,7 +977,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHL24617.1 
+>AHL24617.1 hemagglutinin [Influenza A virus (A/tree sparrow/Shanghai/01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -988,7 +988,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGW82588.1 
+>AGW82588.1 hemagglutinin [Influenza A virus (A/tree sparrow/Shanghai/01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -999,7 +999,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTIGI
->AHZ60096.1 
+>AHZ60096.1 hemagglutinin [Influenza A virus (A/Anhui/1-DEWH730/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1010,7 +1010,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60084.1 
+>AHZ60084.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG5/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1021,7 +1021,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60072.1 
+>AHZ60072.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG4/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1032,7 +1032,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60060.1 
+>AHZ60060.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG3/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1043,7 +1043,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60048.1 
+>AHZ60048.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1054,7 +1054,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60036.1 
+>AHZ60036.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1065,7 +1065,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60024.1 
+>AHZ60024.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG45/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1076,7 +1076,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60012.1 
+>AHZ60012.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG44/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1087,7 +1087,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ60000.1 
+>AHZ60000.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG43/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1098,7 +1098,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59988.1 
+>AHZ59988.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG42/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1109,7 +1109,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59963.1 
+>AHZ59963.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG41/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1120,7 +1120,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59951.1 
+>AHZ59951.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG40/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1131,7 +1131,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59939.1 
+>AHZ59939.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG32/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1142,7 +1142,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59927.1 
+>AHZ59927.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG31/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1153,29 +1153,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59915.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGQSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59879.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59867.1 
+>AHZ59915.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG29/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1186,7 +1164,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59855.1 
+>AHZ59879.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG21/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1197,73 +1175,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59843.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59831.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59819.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59807.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59795.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59783.1 
-MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
-SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
-RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
-TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
-DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
-NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
-DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
-NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
-EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
-LAIVMGLVFICVKNGNM--RCTICI
->AHZ59771.1 
+>AHZ59867.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG20/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1274,7 +1186,95 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59759.1 
+>AHZ59855.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG19/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59843.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG18/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59831.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG17/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59819.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG9/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59807.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG8/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59795.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG7/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59783.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG6/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGLSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59771.1 hemagglutinin [Influenza A virus (A/Anhui/1-JCVI1_RG3/2013(H7N9))]
+MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
+SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
+RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
+TRKSPALIVWGIHHSVSTAEQTKLYGSGNKLVTVGSSNYQQSFVPSPGARPQVNGQSGRI
+DFHWLMLNPNDTVTFSFNGAFIAPDRASFLRGKSMGIQSGVQVDANCEGDCYHSGGTIIS
+NLPFQNIDSRAVGKCPRYVKQRSLLLATGMKNVPEIPK--GRGLFGAIAGFIENGWEGLI
+DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
+NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
+EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
+LAIVMGLVFICVKNGNM--RCTICI
+>AHZ59759.1 hemagglutinin [Influenza A virus (A/Anhui/1-JCVI1_RG2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1285,7 +1285,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKSREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59747.1 
+>AHZ59747.1 hemagglutinin [Influenza A virus (A/Anhui/1-JCVI1_RG1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1296,7 +1296,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ59735.1 
+>AHZ59735.1 hemagglutinin [Influenza A virus (A/Anhui/1-BALF_RG33/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1307,7 +1307,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ41929.1 
+>AHZ41929.1 hemagglutinin [Influenza A virus (A/mallard/Sweden/1621/2002(H7N9))]
 MNTQILVFALVAIIPINADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SRGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1318,7 +1318,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFMCVKNGNM--RCTICI
->AHZ42549.1 
+>AHZ42549.1 hemagglutinin [Influenza A virus (A/ruddy turnstone/Delaware/AI00-1538/2000(H7N9))]
 MNTQILAFIACMLVGVRGDKICLGHHAVANGTKVNTLTEKGIEVVNATETVESANIKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDSDLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRLGSSSFYAEMKWLLSNSDNAAFPQMTKSYRN
@@ -1329,7 +1329,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELMDNEFNEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRTESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLIFICIKNGNM--RCTICI
->AHZ42537.1 
+>AHZ42537.1 hemagglutinin [Influenza A virus (A/mallard/Minnesota/AI09-3770/2009(H7N9))]
 MNTQILAFIACMLVGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANIKKLC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSDNAAFPQMTKSYRN
@@ -1340,7 +1340,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTELWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRTESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHZ39782.1 
+>AHZ39782.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-09/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTDGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1351,7 +1351,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39770.1 
+>AHZ39770.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-08/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTDGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1362,7 +1362,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39758.1 
+>AHZ39758.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-07/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTDGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1373,7 +1373,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39746.1 
+>AHZ39746.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-06/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1384,7 +1384,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39734.1 
+>AHZ39734.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-05/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTDGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1395,7 +1395,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39722.1 
+>AHZ39722.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-04/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTDGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1406,7 +1406,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39710.1 
+>AHZ39710.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-03/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTDGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1417,7 +1417,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39698.1 
+>AHZ39698.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-02/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1428,7 +1428,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHZ39686.1 
+>AHZ39686.1 hemagglutinin [Influenza A virus (A/Anhui/DEWH72-01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDDAAFPQMTKSYKN
@@ -1439,7 +1439,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGL43637.1 
+>AGL43637.1 hemagglutinin [Influenza A virus (A/Taiwan/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1450,7 +1450,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHA56914.1 
+>AHA56914.1 hemagglutinin [Influenza A virus (A/Anhui/PA-1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1461,7 +1461,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHA56910.1 
+>AHA56910.1 hemagglutinin [Influenza A virus (A/chicken/Zhejiang/PA-DTID-ZJU01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIMERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1472,7 +1472,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AFM09439.1 
+>AFM09439.1 hemagglutinin, partial [Influenza A virus (A/emperor goose/Alaska/44063-061/2006(H7N9))]
 ---QILAFIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETVNIKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERRKGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSDNAAFPQMTKSYRN
@@ -1483,7 +1483,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRTESLQNRIQINPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHW83651.1 
+>AHW83651.1 hemagglutinin [Influenza A virus (A/Zhejiang/DTID-ZJU01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1494,7 +1494,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGL95098.1 
+>AGL95098.1 hemagglutinin, partial [Influenza A virus (A/Taiwan/T02081/2013(H7N9))]
 -----LVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1505,7 +1505,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCT---
->AGL95088.1 
+>AGL95088.1 hemagglutinin, partial [Influenza A virus (A/Taiwan/S02076/2013(H7N9))]
 ------VFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1516,7 +1516,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--R-----
->AGU02227.1 
+>AGU02227.1 hemagglutinin [Influenza A virus (A/Zhejiang/DTID-ZJU02/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1527,7 +1527,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGU02233.1 
+>AGU02233.1 hemagglutinin, partial [Influenza A virus (A/Zhejiang/DTID-ZJU08/2013(H7N9))]
 -------FALIAIIPTNADKICLGHHAVSNGTKVNTLTERGGEVVNATETVERTNFPRIC
 SKGKRTVDLGQCGLRGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1538,7 +1538,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCT---
->AGU02230.1 
+>AGU02230.1 hemagglutinin, partial [Influenza A virus (A/Zhejiang/DTID-ZJU05/2013(H7N9))]
 -----LVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGGEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLRGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1549,7 +1549,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCT---
->AGR85038.1 
+>AGR85038.1 hemagglutinin [Influenza A virus (A/environment/Zhenjiang/4/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1560,7 +1560,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR85026.1 
+>AGR85026.1 hemagglutinin [Influenza A virus (A/Nanjing/2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1571,7 +1571,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNM--RCTICI
->AGR85014.1 
+>AGR85014.1 hemagglutinin [Influenza A virus (A/Nanjing/4/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1582,7 +1582,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR85002.1 
+>AGR85002.1 hemagglutinin [Influenza A virus (A/Zhenjiang/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1593,7 +1593,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNK--RCTICI
->AHL21385.1 
+>AHL21385.1 hemagglutinin [Influenza A virus (A/chicken/Guangzhou/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1604,7 +1604,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHL21384.1 
+>AHL21384.1 hemagglutinin [Influenza A virus (A/environment/Guangzhou/1/2014(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1615,7 +1615,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHL21383.1 
+>AHL21383.1 hemagglutinin [Influenza A virus (A/Guangzhou/2/2014(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1626,7 +1626,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHF20528.1 
+>AHF20528.1 hemagglutinin [Influenza A virus (A/Hong Kong/470129/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1637,7 +1637,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGG53520.1 
+>AGG53520.1 hemagglutinin, partial [Influenza A virus (A/wild duck/Korea/SH20-27/2008(H7N9))]
 ---QILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQLLEFSADLIIERREGTDVCYPGKFVNEEALRQIL
 RESGGIEKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1648,7 +1648,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQINPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--R-----
->AGG53487.1 
+>AGG53487.1 hemagglutinin [Influenza A virus (A/wild duck/Korea/SH19-50/2010(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1659,7 +1659,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGG53476.1 
+>AGG53476.1 hemagglutinin, partial [Influenza A virus (A/wild duck/Korea/SH19-27/2010(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1670,7 +1670,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTI--
->AGG53465.1 
+>AGG53465.1 hemagglutinin [Influenza A virus (A/wild duck/Korea/SH19-44/2010(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1681,7 +1681,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGG53454.1 
+>AGG53454.1 hemagglutinin [Influenza A virus (A/wild duck/Korea/SH19-47/2010(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1692,7 +1692,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGG53432.1 
+>AGG53432.1 hemagglutinin, partial [Influenza A virus (A/wild duck/Korea/MHC35-41/2011(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1703,7 +1703,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCT---
->AGG53421.1 
+>AGG53421.1 hemagglutinin [Influenza A virus (A/wild duck/Korea/MHC35-25/2011(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1714,7 +1714,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGG53410.1 
+>AGG53410.1 hemagglutinin [Influenza A virus (A/wild duck/Korea/MHC39-13/2011(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1725,7 +1725,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGG53399.1 
+>AGG53399.1 hemagglutinin [Influenza A virus (A/wild duck/Korea/MHC39-26/2011(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1736,7 +1736,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGG53377.1 
+>AGG53377.1 hemagglutinin, partial [Influenza A virus (A/wild duck/Korea/CSM42-1/2011(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGLTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1747,7 +1747,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVRLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCT---
->AGG53366.1 
+>AGG53366.1 hemagglutinin [Influenza A virus (A/wild duck/Korea/CSM42-34/2011(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGLTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1758,7 +1758,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVRLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AHH30772.1 
+>AHH30772.1 hemagglutinin [Influenza A virus (A/Shanghai/5190T/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1769,7 +1769,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHH30760.1 
+>AHH30760.1 hemagglutinin [Influenza A virus (A/Shanghai/5190T/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1780,7 +1780,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHH25197.1 
+>AHH25197.1 hemagglutinin [Influenza A virus (A/Guangdong/05/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1791,7 +1791,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHH25185.1 
+>AHH25185.1 hemagglutinin [Influenza A virus (A/Guangdong/04/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIEKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1802,7 +1802,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHH25174.1 
+>AHH25174.1 hemagglutinin [Influenza A virus (A/Guangdong/03/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1813,7 +1813,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGY41893.1 
+>AGY41893.1 hemagglutinin [Influenza A virus (A/Huizhou/01/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1824,7 +1824,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGY41881.1 
+>AGY41881.1 hemagglutinin [Influenza A virus (A/environment/Guangdong/25/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1835,7 +1835,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLGENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGY41871.1 
+>AGY41871.1 hemagglutinin [Influenza A virus (A/environment/Guangdong/30/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1846,7 +1846,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLGENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR85050.1 
+>AGR85050.1 hemagglutinin [Influenza A virus (A/environment/Suzhou/8/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1857,7 +1857,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNM--RCTICI
->AGR84990.1 
+>AGR84990.1 hemagglutinin [Influenza A virus (A/Wuxi/3/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1868,7 +1868,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNM--RCTICI
->AGR84978.1 
+>AGR84978.1 hemagglutinin [Influenza A virus (A/Wuxi/4/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1879,7 +1879,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNM--RCTICI
->AGR84966.1 
+>AGR84966.1 hemagglutinin [Influenza A virus (A/Suzhou/3/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1890,7 +1890,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR84954.1 
+>AGR84954.1 hemagglutinin [Influenza A virus (A/Nanjing/6/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1901,7 +1901,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNRNM--RCTICI
->AGR84942.1 
+>AGR84942.1 hemagglutinin [Influenza A virus (A/Suzhou/5/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1912,7 +1912,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR84930.1 
+>AGR84930.1 hemagglutinin [Influenza A virus (A/Nanjing/7/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1923,7 +1923,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNM--RCTICI
->AGO02477.1 
+>AGO02477.1 hemagglutinin [Influenza A virus (A/Xuzhou/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1934,7 +1934,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNM--RCTICI
->AGN69510.1 
+>AGN69510.1 hemagglutinin [Influenza A virus (A/environment/Suzhou/14/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1945,7 +1945,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKSRNM--RCTICI
->AHD25275.1 
+>AHD25275.1 hemagglutinin [Influenza A virus (A/chicken/Jiangsu/1021/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1956,7 +1956,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHD25003.1 
+>AHD25003.1 hemagglutinin, partial [Influenza A virus (A/Guangdong/02/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1967,7 +1967,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--------
->AHD25002.1 
+>AHD25002.1 hemagglutinin, partial [Influenza A virus (A/environment/Shenzhen/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1978,7 +1978,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--L-----
->AGO51374.1 
+>AGO51374.1 hemagglutinin [Influenza A virus (A/Zhejiang/KLED32/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -1989,7 +1989,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHA57083.1 
+>AHA57083.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/20400/2009(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANVKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSNDAAFPQMTKSYRN
@@ -2000,7 +2000,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRKESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA57072.1 
+>AHA57072.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/18421/2009(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANVKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSNDAAFPQMTKSYRN
@@ -2011,7 +2011,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRKESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA57061.1 
+>AHA57061.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/15591/2009(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANVKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSNNAAFPQMTKSYRN
@@ -2022,7 +2022,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITSKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRKESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA57050.1 
+>AHA57050.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/14659/2009(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANVKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSNNAAFPQMTKSYRN
@@ -2033,7 +2033,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITSKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHNCDDQCMESIRNNTYDHTQYRKESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AGQ88511.1 
+>AGQ88511.1 hemagglutinin [Influenza A virus (A/Jiangsu/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2044,7 +2044,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGO51399.1 
+>AGO51399.1 hemagglutinin [Influenza A virus (A/Jiangsu/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2055,7 +2055,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGO51387.1 
+>AGO51387.1 hemagglutinin [Influenza A virus (A/Jiangsu/2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2066,7 +2066,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYRXEAMXBXIQIDPVKLSSGYKDVXJWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AHA11500.1 
+>AHA11500.1 hemagglutinin, partial [Influenza A virus (A/Zhejiang/DTID-ZJU10/2013(H7N9))]
 --TQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2077,7 +2077,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKN-----------
->AHA11483.1 
+>AHA11483.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/14135-2/2009(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANVKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSNNAAFPQMTKSYRN
@@ -2088,7 +2088,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITSKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRKESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA11472.1 
+>AHA11472.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/31676/2009(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANVKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGETSACRRSG-SSFYAEMKWLLSNSNNAAFPQMTKSYRN
@@ -2099,7 +2099,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITNKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRKESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA11461.1 
+>AHA11461.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/31900/2011(H7N9))]
 MNTQILALIACMLVGTKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANIKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEEPLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSTCRRSG-SSFYAEMKWLLSNSNNAAFPQMTKSYRN
@@ -2110,7 +2110,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEIWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRAESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA11452.1 
+>AHA11452.1 hemagglutinin [Influenza A virus (A/turkey/Minnesota/32710/2011(H7N9))]
 MNTQILALIACMLVGTKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANIKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEEPLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSTCRRSG-SSFYAEMKWLLSNSNNAAFPQMTKSYRN
@@ -2121,7 +2121,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFEMIDNEFSEIEQQIG
 NVINWTRDSMTEIWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRAESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA11441.1 
+>AHA11441.1 hemagglutinin [Influenza A virus (A/guinea fowl/Nebraska/17096/2011(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANIKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSNNAAFPQMTKSYRN
@@ -2132,7 +2132,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEIWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRAESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AHA11431.1 
+>AHA11431.1 hemagglutinin [Influenza A virus (A/goose/Nebraska/17097/2011(H7N9))]
 MNTQILALIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANIKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSDNAAFPQMTKSYRN
@@ -2143,7 +2143,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIDKTNQQFELIDNEFSEIEQQIG
 NVINWTRDSMTEIWSYNAELLVAMENQHTIDLADSEMNKLYERVRKQLRENAEEDGTGCF
 EIFHKCDDQCMESIRNNTYDHTQYRAESLQNRIQIDPVKLSSGYKDIILWFSFGASCFLL
 LAIAMGLVFICIKNGNM--RCTICI
->AGY42258.1 
+>AGY42258.1 hemagglutinin, partial [Influenza A virus (A/mallard/Sweden/91/2002(H7N9))]
 -------FALVAIIPINADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SRGKRTVDLGQCGLLGTIXGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGAXSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2154,7 +2154,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFMCVKNGNM--RCTICI
->AGS42061.1 
+>AGS42061.1 hemagglutinin [Influenza A virus (A/Changsha/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2165,7 +2165,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGS42049.1 
+>AGS42049.1 hemagglutinin [Influenza A virus (A/Changsha/2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2176,7 +2176,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGX00937.1 
+>AGX00937.1 hemagglutinin [Influenza A virus (A/Guangdong/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRANGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2187,7 +2187,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR33894.1 
+>AGR33894.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/719b/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2198,7 +2198,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDRSKYREEAMQNRXXXXXXXXXXXXKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ81061.1 
+>AGQ81061.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/865/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2209,7 +2209,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ81060.1 
+>AGQ81060.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/715/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2220,7 +2220,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ81059.1 
+>AGQ81059.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/713/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2231,7 +2231,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ81046.1 
+>AGQ81046.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/875/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2242,7 +2242,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ81045.1 
+>AGQ81045.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/871/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2253,7 +2253,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ81044.1 
+>AGQ81044.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/867/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2264,7 +2264,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ81043.1 
+>AGQ81043.1 hemagglutinin [Influenza A virus (A/chicken/Rizhao/515/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEEMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2275,7 +2275,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGQ80993.1 
+>AGQ80993.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3292/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2286,7 +2286,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80989.1 
+>AGQ80989.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3257/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2297,7 +2297,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80988.1 
+>AGQ80988.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3152/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2308,7 +2308,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80986.1 
+>AGQ80986.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3283/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2319,7 +2319,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80958.1 
+>AGQ80958.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3286/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2330,7 +2330,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80957.1 
+>AGQ80957.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3230/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2341,7 +2341,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80956.1 
+>AGQ80956.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3214/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2352,7 +2352,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80955.1 
+>AGQ80955.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3190/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2363,7 +2363,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80954.1 
+>AGQ80954.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3169/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2374,7 +2374,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80953.1 
+>AGQ80953.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3141/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2385,7 +2385,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGQ80952.1 
+>AGQ80952.1 hemagglutinin [Influenza A virus (A/duck/Jiangxi/3096/2009(H7N9))]
 MNTQILVFALVAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTSIPRIC
 SKGKRAVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQTTKSYKN
@@ -2396,7 +2396,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVERQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGL44438.1 
+>AGL44438.1 hemagglutinin [Influenza A virus (A/Shanghai/02/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2407,7 +2407,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGO02489.1 
+>AGO02489.1 hemagglutinin [Influenza A virus (A/environment/Wuxi/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKVTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2418,7 +2418,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGN69474.1 
+>AGN69474.1 hemagglutinin [Influenza A virus (A/Wuxi/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2429,7 +2429,7 @@ NGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGN69462.1 
+>AGN69462.1 hemagglutinin [Influenza A virus (A/Wuxi/2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGSTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2440,7 +2440,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49770.1 
+>AGR49770.1 hemagglutinin [Influenza A virus (A/wild pigeon/Jiangsu/SD001/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2451,7 +2451,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49758.1 
+>AGR49758.1 hemagglutinin [Influenza A virus (A/pigeon/Shanghai/S1423/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2462,7 +2462,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49746.1 
+>AGR49746.1 hemagglutinin [Influenza A virus (A/pigeon/Shanghai/S1421/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2473,7 +2473,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49734.1 
+>AGR49734.1 hemagglutinin [Influenza A virus (A/pigeon/Shanghai/S1069/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2484,7 +2484,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49722.1 
+>AGR49722.1 hemagglutinin [Influenza A virus (A/homing pigeon/Jiangsu/SD184/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSEIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2495,7 +2495,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49710.1 
+>AGR49710.1 hemagglutinin [Influenza A virus (A/environment/Shanghai/S1439/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2506,7 +2506,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49698.1 
+>AGR49698.1 hemagglutinin [Influenza A virus (A/environment/Shanghai/S1438/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2517,7 +2517,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIKNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49686.1 
+>AGR49686.1 hemagglutinin [Influenza A virus (A/environment/Shanghai/S1437/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2528,7 +2528,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49674.1 
+>AGR49674.1 hemagglutinin [Influenza A virus (A/environment/Shanghai/S1436/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2539,7 +2539,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49662.1 
+>AGR49662.1 hemagglutinin [Influenza A virus (A/environment/Shanghai/S1088/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2550,7 +2550,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49650.1 
+>AGR49650.1 hemagglutinin [Influenza A virus (A/environment/Shandong/SD049/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2561,7 +2561,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49638.1 
+>AGR49638.1 hemagglutinin [Influenza A virus (A/environment/Shandong/SD039/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2572,7 +2572,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49626.1 
+>AGR49626.1 hemagglutinin [Influenza A virus (A/environment/Shandong/SD038/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2583,7 +2583,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49614.1 
+>AGR49614.1 hemagglutinin [Influenza A virus (A/environment/Henan/SD429/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2594,7 +2594,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49602.1 
+>AGR49602.1 hemagglutinin [Influenza A virus (A/environment/Henan/SC232/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2605,7 +2605,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49590.1 
+>AGR49590.1 hemagglutinin [Influenza A virus (A/environment/Fujian/SC337/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTSGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2616,7 +2616,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49578.1 
+>AGR49578.1 hemagglutinin [Influenza A virus (A/duck/Zhejiang/SC410/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2627,7 +2627,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49566.1 
+>AGR49566.1 hemagglutinin [Influenza A virus (A/duck/Anhui/SC702/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2638,7 +2638,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49554.1 
+>AGR49554.1 hemagglutinin [Influenza A virus (A/chicken/Zhejiang/SD033/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2649,7 +2649,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVRRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49542.1 
+>AGR49542.1 hemagglutinin [Influenza A virus (A/chicken/Zhejiang/SD019/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2660,7 +2660,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49530.1 
+>AGR49530.1 hemagglutinin [Influenza A virus (A/chicken/Zhejiang/SD007/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2671,7 +2671,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49518.1 
+>AGR49518.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1413/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2682,7 +2682,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49506.1 
+>AGR49506.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1410/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2693,7 +2693,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49495.1 
+>AGR49495.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1358/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2704,7 +2704,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIKNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49483.1 
+>AGR49483.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1080/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2715,7 +2715,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49471.1 
+>AGR49471.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1079/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2726,7 +2726,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49459.1 
+>AGR49459.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1078/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2737,7 +2737,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49447.1 
+>AGR49447.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1077/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2748,7 +2748,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49435.1 
+>AGR49435.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1076/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2759,7 +2759,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49423.1 
+>AGR49423.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1055/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2770,7 +2770,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49411.1 
+>AGR49411.1 hemagglutinin [Influenza A virus (A/chicken/Shanghai/S1053/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2781,7 +2781,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49399.1 
+>AGR49399.1 hemagglutinin [Influenza A virus (A/chicken/Jiangxi/SD001/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RKSGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2792,7 +2792,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49387.1 
+>AGR49387.1 hemagglutinin [Influenza A virus (A/chicken/Jiangsu/SC537/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2803,7 +2803,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49375.1 
+>AGR49375.1 hemagglutinin [Influenza A virus (A/chicken/Jiangsu/SC099/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2814,7 +2814,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49363.1 
+>AGR49363.1 hemagglutinin [Influenza A virus (A/chicken/Jiangsu/SC035/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2825,7 +2825,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49351.1 
+>AGR49351.1 hemagglutinin [Influenza A virus (A/chicken/Jiangsu/S002/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2836,7 +2836,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGR49339.1 
+>AGR49339.1 hemagglutinin [Influenza A virus (A/chicken/Guangdong/SD641/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2869,7 +2869,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIERTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSNGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGO28204.1 
+>AGO28204.1 hemagglutinin [Influenza A virus (A/Nanchang/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2880,7 +2880,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGM16242.1 
+>AGM16242.1 hemagglutinin [Influenza A virus (A/Zhejiang/HZ1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2891,7 +2891,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGM53887.1 
+>AGM53887.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/4701T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -2902,7 +2902,7 @@ LAIVMGLVFICVKNGNM--RCTICI
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTIC-
->AGM53886.1 
+>AGM53886.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/4842T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -2913,7 +2913,7 @@ LAIVMGLVFICVKNGNM--RCTIC-
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCT---
->AGM53885.1 
+>AGM53885.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/5240T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -2924,7 +2924,7 @@ LAIVMGLVFICVKNGNM--RCT---
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCT---
->AGM53884.1 
+>AGM53884.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/5180T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -2935,7 +2935,7 @@ LAIVMGLVFICVKNGNM--RCT---
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGM53883.1 
+>AGM53883.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/5083T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -2946,7 +2946,7 @@ LAIVMGLVFICVKNGNM--RCTICI
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCT---
->AGJ73510.1 
+>AGJ73510.1 hemagglutinin [Influenza A virus (A/environment/Nanjing/2913/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2957,7 +2957,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGJ73503.1 
+>AGJ73503.1 hemagglutinin [Influenza A virus (A/Nanjing/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -2968,7 +2968,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGL33694.1 
+>AGL33694.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/4665T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -2979,7 +2979,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGL33693.1 
+>AGL33693.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/4659T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -2990,7 +2990,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGL33692.1 
+>AGL33692.1 hemagglutinin, partial [Influenza A virus (A/Shanghai/4655T/2013(H7N9))]
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -3001,7 +3001,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGK84863.1 
+>AGK84863.1 hemagglutinin [Influenza A virus (A/environment/Hangzhou/34/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKKTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -3012,7 +3012,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGK84860.1 
+>AGK84860.1 hemagglutinin [Influenza A virus (A/Hangzhou/3/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKMTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -3023,7 +3023,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGK84857.1 
+>AGK84857.1 hemagglutinin [Influenza A virus (A/Hangzhou/2/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQITKSYKN
@@ -3034,7 +3034,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGI60301.1 
+>AGI60301.1 hemagglutinin [Influenza A virus (A/Hangzhou/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -3045,7 +3045,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->AGK82158.1 
+>AGK82158.1 hemagglutinin [Influenza A virus (A/Fujian/1/2013(H7N9))]
 MNTQILVFALIAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNIPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKEAMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -3056,7 +3056,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFNEVEKQIG
 NVINWTRDSITEVWSYNAELLVAMENQHTIDLADSEMDKLYERVKRQLRENAEEDGTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIVMGLVFICVKNGNM--RCTICI
->BAN16711.1 
+>BAN16711.1 hemagglutinin [Influenza A virus (A/duck/Gunma/466/2011(H7N9))]
 MNTQVLVFALMAIIPTNADKICLGHHAVSNGTKVNTLTERGVEVVNATETVERTNVPRIC
 SKGKRTVDLGQCGLLGTITGPPQCDQFLEFSADLIIERREGSDVCYPGKFVNEEALRQIL
 RESGGIDKETMGFTYSGIRTNGTTSACRRSG-SSFYAEMKWLLSNTDNAAFPQMTKSYKN
@@ -3067,7 +3067,7 @@ DGWYGFRHQNAQGEGTAADYKSTQSAIDQITGKLNRLIEKTNQQFELIDNEFTEVEKQIG
 NVINWTRDSMTEVWSYNAELLVAMENQHTIDLADSEMNKLYERVRRQLRENAEEDDTGCF
 EIFHKCDDDCMASIRNNTYDHSKYREEAMQNRIQIDPVKLSSGYKDVILWFSFGASCFIL
 LAIAMGLVFICVKNGNM--RCTICI
->AGE08098.1 
+>AGE08098.1 hemagglutinin [Influenza A virus (A/northern shoverl/Mississippi/11OS145/2011(H7N9))]
 MNTQILTLIACMLIGAKGDKICLGHHAVANGTKVNTLTERGIEVVNATETVETANIKKIC
 TQGKRPTDLGQCGLLGTLIGPPQCDQFLEFDADLIIERREGTDVCYPGKFTNEESLRQIL
 RGSGGIDKESMGFTYSGIRTNGATSACRRSG-SSFYAEMKWLLSNSDNAAFPQMTKSYRN

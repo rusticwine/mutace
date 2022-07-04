@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SequencesProcessingRepository extends MongoRepository<SequencesProcessingStatus, String> {
+public interface SequencesProcessingStatusRepository extends MongoRepository<SequencesProcessingStatus, String> {
 
     List<SequencesProcessingStatus> findByStatus(Sequence.STATUS status);
+
+//    SequencesProcessingStatus findTopByRecordCreated() //probably not, differently
 
 }
