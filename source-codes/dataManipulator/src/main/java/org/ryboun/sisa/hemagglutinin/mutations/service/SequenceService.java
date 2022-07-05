@@ -300,9 +300,15 @@ public class SequenceService {
                                 .getRawSequences()),
                         alignerChecker.getSequencesProcessingStatus().getAlignJobId(),
                         alignerChecker.getJobStatus())))
-                .filter(alignerChecker -> StringUtils.endsWith(alignerChecker.getJobStatus(), EBI_ALIGNER_JOB_FINISHED)) //um, aligner implementation  details ;|
+                .filter(alignerChecker -> StringUtils.endsWith(alignerChecker.getJobStatus(), EBI_ALIGNER_JOB_FINISHED)) //TODO - um, aligner implementation  details ;|
                 .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
                         .setStatus(Sequence.STATUS.ALIGNED_NOT_DOWNLOADED))
+                //set the status in "main" sequence collection - this is to be refactored, main collection should be kept intact
+                .peek(alignerChecker -> alignerChecker.getSequencesProcessingStatus()
+                        .getRawSequences().stream()
+                            .map(BareSequenceWithAccver::getAccver)
+                            .map(sequenceRepository::findByAccver)
+                            .forEach(sequence -> sequence.setStatus(Sequence.STATUS.ALIGNED_NOT_DOWNLOADED)))
                 .map(alignerChecker -> sequencesProcessingStatusRepository.save(alignerChecker.getSequencesProcessingStatus()))
                 .peek(s -> System.out.println("really SAVED"))
                 .collect(Collectors.toList());
