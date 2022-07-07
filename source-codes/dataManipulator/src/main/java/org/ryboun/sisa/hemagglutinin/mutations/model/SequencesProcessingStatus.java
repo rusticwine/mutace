@@ -1,15 +1,16 @@
 package org.ryboun.sisa.hemagglutinin.mutations.model;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.List;
 
 
 @Document
@@ -34,8 +35,33 @@ public class SequencesProcessingStatus extends BaseEntity {
 
     private LocalDateTime alidnmentSubmitted;
 
+    //for searching purposes this contains interval when the containing sequences were downloaded
+    private LocalDateTime oldestSequenceDownloadedOn;
+    //for searching purposes this contains interval when the containing sequences were downloaded
+    private LocalDateTime youngestSequenceDownloadedOn;
+
+
     //or separate collection?
     private LocalDateTime alidnmentFinishedFoundout;
 
     private List<BareSequenceWithAccver> rawSequences;
+
+//    public static abstract class SequencesProcessingStatusBuilder<C extends SequencesProcessingStatus, B extends SequencesProcessingStatusBuilder<C, B>>
+//            extends BaseEntityBuilder<C, B> {
+//
+//        private List<BareSequenceWithAccver> rawSequences;
+//
+//        //for searching purposes this contains interval when the containing sequences were downloaded
+//        private LocalDateTime oldestSequenceDownloadedOn;
+//        //for searching purposes this contains interval when the containing sequences were downloaded
+//        private LocalDateTime youngesSequenceDownloadedOn;
+//
+//        public B rawSequences(List<BareSequenceWithAccver>  referenceSequence) {
+//            this.rawSequences = rawSequences;
+//
+//            rawSequences.sort(Comparator.comparing(c -> c.getAccver()));
+//
+//            return self();
+//        }
+//    }
 }

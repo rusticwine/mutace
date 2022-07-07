@@ -1,6 +1,8 @@
 package org.ryboun.sisa.hemagglutinin.mutations.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.time.LocalDate;
 import java.util.List;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -24,6 +26,10 @@ public class AlignedSequences extends BaseEntity {
     private LocalDateTime collectionDate;
     private LocalDateTime downloadDate;
     private LocalDateTime alignDate;
+    //for searching purposes this contains interval when the containing sequences were downloaded
+    private LocalDateTime oldestSequenceDownloadedOn;
+    //for searching purposes this contains interval when the containing sequences were downloaded
+    private LocalDateTime youngesSequenceDownloadedOn;
     ALIGNMENT_METHOD alignmentMethod = ALIGNMENT_METHOD.MAFFT;// = ALIGNMENT_METHOD.MAFFT;
     ALIGNMENT_PROVIDER alignmentProvider = ALIGNMENT_PROVIDER.EBI;// = ALIGNMENT_PROVIDER.EBI;
     private String taxonomyId;
@@ -38,6 +44,19 @@ public class AlignedSequences extends BaseEntity {
     }
     public enum ALIGNMENT_PROVIDER {
         EBI;
+    }
+
+    public static abstract class AlignedSequencesBuilder<C extends AlignedSequences, B extends AlignedSequencesBuilder<C, B>>
+            extends BaseEntityBuilder<C, B> {
+
+        private List<BareSequenceWithAccver> alignedSequences;
+        private int alignedSequenceCount;
+
+        public B alignedSequences(List<BareSequenceWithAccver> alignedSequences) {
+            this.alignedSequences = alignedSequences;
+            this.alignedSequenceCount = alignedSequences.size();
+            return self();
+        }
     }
 
     @Document

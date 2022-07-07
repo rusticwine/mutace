@@ -33,8 +33,6 @@ public class Sequence extends BaseEntity {
 
     private LocalDate sequenceUpdatedOn;
 
-    private LocalDateTime recordCreatedOn;
-
     //value is position of index value. Value of index 0 says where position 0 of the sequence reside, etc.
     int[] positions;
 

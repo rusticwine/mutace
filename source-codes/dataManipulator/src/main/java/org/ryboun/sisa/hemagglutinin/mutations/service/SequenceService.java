@@ -225,6 +225,8 @@ public class SequenceService {
                                                         .build())
                                         .collect(Collectors.toList())
                         )
+                        .oldestSequenceDownloadedOn(Utils.getMinDate(entry.getValue()).getRecordCreatedOn())
+                        .youngestSequenceDownloadedOn(Utils.getMaxDate(entry.getValue()).getRecordCreatedOn())
                         //                                .alignJobId("not_started")
                         .status(Sequence.STATUS.TO_BE_ALIGNED)
                         .rawSequenceCount(entry.getValue().size())

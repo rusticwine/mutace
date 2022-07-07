@@ -15,5 +15,5 @@ public interface AlignedSequenceRepository extends MongoRepository<AlignedSequen
 
     List<AlignedSequences> downloadDateBefore(LocalDateTime endDate);
 
-    List<AlignedSequences> downloadDateBetween(LocalDateTime startDate, LocalDateTime endDate);
+    List<AlignedSequences>  downloadDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 }

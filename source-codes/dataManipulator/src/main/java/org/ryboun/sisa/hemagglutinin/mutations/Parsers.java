@@ -70,8 +70,7 @@ public class Parsers {
                 .alignedSequences(alignedSeq.stream()
                         .filter(bareSequenceWithAccver -> !bareSequenceWithAccver.getAccver().equals(accverReferenceSequences))
                         .collect(Collectors.toList()))
-                //TODO - count includes reference sequence
-                .alignedSequenceCount(alignedSeq.size()).build();
+                .build();
 
     }
 

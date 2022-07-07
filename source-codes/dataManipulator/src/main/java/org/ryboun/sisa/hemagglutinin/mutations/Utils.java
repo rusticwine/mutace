@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -14,6 +15,7 @@ import java.util.stream.Stream;
 
 import org.ryboun.sisa.hemagglutinin.mutations.dto.SequenceTestable;
 import org.ryboun.sisa.hemagglutinin.mutations.model.BareSequenceWithAccver;
+import org.ryboun.sisa.hemagglutinin.mutations.model.BaseEntity;
 import org.ryboun.sisa.hemagglutinin.mutations.model.Sequence;
 import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import reactor.core.publisher.Mono;
@@ -100,5 +102,17 @@ public class Utils {
 
             return br.lines().collect(Collectors.joining());
         }
+    }
+
+    public static <T extends BaseEntity> T getMinDate(Collection<T> sequences) {
+        return sequences.stream()
+                .min(Comparator.comparing(T::getRecordCreatedOn))
+                .get();
+    }
+
+    public static <T extends BaseEntity> T getMaxDate(Collection<T> sequences) {
+        return sequences.stream()
+                .max(Comparator.comparing(T::getRecordCreatedOn))
+                .get();
     }
 }
